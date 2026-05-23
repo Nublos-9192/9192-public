@@ -328,11 +328,17 @@ def discover(domain):
     catalog_url = wellknown.rstrip("/") + "/9192_service_catalog.json"
     pricebook_url = wellknown.rstrip("/") + "/9192_pricebook_public.txt"
 
-    manifest_kv_bytes = fetch_bytes(manifest_kv_url)
     manifest_json = json.loads(fetch_text(manifest_json_url))
     catalog = json.loads(fetch_text(catalog_url))
     pricebook = fetch_text(pricebook_url)
-    manifest_kv = parse_line_kv(manifest_kv_bytes.decode("utf-8", "replace"))
+    try:
+        manifest_kv_bytes = fetch_bytes(manifest_kv_url)
+        manifest_kv = parse_line_kv(manifest_kv_bytes.decode("utf-8", "replace"))
+        manifest_kv_sha256 = sha256_hex(manifest_kv_bytes)
+    except Exception:
+        manifest_kv_bytes = b""
+        manifest_kv = {}
+        manifest_kv_sha256 = ""
 
     expected_manifest_sha = manifest_txt.get("sha256", "")
     advertised_manifest_sha = manifest_kv.get("manifest_sha256") or manifest_json.get("manifest_sha256", "")
@@ -354,7 +360,7 @@ def discover(domain):
         "manifest_json_url": manifest_json_url,
         "catalog_url": catalog_url,
         "pricebook_url": pricebook_url,
-        "manifest_kv_sha256_file": sha256_hex(manifest_kv_bytes),
+        "manifest_kv_sha256_file": manifest_kv_sha256,
         "manifest_sha256_advertised": advertised_manifest_sha,
         "manifest_sha256_dns": expected_manifest_sha,
         "manifest_hash_matches_dns": hash_ok,

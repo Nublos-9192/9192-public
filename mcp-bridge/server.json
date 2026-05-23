@@ -3,7 +3,7 @@
   "name": "br.com.nineoneninetwo/9192",
   "title": "9192 Public Compute",
   "description": "Remote MCP for 9192 discovery, pricebook, payment rails, GET_PULSE quotes, and receipt checks.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://nineoneninetwo.com.br/",
   "remotes": [
     {

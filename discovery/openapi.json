@@ -10,193 +10,1054 @@
       "url": "https://nineoneninetwo.com.br"
     }
   ],
+  "components": {
+    "schemas": {
+      "ApiError": {
+        "type": "object",
+        "required": [
+          "ok",
+          "error",
+          "request_id"
+        ],
+        "properties": {
+          "ok": {
+            "const": false
+          },
+          "request_id": {
+            "type": "string"
+          },
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message",
+              "source"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string",
+                "enum": [
+                  "api",
+                  "9192"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "MachineRequest": {
+        "type": "object",
+        "required": [
+          "machine_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 128
+          }
+        }
+      },
+      "QuoteRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MachineRequest"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "bits": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 65536
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "max_output": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 8192
+              },
+              "priority": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "normal",
+                  "high"
+                ],
+                "default": "normal"
+              },
+              "quote_ttl_ms": {
+                "type": "integer",
+                "minimum": 1000,
+                "default": 60000
+              }
+            }
+          }
+        ]
+      },
+      "BctMakeQuoteRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuoteRequest"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "plain_hex": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "BctVerifyQuoteRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QuoteRequest"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "packet_hex": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "AcceptQuoteRequest": {
+        "type": "object",
+        "required": [
+          "machine_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          },
+          "idempotency_key": {
+            "type": "string"
+          }
+        }
+      },
+      "InvoiceRequest": {
+        "type": "object",
+        "required": [
+          "machine_id",
+          "units",
+          "network",
+          "asset"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          },
+          "units": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "network": {
+            "type": "string",
+            "enum": [
+              "TRON",
+              "Solana",
+              "Base"
+            ]
+          },
+          "asset": {
+            "type": "string",
+            "enum": [
+              "USDT",
+              "USDC"
+            ]
+          },
+          "idempotency_key": {
+            "type": "string"
+          }
+        }
+      },
+      "ExecutionRequest": {
+        "type": "object",
+        "required": [
+          "machine_id",
+          "quote_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          },
+          "quote_id": {
+            "type": "string"
+          },
+          "bits": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "plain_hex": {
+            "type": "string"
+          },
+          "packet_hex": {
+            "type": "string"
+          }
+        }
+      },
+      "ReceiptVerifyRequest": {
+        "type": "object",
+        "required": [
+          "machine_id",
+          "receipt_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          }
+        }
+      },
+      "GatewayEnvelope": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "request_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Invalid request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "Invalid state",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Rate limited",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      },
+      "GatewayError": {
+        "description": "9192 edge unavailable or rejected the call",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            }
+          }
+        }
+      }
+    }
+  },
   "paths": {
     "/": {
       "get": {
-        "summary": "Human and machine-readable landing page"
+        "summary": "Human and machine-readable landing page",
+        "responses": {
+          "200": {
+            "description": "HTML landing page"
+          }
+        }
       }
     },
     "/llms.txt": {
       "get": {
-        "summary": "Agent-oriented service summary"
+        "summary": "Agent-oriented service summary",
+        "responses": {
+          "200": {
+            "description": "Plain-text agent summary"
+          }
+        }
       }
     },
     "/.well-known/webfinger": {
       "get": {
-        "summary": "WebFinger metadata for 9192"
+        "summary": "WebFinger metadata for 9192",
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/host-meta.json": {
       "get": {
-        "summary": "Web Host Metadata"
+        "summary": "Web Host Metadata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/agent-card.json": {
       "get": {
-        "summary": "A2A-inspired Agent Card for 9192"
+        "summary": "A2A-inspired Agent Card for 9192",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/agent.json": {
       "get": {
-        "summary": "Compatibility alias for Agent Card"
+        "summary": "Compatibility alias for Agent Card",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/": {
       "get": {
-        "summary": "9192 discovery index"
+        "summary": "9192 discovery index",
+        "responses": {
+          "200": {
+            "description": "HTML discovery index"
+          }
+        }
       }
     },
     "/.well-known/9192/9192_public_manifest.json": {
       "get": {
-        "summary": "9192 public manifest"
+        "summary": "9192 public manifest",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/9192/9192_public_manifest.kv": {
+      "get": {
+        "summary": "9192 public manifest as key/value text",
+        "responses": {
+          "200": {
+            "description": "Plain-text key/value manifest"
+          }
+        }
       }
     },
     "/.well-known/9192/status.json": {
       "get": {
-        "summary": "9192 public status snapshot"
+        "summary": "9192 public status snapshot",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/bootstrap.json": {
       "get": {
-        "summary": "9192 machine bootstrap metadata"
+        "summary": "9192 machine bootstrap metadata",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/pricebook.json": {
       "get": {
-        "summary": "9192 public pricebook JSON pointer"
+        "summary": "9192 public pricebook JSON pointer",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/9192_service_catalog.json": {
       "get": {
-        "summary": "9192 service catalog"
+        "summary": "9192 service catalog",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/9192_pricebook_public.txt": {
       "get": {
-        "summary": "9192 public pricebook text"
+        "summary": "9192 public pricebook text",
+        "responses": {
+          "200": {
+            "description": "Plain-text public pricebook"
+          }
+        }
       }
     },
     "/.well-known/9192/nodes.json": {
       "get": {
-        "summary": "9192 node registry"
+        "summary": "9192 node registry",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/mcp": {
       "get": {
-        "summary": "MCP Streamable HTTP endpoint; this stateless server returns 405 for GET streams"
+        "summary": "MCP Streamable HTTP endpoint; this stateless server returns 405 for GET streams",
+        "responses": {
+          "405": {
+            "description": "GET stream not supported"
+          }
+        }
       },
       "post": {
-        "summary": "Remote MCP JSON-RPC endpoint for whitelisted 9192 tools"
+        "summary": "Remote MCP JSON-RPC endpoint for whitelisted 9192 tools",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/status": {
       "get": {
-        "summary": "Gateway and public edge status"
+        "summary": "Gateway and public edge status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/discovery": {
       "get": {
-        "summary": "9192 discovery summary"
+        "summary": "9192 discovery summary",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/manifest": {
       "get": {
-        "summary": "Published 9192 manifest"
+        "summary": "Published 9192 manifest",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/pricebook": {
       "get": {
-        "summary": "Published V6 pricebook"
+        "summary": "Published V6 pricebook",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/payment": {
       "get": {
-        "summary": "Payment policy and wallets"
+        "summary": "Payment policy and wallets",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/payment-info": {
       "get": {
-        "summary": "9192 PAYMENT_INFO through TLS edge"
+        "summary": "9192 PAYMENT_INFO through TLS edge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/health": {
       "get": {
-        "summary": "9192 HEALTH through TLS edge"
+        "summary": "9192 HEALTH through TLS edge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/caps": {
       "get": {
-        "summary": "9192 CAPS through TLS edge"
+        "summary": "9192 CAPS through TLS edge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/hello": {
       "get": {
-        "summary": "9192 HELLO through TLS edge"
+        "summary": "9192 HELLO through TLS edge",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/quotes/get-pulse": {
       "post": {
-        "summary": "Create a GET_PULSE quote through 9192 QUOTE"
+        "summary": "Create a GET_PULSE quote through 9192 QUOTE",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/quotes/{quote_id}/accept": {
       "post": {
-        "summary": "Accept a quote through 9192 ACCEPT_QUOTE"
+        "summary": "Accept a quote through 9192 ACCEPT_QUOTE",
+        "parameters": [
+          {
+            "name": "quote_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptQuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/quotes/make-bct": {
       "post": {
-        "summary": "Create a MAKE_BCT quote through 9192 QUOTE"
+        "summary": "Create a MAKE_BCT quote through 9192 QUOTE",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BctMakeQuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/quotes/verify-bct": {
       "post": {
-        "summary": "Create a VERIFY_BCT quote through 9192 QUOTE"
+        "summary": "Create a VERIFY_BCT quote through 9192 QUOTE",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BctVerifyQuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/invoices": {
       "post": {
-        "summary": "Create a funding invoice through 9192 FUND_ACCOUNT"
+        "summary": "Create a funding invoice through 9192 FUND_ACCOUNT",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/invoices/{invoice_id}": {
       "get": {
-        "summary": "Check invoice status through TLS edge"
+        "summary": "Check invoice status through TLS edge",
+        "parameters": [
+          {
+            "name": "invoice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "machine_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/executions/get-pulse": {
       "post": {
-        "summary": "Execute GET_PULSE through TLS edge using an accepted quote"
+        "summary": "Execute GET_PULSE through TLS edge using an accepted quote",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/executions/make-bct": {
       "post": {
-        "summary": "Execute MAKE_BCT with hex plaintext through the paid 9192 edge"
+        "summary": "Execute MAKE_BCT with hex plaintext through the paid 9192 edge",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/executions/verify-bct": {
       "post": {
-        "summary": "Execute VERIFY_BCT with a hex packet through the paid 9192 edge"
+        "summary": "Execute VERIFY_BCT with a hex packet through the paid 9192 edge",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/receipts/{receipt_id}": {
       "get": {
-        "summary": "Fetch a 9192 receipt through TLS edge"
+        "summary": "Fetch a 9192 receipt through TLS edge",
+        "parameters": [
+          {
+            "name": "receipt_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "machine_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/v1/receipts/verify": {
       "post": {
-        "summary": "Verify a 9192 receipt through TLS edge"
+        "summary": "Verify a 9192 receipt through TLS edge",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReceiptVerifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/openapi.json": {
       "get": {
-        "summary": "This OpenAPI document"
+        "summary": "This OpenAPI document",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/.well-known/9192/openapi.json": {
       "get": {
-        "summary": "This OpenAPI document for machine discovery"
+        "summary": "This OpenAPI document for machine discovery",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

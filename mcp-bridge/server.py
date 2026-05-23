@@ -129,7 +129,7 @@ def handle(msg):
         return {
             "protocolVersion": "2024-11-05",
             "capabilities": {"tools": {}},
-            "serverInfo": {"name": "9192-mcp-bridge", "version": "0.1.0"},
+            "serverInfo": {"name": "9192-mcp-bridge", "version": "1.0.1"},
         }
     if method == "tools/list":
         return {"tools": TOOLS}

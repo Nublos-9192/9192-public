@@ -1,12 +1,19 @@
 * text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+Dockerfile* text eol=lf
 *.zip binary
 *.exe binary
 *.sig binary
 *.sha256 binary
+*.ps1 text eol=lf
 *.pem text eol=lf
 *.sh text eol=lf
 *.py text eol=lf
 *.mjs text eol=lf
+*.d.ts text eol=lf
 *.json text eol=lf
 *.yml text eol=lf
+*.txt text eol=lf
+*.kv text eol=lf
 *.md text eol=lf

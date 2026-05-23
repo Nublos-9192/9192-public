@@ -1,5 +1,7 @@
 *.report.json
 *_report.json
+node_modules/
+packages/js/node_modules/
 __pycache__/
 .pytest_cache/
 .DS_Store
