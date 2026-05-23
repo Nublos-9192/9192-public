@@ -16,5 +16,5 @@
   "tron_reliability": "best_effort_public_api",
   "solana_reliability": "best_effort_public_rpc",
   "github_repository": "https://github.com/Nublos-9192/9192-public",
-  "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.1"
+  "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.2"
 }

@@ -19,6 +19,11 @@
     "core_protocol_remains": "9192/1",
     "backend_direct": false
   },
+  "mcp": {
+    "endpoint": "https://nineoneninetwo.com.br/mcp",
+    "metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
+    "version": "1.0.1"
+  },
   "capabilities": [
     "HELLO",
     "CAPS",
@@ -63,14 +68,21 @@
   },
   "links": {
     "github_repository": "https://github.com/Nublos-9192/9192-public",
-    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.1",
-    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.1/9192_public_client_kit_v1.0.1.zip",
+    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.2",
+    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.2/9192_public_client_kit_v1.0.2.zip",
     "manifest": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json",
+    "well_known_index": "https://nineoneninetwo.com.br/.well-known/",
+    "manifest_kv": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.kv",
     "service_catalog": "https://nineoneninetwo.com.br/.well-known/9192/9192_service_catalog.json",
     "pricebook": "https://nineoneninetwo.com.br/.well-known/9192/9192_pricebook_public.txt",
     "nodes": "https://nineoneninetwo.com.br/.well-known/9192/nodes.json",
+    "host_meta": "https://nineoneninetwo.com.br/.well-known/host-meta",
+    "host_meta_json": "https://nineoneninetwo.com.br/.well-known/host-meta.json",
     "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "well_known_openapi": "https://nineoneninetwo.com.br/.well-known/openapi.json",
     "api_openapi": "https://nineoneninetwo.com.br/api/v1/openapi.json",
+    "mcp_metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
+    "mcp_endpoint": "https://nineoneninetwo.com.br/mcp",
     "llms": "https://nineoneninetwo.com.br/llms.txt"
   }
 }

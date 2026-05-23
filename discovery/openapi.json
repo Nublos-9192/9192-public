@@ -334,6 +334,33 @@
         }
       }
     },
+    "/.well-known/": {
+      "get": {
+        "summary": "9192 well-known discovery index",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/host-meta": {
+      "get": {
+        "summary": "Web Host Metadata XRD",
+        "responses": {
+          "200": {
+            "description": "XRD XML host metadata"
+          }
+        }
+      }
+    },
     "/.well-known/host-meta.json": {
       "get": {
         "summary": "Web Host Metadata",
@@ -371,6 +398,57 @@
     "/.well-known/agent.json": {
       "get": {
         "summary": "Compatibility alias for Agent Card",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/mcp": {
+      "get": {
+        "summary": "Remote MCP endpoint metadata for 9192",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/mcp.json": {
+      "get": {
+        "summary": "Remote MCP endpoint metadata alias",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/openapi.json": {
+      "get": {
+        "summary": "OpenAPI compatibility alias",
         "responses": {
           "200": {
             "description": "OK",
@@ -503,6 +581,40 @@
     "/.well-known/9192/nodes.json": {
       "get": {
         "summary": "9192 node registry",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/9192/mcp.json": {
+      "get": {
+        "summary": "9192 MCP metadata scoped under the 9192 well-known tree",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1": {
+      "get": {
+        "summary": "9192 public API route index",
         "responses": {
           "200": {
             "description": "OK",

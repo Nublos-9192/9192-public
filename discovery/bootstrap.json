@@ -17,9 +17,9 @@
   },
   "distribution": {
     "github_repository": "https://github.com/Nublos-9192/9192-public",
-    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.1",
-    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.1/9192_public_client_kit_v1.0.1.zip",
-    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.1/",
+    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.2",
+    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.2/9192_public_client_kit_v1.0.2.zip",
+    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.2/",
     "signing_public_key": "https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem"
   },
   "first_commands": ["HELLO", "CAPS", "PAYMENT_INFO", "QUOTE", "ACCEPT_QUOTE", "GET_RECEIPT", "VERIFY_RECEIPT"],
