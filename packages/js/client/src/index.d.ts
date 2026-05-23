@@ -1,0 +1,31 @@
+export class NineOneNineTwoClient {
+  constructor(options?: { domain?: string; baseUrl?: string; fetchOptions?: RequestInit });
+  static discover(domain?: string, options?: any): Promise<NineOneNineTwoClient>;
+  domain: string;
+  baseUrl: string;
+  apiBase: string;
+  discovery?: any;
+  request(method: string, path: string, body?: any): Promise<any>;
+  status(): Promise<any>;
+  discoveryInfo(): Promise<any>;
+  manifest(): Promise<any>;
+  pricebook(): Promise<any>;
+  paymentInfo(): Promise<any>;
+  health(): Promise<any>;
+  hello(): Promise<any>;
+  caps(): Promise<any>;
+  openapi(): Promise<any>;
+  quoteGetPulse(args?: any): Promise<any>;
+  quoteMakeBct(args?: any): Promise<any>;
+  quoteVerifyBct(args?: any): Promise<any>;
+  acceptQuote(args?: any): Promise<any>;
+  createInvoice(args?: any): Promise<any>;
+  invoiceStatus(args?: any): Promise<any>;
+  executeGetPulse(args?: any): Promise<any>;
+  executeMakeBct(args?: any): Promise<any>;
+  executeVerifyBct(args?: any): Promise<any>;
+  receipt(args?: any): Promise<any>;
+  verifyReceipt(args?: any): Promise<any>;
+}
+export function create9192Client(options?: any): Promise<NineOneNineTwoClient>;
+

@@ -1,0 +1,203 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "9192 Public HTTPS API Gateway",
+    "version": "v1",
+    "description": "HTTP/JSON facade for 9192. Core execution remains the 9192/1 TLS TCP protocol at edge.nineoneninetwo.com.br:9443."
+  },
+  "servers": [
+    {
+      "url": "https://nineoneninetwo.com.br"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Human and machine-readable landing page"
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "Agent-oriented service summary"
+      }
+    },
+    "/.well-known/webfinger": {
+      "get": {
+        "summary": "WebFinger metadata for 9192"
+      }
+    },
+    "/.well-known/host-meta.json": {
+      "get": {
+        "summary": "Web Host Metadata"
+      }
+    },
+    "/.well-known/agent-card.json": {
+      "get": {
+        "summary": "A2A-inspired Agent Card for 9192"
+      }
+    },
+    "/.well-known/agent.json": {
+      "get": {
+        "summary": "Compatibility alias for Agent Card"
+      }
+    },
+    "/.well-known/9192/": {
+      "get": {
+        "summary": "9192 discovery index"
+      }
+    },
+    "/.well-known/9192/9192_public_manifest.json": {
+      "get": {
+        "summary": "9192 public manifest"
+      }
+    },
+    "/.well-known/9192/status.json": {
+      "get": {
+        "summary": "9192 public status snapshot"
+      }
+    },
+    "/.well-known/9192/bootstrap.json": {
+      "get": {
+        "summary": "9192 machine bootstrap metadata"
+      }
+    },
+    "/.well-known/9192/pricebook.json": {
+      "get": {
+        "summary": "9192 public pricebook JSON pointer"
+      }
+    },
+    "/.well-known/9192/9192_service_catalog.json": {
+      "get": {
+        "summary": "9192 service catalog"
+      }
+    },
+    "/.well-known/9192/9192_pricebook_public.txt": {
+      "get": {
+        "summary": "9192 public pricebook text"
+      }
+    },
+    "/.well-known/9192/nodes.json": {
+      "get": {
+        "summary": "9192 node registry"
+      }
+    },
+    "/mcp": {
+      "get": {
+        "summary": "MCP Streamable HTTP endpoint; this stateless server returns 405 for GET streams"
+      },
+      "post": {
+        "summary": "Remote MCP JSON-RPC endpoint for whitelisted 9192 tools"
+      }
+    },
+    "/api/v1/status": {
+      "get": {
+        "summary": "Gateway and public edge status"
+      }
+    },
+    "/api/v1/discovery": {
+      "get": {
+        "summary": "9192 discovery summary"
+      }
+    },
+    "/api/v1/manifest": {
+      "get": {
+        "summary": "Published 9192 manifest"
+      }
+    },
+    "/api/v1/pricebook": {
+      "get": {
+        "summary": "Published V6 pricebook"
+      }
+    },
+    "/api/v1/payment": {
+      "get": {
+        "summary": "Payment policy and wallets"
+      }
+    },
+    "/api/v1/payment-info": {
+      "get": {
+        "summary": "9192 PAYMENT_INFO through TLS edge"
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "summary": "9192 HEALTH through TLS edge"
+      }
+    },
+    "/api/v1/caps": {
+      "get": {
+        "summary": "9192 CAPS through TLS edge"
+      }
+    },
+    "/api/v1/hello": {
+      "get": {
+        "summary": "9192 HELLO through TLS edge"
+      }
+    },
+    "/api/v1/quotes/get-pulse": {
+      "post": {
+        "summary": "Create a GET_PULSE quote through 9192 QUOTE"
+      }
+    },
+    "/api/v1/quotes/{quote_id}/accept": {
+      "post": {
+        "summary": "Accept a quote through 9192 ACCEPT_QUOTE"
+      }
+    },
+    "/api/v1/quotes/make-bct": {
+      "post": {
+        "summary": "Create a MAKE_BCT quote through 9192 QUOTE"
+      }
+    },
+    "/api/v1/quotes/verify-bct": {
+      "post": {
+        "summary": "Create a VERIFY_BCT quote through 9192 QUOTE"
+      }
+    },
+    "/api/v1/invoices": {
+      "post": {
+        "summary": "Create a funding invoice through 9192 FUND_ACCOUNT"
+      }
+    },
+    "/api/v1/invoices/{invoice_id}": {
+      "get": {
+        "summary": "Check invoice status through TLS edge"
+      }
+    },
+    "/api/v1/executions/get-pulse": {
+      "post": {
+        "summary": "Execute GET_PULSE through TLS edge using an accepted quote"
+      }
+    },
+    "/api/v1/executions/make-bct": {
+      "post": {
+        "summary": "Execute MAKE_BCT with hex plaintext through the paid 9192 edge"
+      }
+    },
+    "/api/v1/executions/verify-bct": {
+      "post": {
+        "summary": "Execute VERIFY_BCT with a hex packet through the paid 9192 edge"
+      }
+    },
+    "/api/v1/receipts/{receipt_id}": {
+      "get": {
+        "summary": "Fetch a 9192 receipt through TLS edge"
+      }
+    },
+    "/api/v1/receipts/verify": {
+      "post": {
+        "summary": "Verify a 9192 receipt through TLS edge"
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "summary": "This OpenAPI document"
+      }
+    },
+    "/.well-known/9192/openapi.json": {
+      "get": {
+        "summary": "This OpenAPI document for machine discovery"
+      }
+    }
+  }
+}

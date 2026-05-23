@@ -1,0 +1,4 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY examples/ ./examples/
+CMD ["python", "examples/9192_external_bootstrap_client.py", "--domain", "nineoneninetwo.com.br", "--machine", "docker_probe", "--report", "docker_probe_report.json"]

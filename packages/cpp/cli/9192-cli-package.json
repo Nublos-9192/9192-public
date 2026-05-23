@@ -1,0 +1,12 @@
+{
+  "name": "9192-cli",
+  "version": "0.1.0",
+  "kind": "native-reference-cli",
+  "source": "C:/9192_system/client/9192_public_client_cli.cpp",
+  "build_windows": "C:/9192_system/build_9192_public_client_cli_windows.bat",
+  "output_windows_x64": "C:/9192_system/build/client/9192_public_client_cli.exe",
+  "public_edge": "edge.nineoneninetwo.com.br:9443",
+  "protocol": "9192/1",
+  "role": "canonical_native_client"
+}
+

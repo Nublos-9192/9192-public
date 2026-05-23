@@ -1,0 +1,22 @@
+{
+  "format": "9192_nodes_v1",
+  "generated_by": "9192_public_discovery",
+  "registry": "https://nineoneninetwo.com.br/.well-known/9192/nodes.json",
+  "nodes": [
+    {
+      "node_id": "nineoneninetwo-edge-main",
+      "edge_host": "edge.nineoneninetwo.com.br",
+      "port": 9443,
+      "endpoint": "edge.nineoneninetwo.com.br:9443",
+      "protocol": "9192/1",
+      "transport": "tls_tcp_dual_stack_public_edge",
+      "ipv4": "177.129.91.7",
+      "ipv6": "2804:8cc:1104:bd00:83a1:2bfd:8c91:cc9c",
+      "status": "online",
+      "active_price_book": "competitive_v6",
+      "price_version": "9192C_REF_USD_WORK_V6",
+      "manifest_hash": "d5f121de8daad9d41a55fc83c1e2d6ee7961017f898911ef694bcc58f325d887",
+      "last_seen_utc": "2026-05-21T23:55:00Z"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "format": "9192_bootstrap_v1",
+  "domain": "nineoneninetwo.com.br",
+  "edge": {
+    "host": "edge.nineoneninetwo.com.br",
+    "port": 9443,
+    "endpoint": "edge.nineoneninetwo.com.br:9443",
+    "protocol": "9192/1",
+    "transport": "tls_tcp_dual_stack_public_edge"
+  },
+  "discovery": {
+    "base": "https://nineoneninetwo.com.br/.well-known/9192/",
+    "manifest": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json",
+    "catalog": "https://nineoneninetwo.com.br/.well-known/9192/9192_service_catalog.json",
+    "pricebook": "https://nineoneninetwo.com.br/.well-known/9192/pricebook.json",
+    "agent_card": "https://nineoneninetwo.com.br/.well-known/agent-card.json"
+  },
+  "first_commands": ["HELLO", "CAPS", "PAYMENT_INFO", "QUOTE", "ACCEPT_QUOTE", "GET_RECEIPT", "VERIFY_RECEIPT"],
+  "pricing": {
+    "active_price_book": "competitive_v6",
+    "price_version": "9192C_REF_USD_WORK_V6",
+    "reference_value_usd_per_9192C": "1.00",
+    "policy": "internal_quote_reference_not_parity_not_backed_not_redeemable_not_yield"
+  },
+  "settlement": {
+    "mode": "crypto_only",
+    "rails": ["USDT/TRON", "USDC/Base", "USDC/Solana", "USDT/Solana"],
+    "preferred_rails": ["USDT/TRON", "USDC/Base"],
+    "best_effort_rails": ["USDC/Solana", "USDT/Solana"],
+    "tron_reliability": "best_effort_public_api",
+    "solana_reliability": "best_effort_public_rpc"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format": "9192_pricebook_pointer_v1",
+  "active_price_book": "competitive_v6",
+  "price_version": "9192C_REF_USD_WORK_V6",
+  "quote_terms_version": 5,
+  "unit_scale": "100000000_internal_units_per_9192C",
+  "reference_value_usd_per_9192C": "1.00",
+  "9192C_policy": "internal_quote_reference_not_parity_not_backed_not_redeemable_not_yield",
+  "pricing_dimensions": {
+    "bits": "coefficient_times_sqrt_bits_over_256",
+    "data": "units_per_KiB",
+    "time": "units_per_ms",
+    "priority": "standard_1x_priority_2x_critical_4x"
+  },
+  "examples": [
+    {"service": "GET_PULSE", "bits": 65536, "input_bytes": 0, "estimated_ms": 0, "priority_class": "standard", "quote_units": 10000, "usd_estimate": "0.00010000"},
+    {"service": "BVM_EXEC", "bits": 2097152, "input_bytes": 1048576, "estimated_ms": 20, "priority_class": "standard", "quote_units": 628309, "usd_estimate": "0.00628309"}
+  ]
+}

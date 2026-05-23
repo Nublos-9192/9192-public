@@ -1,0 +1,18 @@
+{
+  "format": "9192_status_v1",
+  "status": "online",
+  "domain": "nineoneninetwo.com.br",
+  "edge": "edge.nineoneninetwo.com.br:9443",
+  "protocol": "9192/1",
+  "transport": "tls_tcp_dual_stack_public_edge",
+  "ipv4": "177.129.91.7",
+  "ipv6": "2804:8cc:1104:bd00:83a1:2bfd:8c91:cc9c",
+  "backend": "tcp_ipv4_loopback_only",
+  "active_price_book": "competitive_v6",
+  "price_version": "9192C_REF_USD_WORK_V6",
+  "settlement": "crypto_only",
+  "preferred_payment_rails": ["USDT/TRON", "USDC/Base"],
+  "best_effort_payment_rails": ["USDC/Solana", "USDT/Solana"],
+  "tron_reliability": "best_effort_public_api",
+  "solana_reliability": "best_effort_public_rpc"
+}

@@ -1,0 +1,79 @@
+# 9192 Public Client Kit
+
+9192 is a public machine-to-machine compute service.
+
+Official domain: https://nineoneninetwo.com.br/
+Public edge: edge.nineoneninetwo.com.br:9443
+Protocol: 9192/1
+Transport: TLS TCP
+Settlement: crypto_only
+Price book: competitive_v6
+Price version: 9192C_REF_USD_WORK_V6
+
+9192C is an internal quote reference. It is not parity, backing, redemption, yield, or a financial promise.
+
+## Quick Start
+
+On Windows PowerShell:
+
+~~~powershell
+.\bin\windows-x64\9192_public_client_cli.exe hello --host edge.nineoneninetwo.com.br --port 9443 --sni edge.nineoneninetwo.com.br
+.\bin\windows-x64\9192_public_client_cli.exe caps --host edge.nineoneninetwo.com.br --port 9443 --sni edge.nineoneninetwo.com.br
+.\bin\windows-x64\9192_public_client_cli.exe payment-info --machine client_probe --host edge.nineoneninetwo.com.br --port 9443 --sni edge.nineoneninetwo.com.br
+.\bin\windows-x64\9192_public_client_cli.exe quote-get-pulse --machine client_probe --bits 65536 --max-output 8192 --host edge.nineoneninetwo.com.br --port 9443 --sni edge.nineoneninetwo.com.br
+~~~
+
+Discovery-first bootstrap:
+
+~~~powershell
+python .\examples\9192_external_bootstrap_client.py --domain nineoneninetwo.com.br --machine client_probe --report 9192_bootstrap_report.json
+~~~
+
+HTTP API facade smoke:
+
+~~~powershell
+python .\examples\9192_public_api_client.py smoke
+~~~
+
+Create a funding invoice:
+
+~~~powershell
+python .\examples\9192_public_api_client.py invoice --machine first_client --units 100000 --network TRON --asset USDT
+~~~
+
+The API is a JSON facade at https://nineoneninetwo.com.br/api/v1/. The native 9192 product edge remains edge.nineoneninetwo.com.br:9443.
+Quotes, settlement state, execution and receipts stay inside 9192; the facade exposes a
+whitelisted HTTP path for external clients that do not start with the binary protocol.
+
+## What A Client Does
+
+1. Resolve TXT _9192.nineoneninetwo.com.br.
+2. Fetch https://nineoneninetwo.com.br/.well-known/9192/.
+3. Validate the manifest hash from _9192-manifest.nineoneninetwo.com.br.
+4. Connect to edge.nineoneninetwo.com.br:9443 over TLS.
+5. Run HELLO/CAPS/PAYMENT_INFO.
+6. Request QUOTE.
+7. Fund account through one of the published crypto rails.
+8. ACCEPT_QUOTE.
+9. Execute service.
+10. GET_RECEIPT and VERIFY_RECEIPT.
+
+## Included
+
+- Windows CLI: bin/windows-x64/9192_public_client_cli.exe
+- Python bootstrap clients: examples/
+- Public discovery documents: discovery/
+- MCP bridge adapter over the public HTTPS API: mcp-bridge/
+- JS packages for discovery/client/MCP/demo: packages/js/
+- C++ CLI package metadata: packages/cpp/cli/
+- Remote MCP endpoint: https://nineoneninetwo.com.br/mcp
+- Checksums: checksums.sha256
+
+## Public Discovery
+
+- https://nineoneninetwo.com.br/
+- https://nineoneninetwo.com.br/llms.txt
+- https://nineoneninetwo.com.br/openapi.json
+- https://nineoneninetwo.com.br/.well-known/agent-card.json
+- https://nineoneninetwo.com.br/.well-known/webfinger?resource=9192:nineoneninetwo.com.br
+- https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json

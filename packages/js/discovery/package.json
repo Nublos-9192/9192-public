@@ -1,0 +1,19 @@
+{
+  "name": "@nineoneninetwo/discovery",
+  "version": "0.1.0",
+  "description": "Discovery helpers for the public 9192 machine-to-machine service.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "types": "./src/index.d.ts",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
+

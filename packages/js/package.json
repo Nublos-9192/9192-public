@@ -1,0 +1,16 @@
+{
+  "name": "@nineoneninetwo/workspace",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "discovery",
+    "client",
+    "mcp",
+    "demo"
+  ],
+  "scripts": {
+    "probe": "node ./demo/bin/9192-demo.mjs --mode smoke",
+    "probe:local": "node ./demo/bin/9192-demo.mjs --mode smoke --base-url https://127.0.0.1",
+    "demo:paid-sim": "node ./demo/bin/9192-demo.mjs --mode paid-sim"
+  }
+}

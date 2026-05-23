@@ -1,0 +1,16 @@
+{
+  "format": "9192_service_catalog_v1",
+  "purpose": "machine_client_acquisition_and_bootstrap",
+  "endpoint": {"host": "edge.nineoneninetwo.com.br", "port": 9443, "protocol": "9192/1"},
+  "trust": {"manifest_sha256": "a4fcfd575a2982ed2423dfd3a2b0a95f7be4faba4c8f51dbda39e7ac78b16f5d", "pulse_sha256": "c1ada374661a012cc7f435ca8b2e40e3dcb85ff99ac781b10ca2c97cdd91659c", "pulse_use": "liveness_not_authorization"},
+  "commercial_positioning": {"market": "machine_to_machine", "billing": "reserve_capture_release", "settlement": "crypto_only"},
+  "services": [
+    {"code": "GET_PULSE", "class": "light", "sample": {"bits": 65536, "quote_units": 10000}},
+    {"code": "ATTEST_EVENT", "class": "audit", "sample": {"bits": 2097152, "quote_units": 236273}},
+    {"code": "MAKE_BCT", "class": "strong", "sample": {"bits": 2097152, "input_bytes": 1048576}},
+    {"code": "REVERSIBLE_CONTAINER", "class": "data_cpu", "sample": {"input_bytes": 1048576, "estimated_ms": 20, "quote_units": 307720}},
+    {"code": "BVM_EXEC", "class": "data_cpu", "sample": {"input_bytes": 1048576, "bits": 2097152, "estimated_ms": 20, "quote_units": 628309}}
+  ],
+  "first_commands": ["HELLO", "CAPS", "QUOTE", "ACCEPT_QUOTE", "GET_RECEIPT", "VERIFY_RECEIPT"],
+  "priority_classes": [{"name": "standard", "multiplier": 1}, {"name": "priority", "multiplier": 2}, {"name": "critical", "multiplier": 4}]
+}

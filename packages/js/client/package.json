@@ -1,0 +1,21 @@
+{
+  "name": "@nineoneninetwo/client",
+  "version": "0.1.0",
+  "description": "HTTP/JSON facade client for the public 9192 service.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "types": "./src/index.d.ts",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "dependencies": {
+    "@nineoneninetwo/discovery": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

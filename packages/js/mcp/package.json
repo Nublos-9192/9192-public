@@ -1,0 +1,24 @@
+{
+  "name": "@nineoneninetwo/mcp",
+  "version": "0.1.0",
+  "description": "Dependency-free stdio MCP bridge for the public 9192 API.",
+  "type": "module",
+  "bin": {
+    "9192-mcp": "./bin/9192-mcp.mjs"
+  },
+  "exports": {
+    ".": "./src/server.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "dependencies": {
+    "@nineoneninetwo/client": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "9192-mcp-bridge",
+  "description": "MCP adapter for the 9192 public machine-to-machine compute service.",
+  "command": "python",
+  "args": ["mcp-bridge/server.py"],
+  "tools": ["discover_9192", "get_pricebook", "get_payment_info", "quote_get_pulse", "verify_receipt"],
+  "homepage": "https://nineoneninetwo.com.br/",
+  "protocol": "9192/1",
+  "edge": "edge.nineoneninetwo.com.br:9443"
+}
