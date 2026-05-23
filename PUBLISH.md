@@ -11,7 +11,7 @@ git add .
 git commit -m 'Publish 9192 public client kit v1.0.0'
 gh auth login
 gh repo create <github-owner>/9192-public --public --source . --remote origin --push
-gh release create v1.0.0 .\releases\v1.0.0\9192_public_client_kit_v1.0.0.zip .\releases\v1.0.0\release_artifacts.sha256 .\releases\v1.0.0\release_artifacts.sha256.sig .\releases\v1.0.0\9192_release_signing_public.pem --title '9192 public client kit v1.0.0' --notes-file .\releases\v1.0.0\RELEASE.md
+gh release create v1.0.1 .\releases\v1.0.1\9192_public_client_kit_v1.0.1.zip .\releases\v1.0.1\release_artifacts.sha256 .\releases\v1.0.1\release_artifacts.sha256.sig .\releases\v1.0.1\9192_release_signing_public.pem --title '9192 public client kit v1.0.1' --notes-file .\releases\v1.0.1\RELEASE.md
 ~~~
 
 The remote MCP Registry entry already exists as br.com.nineoneninetwo/9192.

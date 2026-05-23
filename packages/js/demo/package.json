@@ -2,6 +2,23 @@
   "name": "@nineoneninetwo/demo",
   "version": "0.1.0",
   "description": "Autonomous 9192 discovery, quote, paid-sim execution, and receipt verification demo.",
+  "homepage": "https://nineoneninetwo.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nublos-9192/9192-public.git",
+    "directory": "packages/js/demo"
+  },
+  "bugs": {
+    "url": "https://github.com/Nublos-9192/9192-public/issues"
+  },
+  "keywords": [
+    "9192",
+    "demo",
+    "agents",
+    "machine-to-machine",
+    "payments",
+    "receipts"
+  ],
   "type": "module",
   "bin": {
     "9192-demo": "./bin/9192-demo.mjs"
@@ -15,6 +32,9 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "UNLICENSED"
 }

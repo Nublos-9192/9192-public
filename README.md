@@ -3,6 +3,7 @@
 9192 is a public machine-to-machine compute service.
 
 Official domain: https://nineoneninetwo.com.br/
+GitHub repository: https://github.com/Nublos-9192/9192-public
 Public edge: edge.nineoneninetwo.com.br:9443
 Protocol: 9192/1
 Transport: TLS TCP

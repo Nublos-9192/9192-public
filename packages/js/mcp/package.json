@@ -2,6 +2,23 @@
   "name": "@nineoneninetwo/mcp",
   "version": "0.1.0",
   "description": "Dependency-free stdio MCP bridge for the public 9192 API.",
+  "homepage": "https://nineoneninetwo.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nublos-9192/9192-public.git",
+    "directory": "packages/js/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/Nublos-9192/9192-public/issues"
+  },
+  "keywords": [
+    "9192",
+    "mcp",
+    "model-context-protocol",
+    "agents",
+    "machine-to-machine",
+    "payments"
+  ],
   "type": "module",
   "bin": {
     "9192-mcp": "./bin/9192-mcp.mjs"
@@ -19,6 +36,9 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "UNLICENSED"
 }

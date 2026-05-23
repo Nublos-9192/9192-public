@@ -1,4 +1,4 @@
-# 9192 Public Client Kit v1.0.0
+# 9192 Public Client Kit v1.0.1
 
 This release carries the public 9192 client kit, remote MCP metadata, discovery snapshot, and detached trust files.
 

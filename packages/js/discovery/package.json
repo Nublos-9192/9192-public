@@ -2,6 +2,22 @@
   "name": "@nineoneninetwo/discovery",
   "version": "0.1.0",
   "description": "Discovery helpers for the public 9192 machine-to-machine service.",
+  "homepage": "https://nineoneninetwo.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nublos-9192/9192-public.git",
+    "directory": "packages/js/discovery"
+  },
+  "bugs": {
+    "url": "https://github.com/Nublos-9192/9192-public/issues"
+  },
+  "keywords": [
+    "9192",
+    "discovery",
+    "machine-to-machine",
+    "agents",
+    "well-known"
+  ],
   "type": "module",
   "exports": {
     ".": "./src/index.mjs"
@@ -14,6 +30,8 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "UNLICENSED"
 }
-

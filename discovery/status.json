@@ -14,5 +14,7 @@
   "preferred_payment_rails": ["USDT/TRON", "USDC/Base"],
   "best_effort_payment_rails": ["USDC/Solana", "USDT/Solana"],
   "tron_reliability": "best_effort_public_api",
-  "solana_reliability": "best_effort_public_rpc"
+  "solana_reliability": "best_effort_public_rpc",
+  "github_repository": "https://github.com/Nublos-9192/9192-public",
+  "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.1"
 }
