@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "br.com.nineoneninetwo/9192",
+  "title": "9192 Public Compute",
+  "description": "Remote MCP for 9192 discovery, pricebook, payment rails, GET_PULSE quotes, sandbox execution, and receipt checks.",
+  "version": "1.0.2",
+  "websiteUrl": "https://nineoneninetwo.com.br/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://nineoneninetwo.com.br/mcp"
+    }
+  ]
+}

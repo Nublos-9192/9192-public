@@ -1,4 +1,10 @@
 FROM python:3.12-slim
+LABEL org.opencontainers.image.title="9192 Public Bootstrap Probe"
+LABEL org.opencontainers.image.description="Discovery-first bootstrap smoke for the public 9192 service."
+LABEL org.opencontainers.image.url="https://nineoneninetwo.com.br/"
+LABEL org.opencontainers.image.source="https://github.com/Nublos-9192/9192-public"
+ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY examples/ ./examples/
+COPY discovery/ ./discovery/
 CMD ["python", "examples/9192_external_bootstrap_client.py", "--domain", "nineoneninetwo.com.br", "--machine", "docker_probe", "--report", "docker_probe_report.json"]

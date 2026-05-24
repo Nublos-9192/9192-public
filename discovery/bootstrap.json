@@ -17,9 +17,9 @@
   },
   "distribution": {
     "github_repository": "https://github.com/Nublos-9192/9192-public",
-    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.3",
-    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.3/9192_public_client_kit_v1.0.3.zip",
-    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.3/",
+    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.4",
+    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.4/9192_public_client_kit_v1.0.4.zip",
+    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.4/",
     "signing_public_key": "https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem",
     "site_snapshot": "https://nineoneninetwo.com.br/"
   },
@@ -78,8 +78,8 @@
     "execute": "https://nineoneninetwo.com.br/api/v1/sandbox/executions/get-pulse",
     "verify_receipt": "https://nineoneninetwo.com.br/api/v1/sandbox/receipts/verify"
   },
-  "discovery_version": "1.0.3",
-  "public_client_kit_version": "v1.0.3",
+  "discovery_version": "1.0.4",
+  "public_client_kit_version": "v1.0.4",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",
     "docs": "https://nineoneninetwo.com.br/docs",
@@ -93,6 +93,6 @@
     "sitemap": "https://nineoneninetwo.com.br/sitemap.xml",
     "robots": "https://nineoneninetwo.com.br/robots.txt"
   },
-  "manifest_file_sha256": "738bb8e4d30eca121c77f1e06b6a6f7ead1b791a225f18bc25f8efa58da88d77",
+  "manifest_file_sha256": "2a4aaa5d3c2a339ccf7da550f00f44cec04dd2e23ae1db2c803df3974bbe4b73",
   "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt"
 }
