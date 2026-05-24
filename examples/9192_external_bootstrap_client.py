@@ -328,7 +328,9 @@ def discover(domain):
     catalog_url = wellknown.rstrip("/") + "/9192_service_catalog.json"
     pricebook_url = wellknown.rstrip("/") + "/9192_pricebook_public.txt"
 
-    manifest_json = json.loads(fetch_text(manifest_json_url))
+    manifest_json_bytes = fetch_bytes(manifest_json_url)
+    manifest_json_sha256 = sha256_hex(manifest_json_bytes)
+    manifest_json = json.loads(manifest_json_bytes.decode("utf-8", "replace"))
     catalog = json.loads(fetch_text(catalog_url))
     pricebook = fetch_text(pricebook_url)
     try:
@@ -341,8 +343,15 @@ def discover(domain):
         manifest_kv_sha256 = ""
 
     expected_manifest_sha = manifest_txt.get("sha256", "")
-    advertised_manifest_sha = manifest_kv.get("manifest_sha256") or manifest_json.get("manifest_sha256", "")
-    hash_ok = bool(expected_manifest_sha and advertised_manifest_sha and expected_manifest_sha == advertised_manifest_sha)
+    advertised_manifest_sha = (
+        manifest_kv.get("manifest_file_sha256")
+        or manifest_json.get("manifest_file_sha256", "")
+        or manifest_kv.get("manifest_sha256")
+        or manifest_json.get("manifest_sha256", "")
+    )
+    file_hash_ok = bool(expected_manifest_sha and manifest_json_sha256 and expected_manifest_sha == manifest_json_sha256)
+    legacy_hash_ok = bool(expected_manifest_sha and advertised_manifest_sha and expected_manifest_sha == advertised_manifest_sha)
+    hash_ok = file_hash_ok or legacy_hash_ok
     endpoint = manifest_json.get("public_endpoint") or manifest_kv.get("public_endpoint") or registration.get("edge")
     if not endpoint:
         raise RuntimeError("public endpoint missing from discovery")
@@ -361,8 +370,11 @@ def discover(domain):
         "catalog_url": catalog_url,
         "pricebook_url": pricebook_url,
         "manifest_kv_sha256_file": manifest_kv_sha256,
+        "manifest_json_sha256_file": manifest_json_sha256,
         "manifest_sha256_advertised": advertised_manifest_sha,
         "manifest_sha256_dns": expected_manifest_sha,
+        "manifest_file_hash_matches_dns": file_hash_ok,
+        "manifest_legacy_hash_matches_dns": legacy_hash_ok,
         "manifest_hash_matches_dns": hash_ok,
         "manifest": manifest_json,
         "manifest_kv": manifest_kv,
@@ -398,7 +410,10 @@ def run_smoke(args):
         "manifest_sha256_dns": discovery["manifest_sha256_dns"],
         "manifest_sha256_advertised": discovery["manifest_sha256_advertised"],
         "manifest_hash_matches_dns": discovery["manifest_hash_matches_dns"],
+        "manifest_file_hash_matches_dns": discovery["manifest_file_hash_matches_dns"],
+        "manifest_legacy_hash_matches_dns": discovery["manifest_legacy_hash_matches_dns"],
         "manifest_kv_sha256_file": discovery["manifest_kv_sha256_file"],
+        "manifest_json_sha256_file": discovery["manifest_json_sha256_file"],
         "price_version": discovery["manifest"].get("price_version"),
         "active_price_book": discovery["manifest"].get("active_price_book"),
         "reference_value_usd_per_9192C": discovery["manifest"].get("reference_value_usd_per_9192C"),

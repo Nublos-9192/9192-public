@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Trust | Signed Releases, Manifests and Verifiable Receipts</title>
+  <meta name="description" content="Trust and verification resources for the 9192 Protocol: manifest hashes, signed releases, OpenAPI metadata and receipt verification.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/trust">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Trust</span></strong></a><div class="links"><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/for-agents">For Agents</a><a href="/pricing">Pricing</a><a href="/status">Status</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">Verification first</div><h1>Trust is published as metadata, hashes, signatures and receipts.</h1><p class="lead">The 9192 public surface is designed so machines can inspect capabilities, verify release material, and validate receipts after execution.</p></section>
+    <section class="grid">
+      <article class="card"><h2>DNS hash</h2><p>The TXT record <code>_9192-manifest.nineoneninetwo.com.br</code> publishes the manifest SHA256 pointer for clients that validate discovery.</p></article>
+      <article class="card"><h2>Signed kit</h2><p>Public client kit releases include checksums, a detached signature and a public signing key.</p><p><a href="https://github.com/Nublos-9192/9192-public/releases/latest">Latest release</a></p></article>
+      <article class="card"><h2>Receipt verification</h2><p>Receipts can be verified through the API facade without paying for discovery or verification.</p><pre>POST /api/v1/receipts/verify</pre></article>
+      <article class="card wide"><h2>Trust resources</h2><p><a href="/.well-known/9192/9192_public_manifest.json">Manifest JSON</a><br><a href="/.well-known/9192/9192_public_manifest.kv">Manifest KV</a><br><a href="/.well-known/9192/bootstrap.json">Bootstrap JSON</a><br><a href="/openapi.json">OpenAPI</a><br><a href="/.well-known/agent-card.json">Agent Card</a></p></article>
+      <article class="card"><h2>Boundary</h2><p>The backend remains private. Public use goes through HTTPS discovery, MCP facade or the native TLS edge.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Verify before executing. Verify again after receipt.</div></footer>
+</body>
+</html>

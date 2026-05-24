@@ -34,6 +34,19 @@ export const tools = [
     }
   },
   {
+    name: "sandbox_get_pulse",
+    description: "Run the free limited sandbox quote, accept, execute, and receipt verification flow.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        domain: { type: "string", default: DOMAIN },
+        machine_id: { type: "string", default: "mcp_js_sandbox" },
+        bits: { type: "integer", default: 65536 },
+        max_output: { type: "integer", default: 8192 }
+      }
+    }
+  },
+  {
     name: "quote_make_bct",
     description: "Create a MAKE_BCT quote through the public 9192 API.",
     inputSchema: {
@@ -112,6 +125,20 @@ export async function callTool(name, args = {}) {
       maxOutput: Number(args.max_output || 8192)
     }));
   }
+  if (name === "sandbox_get_pulse") {
+    const machineId = args.machine_id || args.machine || "mcp_js_sandbox";
+    const quote = await client.sandboxQuoteGetPulse({
+      machineId,
+      bits: Number(args.bits || 65536),
+      maxOutput: Number(args.max_output || 8192)
+    });
+    const quoteId = quote.quote_id || quote.data?.quote_id || quote.quote?.quote_id;
+    const accepted = await client.sandboxAcceptQuote({ machineId, quoteId });
+    const execution = await client.sandboxExecuteGetPulse({ machineId, quoteId });
+    const receiptId = execution.receipt_id || execution.receipt?.receipt_id || execution.data?.receipt_id;
+    const verified = await client.sandboxVerifyReceipt({ receiptId });
+    return textResult({ quote, accepted, execution, verified });
+  }
   if (name === "quote_make_bct") {
     return textResult(await client.quoteMakeBct({
       machineId: args.machine_id || args.machine || "mcp_js_probe",
@@ -151,7 +178,7 @@ async function handleMessage(msg) {
     return {
       protocolVersion: PROTOCOL_VERSION,
       capabilities: { tools: {} },
-      serverInfo: { name: "9192-mcp-js", version: "0.1.0" }
+      serverInfo: { name: "9192-mcp-js", version: "0.1.1" }
     };
   }
   if (method === "tools/list") return { tools };

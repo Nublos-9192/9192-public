@@ -45,6 +45,19 @@ TOOLS = [
         },
     },
     {
+        "name": "sandbox_get_pulse",
+        "description": "Run the free limited sandbox quote, accept, execute, and receipt verification flow.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "domain": {"type": "string", "default": DOMAIN},
+                "machine": {"type": "string", "default": "mcp_bridge_sandbox"},
+                "bits": {"type": "integer", "default": 65536},
+                "max_output": {"type": "integer", "default": 8192},
+            },
+        },
+    },
+    {
         "name": "verify_receipt",
         "description": "Verify a 9192 receipt id through the public TLS edge.",
         "inputSchema": {
@@ -101,6 +114,28 @@ def call_tool(name, args):
             "bits": bits,
             "max_output": max_output,
         }))
+    if name == "sandbox_get_pulse":
+        machine = args.get("machine") or "mcp_bridge_sandbox"
+        bits = int(args.get("bits") or 65536)
+        max_output = int(args.get("max_output") or 8192)
+        quote = json.loads(api_json(domain, "POST", "/api/v1/sandbox/quotes/get-pulse", {
+            "machine_id": machine,
+            "bits": bits,
+            "max_output": max_output,
+        }))
+        quote_id = quote.get("quote_id") or quote.get("quote", {}).get("quote_id") or quote.get("data", {}).get("quote_id")
+        accepted = json.loads(api_json(domain, "POST", f"/api/v1/sandbox/quotes/{quote_id}/accept", {
+            "machine_id": machine,
+        }))
+        execution = json.loads(api_json(domain, "POST", "/api/v1/sandbox/executions/get-pulse", {
+            "machine_id": machine,
+            "quote_id": quote_id,
+        }))
+        receipt_id = execution.get("receipt_id") or execution.get("receipt", {}).get("receipt_id") or execution.get("data", {}).get("receipt_id")
+        verified = json.loads(api_json(domain, "POST", "/api/v1/sandbox/receipts/verify", {
+            "receipt_id": receipt_id,
+        }))
+        return content_text(json.dumps({"quote": quote, "accepted": accepted, "execution": execution, "verified": verified}, indent=2))
     if name == "verify_receipt":
         machine = args.get("machine") or "mcp_bridge_probe"
         receipt = args.get("receipt") or ""
@@ -129,7 +164,7 @@ def handle(msg):
         return {
             "protocolVersion": "2024-11-05",
             "capabilities": {"tools": {}},
-            "serverInfo": {"name": "9192-mcp-bridge", "version": "1.0.1"},
+            "serverInfo": {"name": "9192-mcp-bridge", "version": "1.0.2"},
         }
     if method == "tools/list":
         return {"tools": TOOLS}

@@ -17,12 +17,21 @@
   },
   "distribution": {
     "github_repository": "https://github.com/Nublos-9192/9192-public",
-    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.2",
-    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.2/9192_public_client_kit_v1.0.2.zip",
-    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.2/",
-    "signing_public_key": "https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem"
+    "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.3",
+    "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.3/9192_public_client_kit_v1.0.3.zip",
+    "signed_release": "https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.3/",
+    "signing_public_key": "https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem",
+    "site_snapshot": "https://nineoneninetwo.com.br/"
   },
-  "first_commands": ["HELLO", "CAPS", "PAYMENT_INFO", "QUOTE", "ACCEPT_QUOTE", "GET_RECEIPT", "VERIFY_RECEIPT"],
+  "first_commands": [
+    "HELLO",
+    "CAPS",
+    "PAYMENT_INFO",
+    "QUOTE",
+    "ACCEPT_QUOTE",
+    "GET_RECEIPT",
+    "VERIFY_RECEIPT"
+  ],
   "pricing": {
     "active_price_book": "competitive_v6",
     "price_version": "9192C_REF_USD_WORK_V6",
@@ -31,10 +40,59 @@
   },
   "settlement": {
     "mode": "crypto_only",
-    "rails": ["USDT/TRON", "USDC/Base", "USDC/Solana", "USDT/Solana"],
-    "preferred_rails": ["USDT/TRON", "USDC/Base"],
-    "best_effort_rails": ["USDC/Solana", "USDT/Solana"],
+    "rails": [
+      "USDT/TRON",
+      "USDC/Base",
+      "USDC/Solana",
+      "USDT/Solana"
+    ],
+    "preferred_rails": [
+      "USDT/TRON",
+      "USDC/Base"
+    ],
+    "best_effort_rails": [
+      "USDC/Solana",
+      "USDT/Solana"
+    ],
     "tron_reliability": "best_effort_public_api",
     "solana_reliability": "best_effort_public_rpc"
-  }
+  },
+  "freemium_policy": {
+    "positioning": "open_protocol_paid_execution",
+    "summary": "Free to discover. Free to quote. Free to verify. Free to integrate. Paid to execute at scale.",
+    "free_discovery": true,
+    "free_receipt_verification": true,
+    "quote_generation": "free_limited",
+    "sandbox_available": true,
+    "anonymous_sandbox": true,
+    "anonymous_execution": false,
+    "paid_execution_required": true,
+    "execution_requires_balance": true,
+    "commercial_tiers": "planned",
+    "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
+  },
+  "sandbox": {
+    "available": true,
+    "quote": "https://nineoneninetwo.com.br/api/v1/sandbox/quotes/get-pulse",
+    "accept": "https://nineoneninetwo.com.br/api/v1/sandbox/quotes/{quote_id}/accept",
+    "execute": "https://nineoneninetwo.com.br/api/v1/sandbox/executions/get-pulse",
+    "verify_receipt": "https://nineoneninetwo.com.br/api/v1/sandbox/receipts/verify"
+  },
+  "discovery_version": "1.0.3",
+  "public_client_kit_version": "v1.0.3",
+  "public_site_pages": {
+    "home": "https://nineoneninetwo.com.br/",
+    "docs": "https://nineoneninetwo.com.br/docs",
+    "protocol": "https://nineoneninetwo.com.br/protocol",
+    "for_agents": "https://nineoneninetwo.com.br/for-agents",
+    "pricing": "https://nineoneninetwo.com.br/pricing",
+    "status": "https://nineoneninetwo.com.br/status",
+    "trust": "https://nineoneninetwo.com.br/trust",
+    "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "sitemap": "https://nineoneninetwo.com.br/sitemap.xml",
+    "robots": "https://nineoneninetwo.com.br/robots.txt"
+  },
+  "manifest_file_sha256": "738bb8e4d30eca121c77f1e06b6a6f7ead1b791a225f18bc25f8efa58da88d77",
+  "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt"
 }

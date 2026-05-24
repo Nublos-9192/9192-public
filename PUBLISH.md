@@ -8,10 +8,10 @@ When GitHub CLI authentication and a Git author identity are available:
 ~~~powershell
 git init -b main
 git add .
-git commit -m 'Publish 9192 public client kit v1.0.0'
+git commit -m 'Publish 9192 public client kit v1.0.3'
 gh auth login
 gh repo create <github-owner>/9192-public --public --source . --remote origin --push
-gh release create v1.0.2 .\releases\v1.0.2\9192_public_client_kit_v1.0.2.zip .\releases\v1.0.2\release_artifacts.sha256 .\releases\v1.0.2\release_artifacts.sha256.sig .\releases\v1.0.2\9192_release_signing_public.pem --title '9192 public client kit v1.0.2' --notes-file .\releases\v1.0.2\RELEASE.md
+gh release create v1.0.3 .\releases\v1.0.3\9192_public_client_kit_v1.0.3.zip .\releases\v1.0.3\release_artifacts.sha256 .\releases\v1.0.3\release_artifacts.sha256.sig .\releases\v1.0.3\9192_release_signing_public.pem --title '9192 public client kit v1.0.3' --notes-file .\releases\v1.0.3\RELEASE.md
 ~~~
 
 The remote MCP Registry entry already exists as br.com.nineoneninetwo/9192.

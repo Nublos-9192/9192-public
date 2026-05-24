@@ -16,6 +16,8 @@ async function smoke(client, machineId) {
   step("discovery", {
     domain: client.domain,
     edge: client.discovery?.edge,
+    pages: client.discovery?.pages,
+    freemium_policy: client.discovery?.freemiumPolicy,
     price_version: client.discovery?.bootstrap?.pricing?.price_version
   });
   step("status", await client.status());
@@ -30,6 +32,25 @@ async function smoke(client, machineId) {
     idempotencyKey: `9192-js-smoke-${Date.now()}`
   });
   step("quote_get_pulse", quote);
+}
+
+async function sandboxFlow(client, machineId) {
+  const quote = await client.sandboxQuoteGetPulse({
+    machineId,
+    bits: Number(arg("bits", "65536")),
+    maxOutput: Number(arg("max-output", "8192"))
+  });
+  step("sandbox_quote_get_pulse", quote);
+
+  const quoteId = quote.quote_id || quote.data?.quote_id || quote.quote?.quote_id;
+  const accepted = await client.sandboxAcceptQuote({ machineId, quoteId });
+  step("sandbox_accept_quote", accepted);
+
+  const execution = await client.sandboxExecuteGetPulse({ machineId, quoteId });
+  step("sandbox_execute_get_pulse", execution);
+
+  const receiptId = execution.receipt_id || execution.receipt?.receipt_id || execution.data?.receipt_id;
+  step("sandbox_verify_receipt", await client.sandboxVerifyReceipt({ receiptId }));
 }
 
 async function paidFlow(client, machineId) {
@@ -85,6 +106,7 @@ async function main() {
     ...(baseUrl ? { baseUrl, skipDns: true } : {})
   });
   if (mode === "smoke") return smoke(client, machineId);
+  if (mode === "sandbox") return sandboxFlow(client, machineId);
   if (mode === "paid-flow") return paidFlow(client, machineId);
   throw new Error(`unknown mode: ${mode}`);
 }

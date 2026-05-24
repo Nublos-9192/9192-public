@@ -1,6 +1,6 @@
 # 9192 Public Client Kit
 
-9192 is a public machine-to-machine compute service.
+9192 is a public machine-to-machine compute service and verifiable execution protocol for autonomous machines.
 
 Official domain: https://nineoneninetwo.com.br/
 GitHub repository: https://github.com/Nublos-9192/9192-public
@@ -11,7 +11,7 @@ Settlement: crypto_only
 Price book: competitive_v6
 Price version: 9192C_REF_USD_WORK_V6
 
-9192C is an internal quote reference. It is not parity, backing, redemption, yield, or a financial promise.
+9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, redeemable asset, parity, backing, redemption, yield, or a financial promise.
 
 ## Quick Start
 
@@ -34,6 +34,12 @@ HTTP API facade smoke:
 
 ~~~powershell
 python .\examples\9192_public_api_client.py smoke
+~~~
+
+Free sandbox flow:
+
+~~~powershell
+python .\examples\9192_public_api_client.py sandbox
 ~~~
 
 Create a funding invoice:
@@ -64,6 +70,7 @@ whitelisted HTTP path for external clients that do not start with the binary pro
 - Windows CLI: bin/windows-x64/9192_public_client_cli.exe
 - Python bootstrap clients: examples/
 - Public discovery documents: discovery/
+- Public site/discovery surface snapshot: site/
 - MCP bridge adapter over the public HTTPS API: mcp-bridge/
 - JS packages for discovery/client/MCP/demo: packages/js/
 - C++ CLI package metadata: packages/cpp/cli/
@@ -73,6 +80,12 @@ whitelisted HTTP path for external clients that do not start with the binary pro
 ## Public Discovery
 
 - https://nineoneninetwo.com.br/
+- https://nineoneninetwo.com.br/docs
+- https://nineoneninetwo.com.br/protocol
+- https://nineoneninetwo.com.br/for-agents
+- https://nineoneninetwo.com.br/pricing
+- https://nineoneninetwo.com.br/status
+- https://nineoneninetwo.com.br/trust
 - https://nineoneninetwo.com.br/llms.txt
 - https://nineoneninetwo.com.br/openapi.json
 - https://nineoneninetwo.com.br/.well-known/agent-card.json

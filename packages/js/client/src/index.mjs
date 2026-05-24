@@ -70,6 +70,35 @@ export class NineOneNineTwoClient {
   caps() { return this.request("GET", "/api/v1/caps"); }
   openapi() { return this.request("GET", "/openapi.json"); }
 
+  sandboxQuoteGetPulse({ machineId = "sandbox_machine", bits = 65536, maxOutput = 8192, priority = "normal" } = {}) {
+    return this.request("POST", "/api/v1/sandbox/quotes/get-pulse", {
+      machine_id: machineId,
+      bits,
+      max_output: maxOutput,
+      priority
+    });
+  }
+
+  sandboxAcceptQuote({ machineId = "sandbox_machine", quoteId } = {}) {
+    return this.request("POST", `/api/v1/sandbox/quotes/${encodeURIComponent(quoteId || "")}/accept`, {
+      machine_id: machineId
+    });
+  }
+
+  sandboxExecuteGetPulse({ machineId = "sandbox_machine", quoteId } = {}) {
+    return this.request("POST", "/api/v1/sandbox/executions/get-pulse", {
+      machine_id: machineId,
+      quote_id: quoteId
+    });
+  }
+
+  sandboxVerifyReceipt({ receiptId, receipt } = {}) {
+    return this.request("POST", "/api/v1/sandbox/receipts/verify", {
+      ...(receiptId ? { receipt_id: receiptId } : {}),
+      ...(receipt ? { receipt } : {})
+    });
+  }
+
   quoteGetPulse({ machineId, bits = 65536, maxOutput = 8192, priority = "normal", idempotencyKey } = {}) {
     return this.request("POST", "/api/v1/quotes/get-pulse", {
       machine_id: machineId,
@@ -171,4 +200,3 @@ export async function create9192Client(options = {}) {
   }
   return new NineOneNineTwoClient(options);
 }
-

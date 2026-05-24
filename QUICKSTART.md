@@ -16,6 +16,12 @@ HTTP API facade smoke:
 python .\examples\9192_public_api_client.py smoke
 ```
 
+Free sandbox flow:
+
+```powershell
+python .\examples\9192_public_api_client.py sandbox
+```
+
 Funding invoice example:
 
 ```powershell

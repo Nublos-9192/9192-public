@@ -13,6 +13,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify signed release artifacts
-        run: python releases/v1.0.2/verify_public_release.py --artifact-dir releases/v1.0.2 --openssl openssl
+        run: python releases/v1.0.3/verify_public_release.py --artifact-dir releases/v1.0.3 --openssl openssl
       - name: Verify MCP server metadata JSON
         run: python -m json.tool mcp-bridge/server.json > /dev/null

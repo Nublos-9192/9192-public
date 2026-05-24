@@ -68,6 +68,35 @@ def invoice(args):
     print_step("invoice", status, payload)
 
 
+def sandbox(args):
+    machine = args.machine or f"api_sandbox_{int(time.time() * 1000)}"
+    status, quote = call_json(args.base, "POST", "/api/v1/sandbox/quotes/get-pulse", {
+        "machine_id": machine,
+        "bits": args.bits,
+        "max_output": args.max_output,
+        "priority": "normal",
+    })
+    print_step("sandbox_quote_get_pulse", status, quote)
+    quote_id = quote.get("quote_id") or quote.get("data", {}).get("quote_id") or quote.get("quote", {}).get("quote_id")
+
+    status, accepted = call_json(args.base, "POST", f"/api/v1/sandbox/quotes/{quote_id}/accept", {
+        "machine_id": machine,
+    })
+    print_step("sandbox_accept_quote", status, accepted)
+
+    status, execution = call_json(args.base, "POST", "/api/v1/sandbox/executions/get-pulse", {
+        "machine_id": machine,
+        "quote_id": quote_id,
+    })
+    print_step("sandbox_execute_get_pulse", status, execution)
+    receipt_id = execution.get("receipt_id") or execution.get("receipt", {}).get("receipt_id") or execution.get("data", {}).get("receipt_id")
+
+    status, verified = call_json(args.base, "POST", "/api/v1/sandbox/receipts/verify", {
+        "receipt_id": receipt_id,
+    })
+    print_step("sandbox_verify_receipt", status, verified)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Use the public HTTP/JSON facade without replacing the native 9192 edge.")
     parser.add_argument("--base", default="https://nineoneninetwo.com.br")
@@ -86,6 +115,12 @@ def main():
     invoice_parser.add_argument("--network", required=True)
     invoice_parser.add_argument("--asset", required=True)
     invoice_parser.set_defaults(func=invoice)
+
+    sandbox_parser = sub.add_parser("sandbox", help="Run the free limited sandbox quote, accept, execute, and verify flow.")
+    sandbox_parser.add_argument("--machine", default="")
+    sandbox_parser.add_argument("--bits", type=int, default=65536)
+    sandbox_parser.add_argument("--max-output", type=int, default=8192)
+    sandbox_parser.set_defaults(func=sandbox)
 
     args = parser.parse_args()
     args.func(args)

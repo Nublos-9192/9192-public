@@ -1,6 +1,6 @@
 {
   "name": "@nineoneninetwo/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency-free stdio MCP bridge for the public 9192 API.",
   "homepage": "https://nineoneninetwo.com.br",
   "repository": {
@@ -32,7 +32,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@nineoneninetwo/client": "^0.1.0"
+    "@nineoneninetwo/client": "^0.1.1"
   },
   "engines": {
     "node": ">=18"

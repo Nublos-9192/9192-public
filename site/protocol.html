@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Protocol | Native TLS Execution Layer</title>
+  <meta name="description" content="Technical protocol overview for 9192/1 TLS TCP, HTTP API facade, MCP metadata and receipt verification.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/protocol">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Protocol</span></strong></a><div class="links"><a href="/docs">Docs</a><a href="/for-agents">For Agents</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="/trust">Trust</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">9192/1</div><h1>Native execution stays on the TLS edge.</h1><p class="lead">The HTTP API, MCP facade and well-known metadata are onboarding surfaces. The product core is the 9192/1 protocol behind edge.nineoneninetwo.com.br:9443.</p></section>
+    <section class="grid">
+      <article class="card"><h2>Native edge</h2><p><code>edge.nineoneninetwo.com.br:9443</code> exposes the public TLS edge. The private backend remains loopback-only and is never exposed directly.</p></article>
+      <article class="card"><h2>HTTP facade</h2><p><code>/api/v1/*</code> offers whitelisted JSON routes for clients that need simple HTTPS onboarding.</p></article>
+      <article class="card"><h2>MCP facade</h2><p><code>/mcp</code> exposes a remote MCP entry for agents to discover pricebook, payment rails, quotes and receipt verification.</p></article>
+      <article class="card wide"><h2>Trust boundary</h2><p>The API does not bypass the 9192 edge. Price, execution, balance, ledger and receipt state remain owned by the 9192 server path.</p></article>
+      <article class="card"><h2>Supported services</h2><p>GET_PULSE, MAKE_BCT, VERIFY_BCT, invoice status, payment information, receipt fetch and receipt verification.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Endpoint: edge.nineoneninetwo.com.br:9443</div></footer>
+</body>
+</html>

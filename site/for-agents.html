@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 For Agents | MCP and Autonomous Machine Integration</title>
+  <meta name="description" content="How agents and automated systems discover, quote, fund, execute and verify 9192 services through MCP, OpenAPI and well-known metadata.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/for-agents">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>For Agents</span></strong></a><div class="links"><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="/trust">Trust</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">Agent-native onboarding</div><h1>Agents can inspect the node before spending anything.</h1><p class="lead">Discovery, metadata, pricebook, limited quotes, sandbox testing and receipt verification are public. Paid work starts when real execution, priority or volume is requested.</p></section>
+    <section class="grid">
+      <article class="card"><h2>MCP endpoint</h2><p>Use the remote MCP facade for agent tooling.</p><pre>POST https://nineoneninetwo.com.br/mcp</pre></article>
+      <article class="card"><h2>Tools</h2><p><code>discover_9192</code>, <code>get_pricebook</code>, <code>get_payment_info</code>, <code>quote_get_pulse</code>, <code>verify_receipt</code>.</p></article>
+      <article class="card"><h2>Agent card</h2><p>Read the machine card and capability metadata.</p><pre>GET /.well-known/agent.json</pre></article>
+      <article class="card wide"><h2>Decision flow</h2><p>Discover capabilities, read the active pricebook, create a quote, check payment rails, execute only after funding is available, then verify the returned receipt.</p></article>
+      <article class="card"><h2>Sandbox</h2><p>Anonymous sandbox routes let clients test the full quote, accept, execute and verify loop without a real crypto transaction.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Free to discover. Free to verify. Paid to execute at scale.</div></footer>
+</body>
+</html>

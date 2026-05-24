@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://nineoneninetwo.com.br/</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/docs</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/protocol</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/for-agents</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/pricing</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/status</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/trust</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/llms.txt</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/site.webmanifest</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/openapi.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/openapi.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.kv</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/status.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/pricebook.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_service_catalog.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_pricebook_public.txt</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/nodes.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_QUICKSTART.md</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_README.md</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/agent-card.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/agent.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/host-meta</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/host-meta.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/mcp</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/mcp.json</loc></url>
+</urlset>

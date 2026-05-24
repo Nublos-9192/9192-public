@@ -13,6 +13,7 @@ Tools:
 - `get_pricebook`
 - `get_payment_info`
 - `quote_get_pulse`
+- `sandbox_get_pulse`
 - `verify_receipt`
 
 Default target:
@@ -29,4 +30,4 @@ python C:\9192_system\9192_mcp_bridge\server.py
 
 Boundary:
 
-9192C is an internal quote reference. It is not parity, backing, redemption, yield, or a financial promise.
+9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, redeemable asset, parity, backing, redemption, yield, or a financial promise.

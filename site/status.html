@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Status | Public Edge and API Health</title>
+  <meta name="description" content="Public status links for the 9192 HTTPS gateway, native TLS edge, MCP facade, pricebook and discovery metadata.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/status">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Status</span></strong></a><div class="links"><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/for-agents">For Agents</a><a href="/pricing">Pricing</a><a href="/trust">Trust</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">Live public surface</div><h1>Machine-readable health is exposed through the API and well-known metadata.</h1><p class="lead">Use these endpoints for monitoring, bootstrap and external health checks.</p><div class="cta-row"><a class="button primary" href="/api/v1/status">API status</a><a class="button" href="/api/v1/health">Health</a><a class="button" href="/.well-known/9192/status.json">Status snapshot</a></div></section>
+    <section class="grid">
+      <article class="card"><h2>HTTPS gateway</h2><p class="status-pill">Public on 443</p><p>Serves home, discovery, OpenAPI, MCP metadata and the JSON API facade.</p></article>
+      <article class="card"><h2>Native edge</h2><p class="status-pill">Public on 9443</p><p>edge.nineoneninetwo.com.br:9443 is the native 9192/1 TLS TCP endpoint.</p></article>
+      <article class="card"><h2>MCP facade</h2><p class="status-pill">Remote MCP</p><p>Available at <code>/mcp</code> with stateless JSON-RPC requests.</p></article>
+      <article class="card wide"><h2>Monitoring endpoints</h2><pre>GET /api/v1/status
+GET /api/v1/health
+GET /.well-known/9192/status.json
+GET /.well-known/9192/nodes.json</pre></article>
+      <article class="card"><h2>Discovery version</h2><p>Published metadata uses discovery version v1.0.3 and protocol 9192/1.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Status is best consumed by machines through JSON endpoints.</div></footer>
+</body>
+</html>

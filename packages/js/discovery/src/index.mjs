@@ -70,6 +70,20 @@ export async function discover9192(domain = DEFAULT_9192_DOMAIN, options = {}) {
   return {
     domain,
     baseUrl: base,
+    pages: {
+      home: `${base}/`,
+      docs: `${base}/docs`,
+      protocol: `${base}/protocol`,
+      forAgents: `${base}/for-agents`,
+      pricing: `${base}/pricing`,
+      status: `${base}/status`,
+      trust: `${base}/trust`,
+      openapi: `${base}/openapi.json`,
+      llms: `${base}/llms.txt`,
+      sitemap: `${base}/sitemap.xml`,
+      robots: `${base}/robots.txt`
+    },
+    freemiumPolicy: pricebook.freemium_policy || bootstrap.freemium_policy || agentCard.freemium_policy,
     txtRecords,
     txt,
     bootstrap,
@@ -85,4 +99,3 @@ export async function discover9192(domain = DEFAULT_9192_DOMAIN, options = {}) {
     }
   };
 }
-

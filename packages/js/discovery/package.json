@@ -1,6 +1,6 @@
 {
   "name": "@nineoneninetwo/discovery",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Discovery helpers for the public 9192 machine-to-machine service.",
   "homepage": "https://nineoneninetwo.com.br",
   "repository": {

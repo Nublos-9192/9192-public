@@ -9,18 +9,120 @@
     "settlement": "crypto_only"
   },
   "links": [
-    {"rel": "self", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/host-meta.json"},
-    {"rel": "alternate", "type": "application/xrd+xml", "href": "https://nineoneninetwo.com.br/.well-known/host-meta"},
-    {"rel": "lrdd", "template": "https://nineoneninetwo.com.br/.well-known/webfinger?resource={uri}"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-manifest", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-bootstrap", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-status", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/9192/status.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-catalog", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/9192/9192_service_catalog.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-pricebook", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/9192/pricebook.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-agent-card", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/agent-card.json"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-mcp", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/mcp"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-index", "type": "application/json", "href": "https://nineoneninetwo.com.br/.well-known/"},
-    {"rel": "https://nineoneninetwo.com.br/rel/9192-api", "type": "application/json", "href": "https://nineoneninetwo.com.br/api/v1/status"},
-    {"rel": "service-desc", "type": "application/vnd.oai.openapi+json", "href": "https://nineoneninetwo.com.br/openapi.json"}
-  ]
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/host-meta.json"
+    },
+    {
+      "rel": "alternate",
+      "type": "application/xrd+xml",
+      "href": "https://nineoneninetwo.com.br/.well-known/host-meta"
+    },
+    {
+      "rel": "lrdd",
+      "template": "https://nineoneninetwo.com.br/.well-known/webfinger?resource={uri}"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-manifest",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-bootstrap",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-status",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/9192/status.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-catalog",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/9192/9192_service_catalog.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-pricebook",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/9192/pricebook.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-agent-card",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/agent-card.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-mcp",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/mcp"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-index",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/.well-known/"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/9192-api",
+      "type": "application/json",
+      "href": "https://nineoneninetwo.com.br/api/v1/status"
+    },
+    {
+      "rel": "service-desc",
+      "type": "application/vnd.oai.openapi+json",
+      "href": "https://nineoneninetwo.com.br/openapi.json"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/docs",
+      "type": "text/html",
+      "href": "https://nineoneninetwo.com.br/docs"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/protocol",
+      "type": "text/html",
+      "href": "https://nineoneninetwo.com.br/protocol"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/pricing",
+      "type": "text/html",
+      "href": "https://nineoneninetwo.com.br/pricing"
+    },
+    {
+      "rel": "https://nineoneninetwo.com.br/rel/trust",
+      "type": "text/html",
+      "href": "https://nineoneninetwo.com.br/trust"
+    }
+  ],
+  "freemium_policy": {
+    "positioning": "open_protocol_paid_execution",
+    "summary": "Free to discover. Free to quote. Free to verify. Free to integrate. Paid to execute at scale.",
+    "free_discovery": true,
+    "free_receipt_verification": true,
+    "quote_generation": "free_limited",
+    "sandbox_available": true,
+    "anonymous_sandbox": true,
+    "anonymous_execution": false,
+    "paid_execution_required": true,
+    "execution_requires_balance": true,
+    "commercial_tiers": "planned",
+    "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
+  },
+  "discovery_version": "1.0.3",
+  "public_client_kit_version": "v1.0.3",
+  "public_site_pages": {
+    "home": "https://nineoneninetwo.com.br/",
+    "docs": "https://nineoneninetwo.com.br/docs",
+    "protocol": "https://nineoneninetwo.com.br/protocol",
+    "for_agents": "https://nineoneninetwo.com.br/for-agents",
+    "pricing": "https://nineoneninetwo.com.br/pricing",
+    "status": "https://nineoneninetwo.com.br/status",
+    "trust": "https://nineoneninetwo.com.br/trust",
+    "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "sitemap": "https://nineoneninetwo.com.br/sitemap.xml",
+    "robots": "https://nineoneninetwo.com.br/robots.txt"
+  },
+  "manifest_file_sha256": "738bb8e4d30eca121c77f1e06b6a6f7ead1b791a225f18bc25f8efa58da88d77",
+  "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt"
 }

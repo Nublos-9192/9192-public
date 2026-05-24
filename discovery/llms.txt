@@ -27,12 +27,12 @@ Discovery:
 
 Public client kit:
 - GitHub repository: https://github.com/Nublos-9192/9192-public
-- GitHub release v1.0.2: https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.2
-- GitHub release zip: https://github.com/Nublos-9192/9192-public/releases/download/v1.0.2/9192_public_client_kit_v1.0.2.zip
+- GitHub release v1.0.3: https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.3
+- GitHub release zip: https://github.com/Nublos-9192/9192-public/releases/download/v1.0.3/9192_public_client_kit_v1.0.3.zip
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_QUICKSTART.md
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_README.md
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit.zip
-- signed release v1.0.2: https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.2/
+- signed release v1.0.3: https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.3/
 - release signing public key: https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem
 
 HTTP API facade:
@@ -42,6 +42,9 @@ HTTP API facade:
 - https://nineoneninetwo.com.br/api/v1/health
 - https://nineoneninetwo.com.br/api/v1/payment-info
 - https://nineoneninetwo.com.br/api/v1/quotes/get-pulse
+- https://nineoneninetwo.com.br/api/v1/sandbox/quotes/get-pulse
+- https://nineoneninetwo.com.br/api/v1/sandbox/executions/get-pulse
+- https://nineoneninetwo.com.br/api/v1/sandbox/receipts/verify
 
 Remote MCP facade:
 - https://nineoneninetwo.com.br/mcp
@@ -53,16 +56,25 @@ Supported public flow:
 1. Discover DNS TXT and HTTPS metadata.
 2. Connect to edge.nineoneninetwo.com.br:9443 with TLS.
 3. Run HELLO/CAPS/PAYMENT_INFO.
-4. Request QUOTE.
-5. Fund account through crypto-only settlement rails.
-6. ACCEPT_QUOTE.
-7. Execute a supported command such as GET_PULSE.
-8. Request GET_RECEIPT and VERIFY_RECEIPT.
+4. Request QUOTE. Quote generation is free with public rate and payload limits.
+5. For onboarding, run the sandbox quote -> accept -> execute -> receipt -> verify flow.
+6. For production work, fund account through crypto-only settlement rails.
+7. ACCEPT_QUOTE.
+8. Execute a supported command such as GET_PULSE.
+9. Request GET_RECEIPT and VERIFY_RECEIPT.
+
+Freemium policy:
+- Free to discover.
+- Free to quote with limits.
+- Free to verify receipts.
+- Free to integrate with OpenAPI, MCP metadata, docs, and client kit.
+- Free limited sandbox for onboarding.
+- Paid for real execution, priority, high volume, and commercial operation.
 
 Active price book: competitive_v6
 Price version: 9192C_REF_USD_WORK_V6
 Reference value: for internal quotation only, 1 9192C has a USD 1.00 reference value.
-Policy: 9192C is not parity, backing, redemption, yield, or a financial promise.
+Policy: 9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, redeemable asset, parity, backing, yield, or a financial promise.
 
 Settlement rails:
 - Preferred: USDT/TRON
@@ -73,3 +85,12 @@ Settlement rails:
 
 Important boundary:
 HTTP is a discovery and JSON gateway facade. The API does not replace 9192; it translates whitelisted HTTP/JSON routes to the 9192/1 TLS TCP edge and never talks directly to the local backend.
+
+
+Human pages:
+- https://nineoneninetwo.com.br/docs
+- https://nineoneninetwo.com.br/protocol
+- https://nineoneninetwo.com.br/for-agents
+- https://nineoneninetwo.com.br/pricing
+- https://nineoneninetwo.com.br/status
+- https://nineoneninetwo.com.br/trust

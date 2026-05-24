@@ -8,4 +8,16 @@ export function discover9192(domain?: string, options?: {
   skipDns?: boolean;
   fetchOptions?: RequestInit;
 }): Promise<any>;
-
+export type NineOneNineTwoDiscovery = {
+  domain: string;
+  baseUrl: string;
+  pages: Record<string, string>;
+  freemiumPolicy?: any;
+  txtRecords: string[];
+  txt: Record<string, string | boolean>;
+  bootstrap: any;
+  agentCard: any;
+  status: any;
+  pricebook: any;
+  edge: any;
+};

@@ -3,7 +3,22 @@
   "info": {
     "title": "9192 Public HTTPS API Gateway",
     "version": "v1",
-    "description": "HTTP/JSON facade for 9192. Core execution remains the 9192/1 TLS TCP protocol at edge.nineoneninetwo.com.br:9443."
+    "description": "HTTP/JSON facade for 9192. Core execution remains the 9192/1 TLS TCP protocol at edge.nineoneninetwo.com.br:9443. Discovery, integration, limited quote generation, sandbox testing, and receipt verification are free; real execution, priority, volume, and commercial operation are paid.",
+    "x-9192-positioning": "open_protocol_paid_execution",
+    "x-9192-freemium-policy": {
+      "positioning": "open_protocol_paid_execution",
+      "summary": "Free to discover. Free to quote. Free to verify. Free to integrate. Paid to execute at scale.",
+      "free_discovery": true,
+      "free_receipt_verification": true,
+      "quote_generation": "free_limited",
+      "sandbox_available": true,
+      "anonymous_sandbox": true,
+      "anonymous_execution": false,
+      "paid_execution_required": true,
+      "execution_requires_balance": true,
+      "commercial_tiers": "planned",
+      "9192C_legal_policy": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
+    }
   },
   "servers": [
     {
@@ -228,6 +243,61 @@
           }
         }
       },
+      "SandboxQuoteRequest": {
+        "type": "object",
+        "properties": {
+          "machine_id": {
+            "type": "string",
+            "default": "sandbox_machine"
+          },
+          "bits": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65536,
+            "default": 65536
+          },
+          "max_output": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8192,
+            "default": 8192
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "standard"
+            ],
+            "default": "normal"
+          }
+        }
+      },
+      "SandboxAcceptRequest": {
+        "type": "object",
+        "required": [
+          "machine_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          }
+        }
+      },
+      "SandboxExecutionRequest": {
+        "type": "object",
+        "required": [
+          "machine_id",
+          "quote_id"
+        ],
+        "properties": {
+          "machine_id": {
+            "type": "string"
+          },
+          "quote_id": {
+            "type": "string"
+          }
+        }
+      },
       "GatewayEnvelope": {
         "type": "object",
         "properties": {
@@ -295,7 +365,95 @@
           "200": {
             "description": "HTML landing page"
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/docs": {
+      "get": {
+        "summary": "Human-readable 9192 documentation page",
+        "responses": {
+          "200": {
+            "description": "HTML documentation"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/protocol": {
+      "get": {
+        "summary": "Human-readable 9192 protocol overview page",
+        "responses": {
+          "200": {
+            "description": "HTML protocol overview"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/for-agents": {
+      "get": {
+        "summary": "Human-readable 9192 agent integration page",
+        "responses": {
+          "200": {
+            "description": "HTML agent integration guide"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/pricing": {
+      "get": {
+        "summary": "Human-readable 9192 pricing policy page",
+        "responses": {
+          "200": {
+            "description": "HTML pricing policy"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/status": {
+      "get": {
+        "summary": "Human-readable 9192 status page",
+        "responses": {
+          "200": {
+            "description": "HTML status page"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/trust": {
+      "get": {
+        "summary": "Human-readable 9192 trust and verification page",
+        "responses": {
+          "200": {
+            "description": "HTML trust center"
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/llms.txt": {
@@ -305,7 +463,32 @@
           "200": {
             "description": "Plain-text agent summary"
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/site.webmanifest": {
+      "get": {
+        "summary": "Web app manifest for 9192 brand discovery",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/.well-known/webfinger": {
@@ -348,7 +531,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/.well-known/host-meta": {
@@ -460,7 +647,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/.well-known/9192/": {
@@ -470,7 +661,11 @@
           "200": {
             "description": "HTML discovery index"
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/.well-known/9192/9192_public_manifest.json": {
@@ -636,7 +831,11 @@
           "405": {
             "description": "GET stream not supported"
           }
-        }
+        },
+        "x-9192-billing": "free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       },
       "post": {
         "summary": "Remote MCP JSON-RPC endpoint for whitelisted 9192 tools",
@@ -661,7 +860,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/status": {
@@ -678,7 +881,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/discovery": {
@@ -695,7 +902,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/manifest": {
@@ -712,7 +923,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/pricebook": {
@@ -729,7 +944,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/payment": {
@@ -746,7 +965,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/payment-info": {
@@ -763,7 +986,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/health": {
@@ -780,7 +1007,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/caps": {
@@ -797,7 +1028,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/hello": {
@@ -814,7 +1049,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/quotes/get-pulse": {
@@ -841,7 +1080,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/quotes/{quote_id}/accept": {
@@ -878,7 +1121,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "controlled",
+        "x-9192-auth": "machine_context",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "machine_context"
       }
     },
     "/api/v1/quotes/make-bct": {
@@ -905,7 +1153,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/api/v1/quotes/verify-bct": {
@@ -932,7 +1184,149 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
+      }
+    },
+    "/api/v1/sandbox/quotes/get-pulse": {
+      "post": {
+        "summary": "Create a free limited sandbox GET_PULSE quote",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxQuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "x-9192-billing": "sandbox_free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "sandbox_quote"
+      }
+    },
+    "/api/v1/sandbox/quotes/{quote_id}/accept": {
+      "post": {
+        "summary": "Accept a free limited sandbox quote",
+        "parameters": [
+          {
+            "name": "quote_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxAcceptRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "x-9192-billing": "sandbox_free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "sandbox_quote"
+      }
+    },
+    "/api/v1/sandbox/executions/get-pulse": {
+      "post": {
+        "summary": "Execute a tiny sandbox GET_PULSE flow without real settlement",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "x-9192-billing": "sandbox_free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": true,
+        "x-9192-requires": "sandbox_quote"
+      }
+    },
+    "/api/v1/sandbox/receipts/verify": {
+      "post": {
+        "summary": "Verify a sandbox receipt generated by this gateway",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReceiptVerifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "x-9192-billing": "sandbox_free_limited",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "sandbox_quote"
       }
     },
     "/api/v1/invoices": {
@@ -959,7 +1353,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "controlled",
+        "x-9192-auth": "machine_context",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "machine_context"
       }
     },
     "/api/v1/invoices/{invoice_id}": {
@@ -993,7 +1392,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "controlled",
+        "x-9192-auth": "machine_context",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "machine_context"
       }
     },
     "/api/v1/executions/get-pulse": {
@@ -1020,7 +1424,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "paid",
+        "x-9192-auth": "required",
+        "x-9192-rate-limit": "paid_execution",
+        "x-9192-execution": true,
+        "x-9192-requires": "quote_accepted_and_balance"
       }
     },
     "/api/v1/executions/make-bct": {
@@ -1047,7 +1456,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "paid",
+        "x-9192-auth": "required",
+        "x-9192-rate-limit": "paid_execution",
+        "x-9192-execution": true,
+        "x-9192-requires": "quote_accepted_and_balance"
       }
     },
     "/api/v1/executions/verify-bct": {
@@ -1074,7 +1488,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "paid",
+        "x-9192-auth": "required",
+        "x-9192-rate-limit": "paid_execution",
+        "x-9192-execution": true,
+        "x-9192-requires": "quote_accepted_and_balance"
       }
     },
     "/api/v1/receipts/{receipt_id}": {
@@ -1108,7 +1527,12 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "controlled",
+        "x-9192-auth": "machine_context",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false,
+        "x-9192-requires": "machine_context"
       }
     },
     "/api/v1/receipts/verify": {
@@ -1135,7 +1559,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/openapi.json": {
@@ -1152,7 +1580,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     },
     "/.well-known/9192/openapi.json": {
@@ -1169,7 +1601,11 @@
               }
             }
           }
-        }
+        },
+        "x-9192-billing": "free",
+        "x-9192-auth": "none",
+        "x-9192-rate-limit": "public_low",
+        "x-9192-execution": false
       }
     }
   }

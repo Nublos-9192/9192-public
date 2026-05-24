@@ -15,6 +15,10 @@ export class NineOneNineTwoClient {
   hello(): Promise<any>;
   caps(): Promise<any>;
   openapi(): Promise<any>;
+  sandboxQuoteGetPulse(args?: any): Promise<any>;
+  sandboxAcceptQuote(args?: any): Promise<any>;
+  sandboxExecuteGetPulse(args?: any): Promise<any>;
+  sandboxVerifyReceipt(args?: any): Promise<any>;
   quoteGetPulse(args?: any): Promise<any>;
   quoteMakeBct(args?: any): Promise<any>;
   quoteVerifyBct(args?: any): Promise<any>;
@@ -28,4 +32,3 @@ export class NineOneNineTwoClient {
   verifyReceipt(args?: any): Promise<any>;
 }
 export function create9192Client(options?: any): Promise<NineOneNineTwoClient>;
-

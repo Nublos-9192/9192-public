@@ -13,7 +13,84 @@
     "priority": "standard_1x_priority_2x_critical_4x"
   },
   "examples": [
-    {"service": "GET_PULSE", "bits": 65536, "input_bytes": 0, "estimated_ms": 0, "priority_class": "standard", "quote_units": 10000, "usd_estimate": "0.00010000"},
-    {"service": "BVM_EXEC", "bits": 2097152, "input_bytes": 1048576, "estimated_ms": 20, "priority_class": "standard", "quote_units": 628309, "usd_estimate": "0.00628309"}
-  ]
+    {
+      "service": "GET_PULSE",
+      "bits": 65536,
+      "input_bytes": 0,
+      "estimated_ms": 0,
+      "priority_class": "standard",
+      "quote_units": 10000,
+      "usd_estimate": "0.00010000"
+    },
+    {
+      "service": "BVM_EXEC",
+      "bits": 2097152,
+      "input_bytes": 1048576,
+      "estimated_ms": 20,
+      "priority_class": "standard",
+      "quote_units": 628309,
+      "usd_estimate": "0.00628309"
+    }
+  ],
+  "freemium_policy": {
+    "positioning": "open_protocol_paid_execution",
+    "summary": "Free to discover. Free to quote. Free to verify. Free to integrate. Paid to execute at scale.",
+    "free_discovery": true,
+    "free_receipt_verification": true,
+    "quote_generation": "free_limited",
+    "sandbox_available": true,
+    "anonymous_sandbox": true,
+    "anonymous_execution": false,
+    "paid_execution_required": true,
+    "execution_requires_balance": true,
+    "commercial_tiers": "planned",
+    "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
+  },
+  "quote_generation": "free_limited",
+  "execution_requires_balance": true,
+  "anonymous_sandbox": true,
+  "anonymous_execution": false,
+  "sandbox_limits": {
+    "max_bits": 65536,
+    "max_output_bytes": 8192,
+    "max_input_bytes": 4096,
+    "ttl_seconds": 300
+  },
+  "free_public_surfaces": [
+    "discovery",
+    "openapi",
+    "mcp_metadata",
+    "pricebook",
+    "quotes_limited",
+    "receipt_verification",
+    "client_kit"
+  ],
+  "paid_surfaces": [
+    "real_execution",
+    "priority",
+    "high_volume",
+    "commercial_operation"
+  ],
+  "sandbox_available": true,
+  "free_discovery": true,
+  "free_receipt_verification": true,
+  "paid_execution_required": true,
+  "commercial_tiers": "planned",
+  "discovery_version": "1.0.3",
+  "public_client_kit_version": "v1.0.3",
+  "public_site_pages": {
+    "home": "https://nineoneninetwo.com.br/",
+    "docs": "https://nineoneninetwo.com.br/docs",
+    "protocol": "https://nineoneninetwo.com.br/protocol",
+    "for_agents": "https://nineoneninetwo.com.br/for-agents",
+    "pricing": "https://nineoneninetwo.com.br/pricing",
+    "status": "https://nineoneninetwo.com.br/status",
+    "trust": "https://nineoneninetwo.com.br/trust",
+    "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "sitemap": "https://nineoneninetwo.com.br/sitemap.xml",
+    "robots": "https://nineoneninetwo.com.br/robots.txt"
+  },
+  "manifest_file_sha256": "738bb8e4d30eca121c77f1e06b6a6f7ead1b791a225f18bc25f8efa58da88d77",
+  "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt"
 }

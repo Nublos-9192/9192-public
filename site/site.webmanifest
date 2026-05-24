@@ -1,0 +1,24 @@
+{
+  "name": "9192 Protocol",
+  "short_name": "9192",
+  "description": "Verifiable execution for autonomous machines.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020807",
+  "theme_color": "#16f4d0",
+  "icons": [
+    {
+      "src": "/favicon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
