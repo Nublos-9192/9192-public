@@ -15,4 +15,21 @@ gh release create v1.0.4 .\releases\v1.0.4\9192_public_client_kit_v1.0.4.zip .\r
 ~~~
 
 The remote MCP Registry entry already exists as br.com.nineoneninetwo/9192.
-OCI can be built from Dockerfile for the stdio MCP bridge, and Dockerfile.probe for a discovery bootstrap smoke.
+OCI images are published by GitHub Actions on release tags:
+
+~~~powershell
+docker pull ghcr.io/nublos-9192/9192-public:v1.0.4
+docker pull ghcr.io/nublos-9192/9192-public-probe:v1.0.4
+docker run --rm ghcr.io/nublos-9192/9192-public-probe:v1.0.4
+~~~
+
+The stdio MCP bridge image is built from Dockerfile. The probe image is built from Dockerfile.probe and runs a discovery bootstrap smoke against the public domain.
+
+Public npm packages:
+
+~~~powershell
+npm view @nineoneninetwo/discovery version
+npm view @nineoneninetwo/client version
+npm view @nineoneninetwo/mcp version
+npm view @nineoneninetwo/demo version
+~~~

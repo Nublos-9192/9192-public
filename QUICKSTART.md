@@ -33,3 +33,22 @@ For a discovery-first smoke:
 ```powershell
 python .\examples\9192_external_bootstrap_client.py --domain nineoneninetwo.com.br --machine quickstart_machine --report quickstart_report.json
 ```
+
+Node.js package smoke:
+
+```powershell
+npx @nineoneninetwo/demo smoke
+npx @nineoneninetwo/demo sandbox
+```
+
+OCI/GHCR smoke:
+
+```powershell
+docker run --rm ghcr.io/nublos-9192/9192-public-probe:v1.0.4
+```
+
+Remote MCP endpoint:
+
+```text
+https://nineoneninetwo.com.br/mcp
+```
