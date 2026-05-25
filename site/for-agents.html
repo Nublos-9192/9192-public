@@ -3,26 +3,148 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>9192 For Agents | MCP and Autonomous Machine Integration</title>
-  <meta name="description" content="How agents and automated systems discover, quote, fund, execute and verify 9192 services through MCP, OpenAPI and well-known metadata.">
+  <title>9192 For Agents | Receipt Verification for AI Agents</title>
+  <meta name="description" content="A concrete 9192 integration path for AI agents: discover the node, create a sandbox quote, execute a bounded call, receive a receipt and verify it publicly.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#070a0d">
   <link rel="canonical" href="https://nineoneninetwo.com.br/for-agents">
   <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-256.png" sizes="256x256">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/assets/9192-pages.css">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+  <meta property="og:title" content="9192 For Agents">
+  <meta property="og:description" content="Receipt verification for AI agents: quote, execute sandbox work, receive a receipt and verify it.">
+  <meta property="og:url" content="https://nineoneninetwo.com.br/for-agents">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nineoneninetwo.com.br/assets/9192-protocol-hero.png">
 </head>
 <body>
-  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>For Agents</span></strong></a><div class="links"><a href="/start">Start</a><a href="/agent">Agent Runner</a><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="/trust">Trust</a></div></div></nav>
-  <main class="wrap">
-    <section class="hero"><div class="eyebrow">Agent-native onboarding</div><h1>Agents can inspect the node before spending anything.</h1><p class="lead">Discovery, metadata, pricebook, limited quotes, sandbox testing and receipt verification are public. Paid work starts when real execution, priority or volume is requested.</p></section>
-    <section class="grid">
-      <article class="card"><h2>MCP endpoint</h2><p>Use the remote MCP facade for agent tooling.</p><pre>POST https://nineoneninetwo.com.br/mcp</pre></article>
-      <article class="card"><h2>Tools</h2><p><code>discover_9192</code>, <code>get_pricebook</code>, <code>get_payment_info</code>, <code>quote_get_pulse</code>, <code>verify_receipt</code>.</p></article>
-      <article class="card"><h2>Agent card</h2><p>Read the machine card and capability metadata.</p><pre>GET /.well-known/agent.json</pre></article>
-      <article class="card wide"><h2>Decision flow</h2><p>Discover capabilities, read the active pricebook, create a quote, check payment rails, execute only after funding is available, then verify the returned receipt.</p></article>
-      <article class="card"><h2>Sandbox</h2><p>Anonymous sandbox routes let clients test the full quote, accept, execute and verify loop without a real crypto transaction.</p></article>
-      <article class="card"><h2>Agent Runner</h2><p>Use the runner as the customer-safe first integration path.</p><pre>npx @nineoneninetwo/demo --mode sandbox</pre><p><a href="/agent">Open guide</a></p></article>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="9192 home"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>for agents</span></strong></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/sandbox">Sandbox</a>
+        <a href="/api">API</a>
+        <a href="/capabilities">Capabilities</a>
+        <a href="/security">Security</a>
+        <a href="/trust">Trust</a>
+        <a href="/status">Status</a>
+      </nav>
+      <a class="button primary" href="/sandbox">Run Sandbox</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-art"><img src="/assets/9192-protocol-hero.png" alt=""></div>
+      <div class="shell hero-content">
+        <div>
+          <div class="eyebrow">Receipt Verify for AI Agents</div>
+          <h1>Give agents proof after they run work.</h1>
+          <p class="lede">9192 lets an agent discover a public node, request a bounded quote, execute a sandbox call, receive a receipt and verify that receipt through a public endpoint before any paid integration is needed.</p>
+          <div class="cta-row">
+            <a class="button primary" href="/sandbox">Run the live sandbox</a>
+            <a class="button secondary" href="/api">View API calls</a>
+            <a class="button" href="/trust">Verify trust material</a>
+          </div>
+        </div>
+        <aside class="hero-proof" aria-label="Live proof">
+          <div class="proof-tile ok"><small>API</small><strong data-live="status">checking</strong></div>
+          <div class="proof-tile ok"><small>Sandbox</small><strong>free limited</strong></div>
+          <div class="proof-tile"><small>Receipt check</small><strong>public route</strong></div>
+          <div class="proof-tile"><small>Last check</small><strong data-live="checked">pending</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>The offer.</h2>
+        <p>For teams building agents, 9192 is a receipt layer for bounded machine execution. The first useful proof is not a slide deck: it is a sandbox receipt an agent can verify.</p>
+      </div>
+      <div class="path-grid">
+        <article class="path-card"><b>For agent builders</b><span>Add a verifiable execution step to autonomous workflows without handing the agent a blanket spending permission.</span></article>
+        <article class="path-card"><b>For automation teams</b><span>Attach receipt evidence to machine work, probes, timestamp proofs and event logs.</span></article>
+        <article class="path-card"><b>For evaluators</b><span>Test the public loop first: quote, accept, execute, receipt, verify.</span></article>
+        <article class="path-card"><b>For paid use</b><span>Move to funded execution only after an explicit quote and a settled machine account.</span></article>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>What you can test now.</h2>
+        <p>The public sandbox is deliberately small, but it proves the operational loop that a real customer or agent would need.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><b>01</b><strong>Status</strong><p>Check that the public API is reachable.</p></div>
+        <div class="flow-step"><b>02</b><strong>Quote</strong><p>Create a bounded sandbox quote.</p></div>
+        <div class="flow-step"><b>03</b><strong>Accept</strong><p>Accept the quote explicitly.</p></div>
+        <div class="flow-step"><b>04</b><strong>Execute</strong><p>Run the limited sandbox work.</p></div>
+        <div class="flow-step"><b>05</b><strong>Receipt</strong><p>Receive execution evidence.</p></div>
+        <div class="flow-step"><b>06</b><strong>Verify</strong><p>Validate the receipt publicly.</p></div>
+      </div>
+      <div class="cta-row"><a class="button primary" href="/sandbox">Open interactive sandbox</a><a class="button secondary" href="/openapi.json">Open OpenAPI</a></div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Integration in 10 minutes.</h2>
+        <p>Start with HTTP. Move to MCP or native protocol only when the integration needs it.</p>
+      </div>
+      <div class="tool-grid">
+        <div class="panel">
+          <div class="panel-title">Minimal sequence <span>copy-ready</span></div>
+          <pre class="result"><code>GET  /api/v1/status
+POST /api/v1/sandbox/quotes/get-pulse
+POST /api/v1/sandbox/quotes/{quote_id}/accept
+POST /api/v1/sandbox/executions/get-pulse
+POST /api/v1/sandbox/receipts/verify</code></pre>
+        </div>
+        <div class="panel">
+          <div class="panel-title">PowerShell smoke <span>public</span></div>
+          <pre class="result"><code>$base = "https://nineoneninetwo.com.br"
+Invoke-RestMethod "$base/api/v1/status"
+Invoke-RestMethod "$base/api/v1/caps"
+Invoke-RestMethod "$base/.well-known/agent.json"</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Where it fits.</h2>
+        <p>Use it where an autonomous system needs a machine-readable answer to: what was requested, what was accepted, what ran and what receipt proves it.</p>
+      </div>
+      <div class="path-grid">
+        <a class="path-card" href="/.well-known/agent.json"><b>Agent metadata</b><span>Expose discovery, capabilities and service links to agent runtimes.</span></a>
+        <a class="path-card" href="/api"><b>Receipt API</b><span>Keep receipt verification independent from paid execution.</span></a>
+        <a class="path-card" href="/security"><b>Execution boundaries</b><span>Separate public discovery, sandbox execution, paid execution and admin operations.</span></a>
+        <a class="path-card" href="/trust"><b>Release trust</b><span>Publish checksums, signatures and machine-readable release material.</span></a>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Commercial boundary.</h2>
+        <p>9192 should be easy to test and hard to misuse. The sandbox is free and limited. Real execution, volume, priority and settlement require explicit commercial setup.</p>
+      </div>
+      <div class="status-grid">
+        <div class="status-card"><b>Discovery</b><strong>free</strong><span>Status, OpenAPI, agent card and public metadata.</span></div>
+        <div class="status-card"><b>Sandbox</b><strong>free limited</strong><span>Quote, accept, execute and verify without funding.</span></div>
+        <div class="status-card"><b>Paid execution</b><strong>quoted</strong><span>Runs only after quote acceptance and machine-account funding.</span></div>
+        <div class="status-card"><b>Settlement</b><strong>explicit</strong><span>No automatic spending is implied by discovery or verification.</span></div>
+      </div>
+      <div class="cta-row"><a class="button secondary" href="https://github.com/Nublos-9192/9192-public">Open GitHub kit</a><a class="button" href="/pricebook.json">View pricebook</a></div>
     </section>
   </main>
-  <footer class="footer"><div class="wrap">Free to discover. Free to verify. Paid to execute at scale.</div></footer>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>9192 Receipt Verify for AI Agents</span>
+      <span><a href="/sandbox">sandbox</a> / <a href="/api">api</a> / <a href="/trust">trust</a> / <a href="https://github.com/Nublos-9192/9192-public">github</a></span>
+    </div>
+  </footer>
+  <script src="/assets/9192-v2.js" defer></script>
 </body>
 </html>
