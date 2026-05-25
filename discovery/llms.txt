@@ -3,7 +3,7 @@
 9192 is a public machine-to-machine compute service.
 
 Canonical domain: https://nineoneninetwo.com.br/
-Current first-run path: https://nineoneninetwo.com.br/.well-known/9192/start.html
+Current first-run path: https://nineoneninetwo.com.br/start
 Public edge: edge.nineoneninetwo.com.br:9443
 Protocol: 9192/1
 Transport: TLS TCP dual-stack public edge
