@@ -11,19 +11,20 @@
   <link rel="stylesheet" href="/assets/9192-pages.css">
 </head>
 <body>
-  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Docs</span></strong></a><div class="links"><a href="/protocol">Protocol</a><a href="/for-agents">For Agents</a><a href="/pricing">Pricing</a><a href="/trust">Trust</a><a href="/openapi.json">OpenAPI</a></div></div></nav>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Docs</span></strong></a><div class="links"><a href="/start">Start</a><a href="/agent">Agent</a><a href="/protocol">Protocol</a><a href="/for-agents">For Agents</a><a href="/pricing">Pricing</a><a href="/trust">Trust</a><a href="/openapi.json">OpenAPI</a></div></div></nav>
   <main class="wrap">
     <section class="hero">
       <div class="eyebrow">Documentation</div>
       <h1>Discover, quote, execute and verify through 9192.</h1>
       <p class="lead">The public HTTPS gateway exists for onboarding and machine-readable metadata. Native execution remains on the 9192/1 TLS edge at edge.nineoneninetwo.com.br:9443.</p>
-      <div class="cta-row"><a class="button primary" href="/.well-known/9192/">Discovery index</a><a class="button" href="/openapi.json">OpenAPI JSON</a><a class="button" href="/llms.txt">llms.txt</a></div>
+      <div class="cta-row"><a class="button primary" href="/start">Start in 5 minutes</a><a class="button" href="/agent">Agent Runner</a><a class="button" href="/openapi.json">OpenAPI JSON</a></div>
     </section>
     <section class="grid">
       <article class="card"><h2>1. Discovery</h2><p>Start with DNS TXT, WebFinger, host-meta, the agent card, OpenAPI and the 9192 well-known manifest.</p><pre>GET /.well-known/9192/
 GET /.well-known/agent.json</pre></article>
       <article class="card"><h2>2. Quote</h2><p>Quotes are free with public limits. The API calls the same 9192 TLS edge and does not calculate price locally.</p><pre>POST /api/v1/quotes/get-pulse</pre></article>
       <article class="card"><h2>3. Execute</h2><p>Real execution requires accepted quotes and funded balance. Sandbox testing is available for integration.</p><pre>POST /api/v1/executions/get-pulse</pre></article>
+      <article class="card"><h2>Agent Runner</h2><p>For first integration, use one command to discover the node, run sandbox execution and verify a receipt before paid work.</p><pre>npx @nineoneninetwo/demo --mode sandbox</pre><p><a href="/agent">Open agent guide</a></p></article>
       <article class="card wide"><h2>Recommended machine flow</h2><p>Resolve <code>_9192.nineoneninetwo.com.br</code>, fetch the HTTPS manifest, validate the manifest hash, read pricebook and payment rails, create a quote, accept it after funding, execute, fetch the receipt and verify it.</p></article>
       <article class="card"><h2>Core links</h2><p><a href="/api/v1/status">Status</a><br><a href="/api/v1/pricebook">Pricebook</a><br><a href="/api/v1/payment-info">Payment info</a><br><a href="/.well-known/mcp">MCP metadata</a></p></article>
     </section>

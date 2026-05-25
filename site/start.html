@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start 9192 | First Verified Machine Call</title>
+  <meta name="description" content="Run your first verified 9192 machine call in five minutes with the HTTP API, sandbox execution and receipt verification.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/start">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Start</span></strong></a><div class="links"><a href="/start">Start</a><a href="/agent">Agent</a><a href="/trust">Trust</a><a href="/docs">Docs</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="https://github.com/Nublos-9192/9192-public">GitHub</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero start-hero"><div class="eyebrow">HTTP API + sandbox + receipt</div><h1>Run your first verified machine call in 5 minutes.</h1><p class="lead">Start with the public HTTP API, execute a free sandbox call, and verify the receipt before touching funding or paid execution.</p><div class="cta-row"><a class="button primary" href="#steps">Start the flow</a><a class="button" href="/api/v1/status">Check status</a><a class="button" href="/trust">Verify trust</a></div></section>
+    <section id="steps" class="start-steps">
+      <article class="step-card"><div class="step-number">1</div><div><h2>Check status</h2><p>Confirm the public gateway is online.</p><pre>curl https://nineoneninetwo.com.br/api/v1/status</pre><p class="expected">Expected: <code>"status":"OK"</code></p></div></article>
+      <article class="step-card"><div class="step-number">2</div><div><h2>Run smoke</h2><p>Read status, pricebook, payment info, HELLO, CAPS and free quotes without spending balance.</p><pre>npx @nineoneninetwo/demo --mode smoke</pre><p class="expected">Expected: discovery, status and a free quote response.</p></div></article>
+      <article class="step-card"><div class="step-number">3</div><div><h2>Run sandbox</h2><p>Execute the first GET_PULSE path in the free limited sandbox.</p><pre>npx @nineoneninetwo/demo --mode sandbox</pre><p class="expected">Expected: quote, execution and receipt verification complete.</p></div></article>
+      <article class="step-card"><div class="step-number">4</div><div><h2>Create quote</h2><p>Create a free limited quote directly through JSON when you are ready to integrate.</p><pre>POST /api/v1/sandbox/quotes/get-pulse</pre><p class="expected">Use a small machine id, <code>bits=65536</code>, and <code>max_output_bytes=8192</code>.</p></div></article>
+      <article class="step-card"><div class="step-number">5</div><div><h2>Execute test call</h2><p>Accept the sandbox quote and execute the test call.</p><pre>POST /api/v1/sandbox/quotes/{quote_id}/accept
+POST /api/v1/sandbox/executions/get-pulse</pre><p class="expected">Expected: a receipt id or receipt payload from the sandbox response.</p></div></article>
+      <article class="step-card"><div class="step-number">6</div><div><h2>Verify receipt</h2><p>Close the loop by verifying the receipt for free.</p><pre>POST /api/v1/sandbox/receipts/verify</pre><p class="expected">Expected: verification accepted by the public API.</p></div></article>
+      <article class="step-card paid-step"><div class="step-number">7</div><div><h2>Go paid</h2><p>Only after the verified sandbox path works, move to real execution with invoice funding and crypto settlement.</p><pre>python examples/9192_public_api_client.py invoice --machine first_client --units 100000 --network TRON --asset USDT</pre><p class="expected">Advanced: native CLI, MCP bridge, JS packages, Docker probe, C++ bootstrap, DNS TXT checks and signed release verification.</p></div></article>
+    </section>
+    <section class="grid start-links">
+      <article class="card"><h2>Trust</h2><p>Manifest hashes, signed releases, public key and receipt verification.</p><p><a href="/trust">Open trust center</a></p></article>
+      <article class="card"><h2>Docs</h2><p>Route reference and integration notes for the public HTTP facade.</p><p><a href="/docs">Open docs</a></p></article>
+      <article class="card"><h2>Agent Runner</h2><p>One command for customer onboarding: discover, sandbox, execute and verify before paid work.</p><p><a href="/agent">Open agent guide</a></p></article>
+      <article class="card"><h2>Release kit</h2><p>CLI, examples, MCP bridge, packages and checksums.</p><p><a href="https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.5">Open release</a></p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">First make it work. Then make it paid.</div></footer>
+</body>
+</html>

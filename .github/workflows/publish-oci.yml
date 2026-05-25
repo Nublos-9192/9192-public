@@ -24,7 +24,7 @@ jobs:
         with:
           images: ghcr.io/nublos-9192/9192-public
           tags: |
-            type=raw,value=v1.0.4
+            type=raw,value=v1.0.5
             type=raw,value=latest
       - uses: docker/build-push-action@v6
         with:
@@ -38,4 +38,4 @@ jobs:
           context: .
           file: ./Dockerfile.probe
           push: true
-          tags: ghcr.io/nublos-9192/9192-public-probe:v1.0.4,ghcr.io/nublos-9192/9192-public-probe:latest
+          tags: ghcr.io/nublos-9192/9192-public-probe:v1.0.5,ghcr.io/nublos-9192/9192-public-probe:latest

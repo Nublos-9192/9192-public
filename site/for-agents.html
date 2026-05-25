@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/assets/9192-pages.css">
 </head>
 <body>
-  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>For Agents</span></strong></a><div class="links"><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="/trust">Trust</a></div></div></nav>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>For Agents</span></strong></a><div class="links"><a href="/start">Start</a><a href="/agent">Agent Runner</a><a href="/docs">Docs</a><a href="/protocol">Protocol</a><a href="/pricing">Pricing</a><a href="/status">Status</a><a href="/trust">Trust</a></div></div></nav>
   <main class="wrap">
     <section class="hero"><div class="eyebrow">Agent-native onboarding</div><h1>Agents can inspect the node before spending anything.</h1><p class="lead">Discovery, metadata, pricebook, limited quotes, sandbox testing and receipt verification are public. Paid work starts when real execution, priority or volume is requested.</p></section>
     <section class="grid">
@@ -20,6 +20,7 @@
       <article class="card"><h2>Agent card</h2><p>Read the machine card and capability metadata.</p><pre>GET /.well-known/agent.json</pre></article>
       <article class="card wide"><h2>Decision flow</h2><p>Discover capabilities, read the active pricebook, create a quote, check payment rails, execute only after funding is available, then verify the returned receipt.</p></article>
       <article class="card"><h2>Sandbox</h2><p>Anonymous sandbox routes let clients test the full quote, accept, execute and verify loop without a real crypto transaction.</p></article>
+      <article class="card"><h2>Agent Runner</h2><p>Use the runner as the customer-safe first integration path.</p><pre>npx @nineoneninetwo/demo --mode sandbox</pre><p><a href="/agent">Open guide</a></p></article>
     </section>
   </main>
   <footer class="footer"><div class="wrap">Free to discover. Free to verify. Paid to execute at scale.</div></footer>

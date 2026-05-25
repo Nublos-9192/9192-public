@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Agent Runner | Customer Integration Guide</title>
+  <meta name="description" content="Download and run the 9192 Agent Runner to discover the node, run the free sandbox and verify a receipt before paid execution.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/agent">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Agent</span></strong></a><div class="links"><a href="/start">Start</a><a href="/docs">Docs</a><a href="/for-agents">For Agents</a><a href="/trust">Trust</a><a href="/pricing">Pricing</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Customer runner</div>
+      <h1>Give customers one command before paid execution.</h1>
+      <p class="lead">The 9192 Agent Runner discovers the public node, runs the free sandbox, executes a test call and verifies the receipt. It does not spend money automatically.</p>
+      <div class="cta-row"><a class="button primary" href="#run">Run sandbox</a><a class="button" href="/start">Start guide</a><a class="button" href="/.well-known/9192/9192_public_client_kit.zip">Download kit</a></div>
+    </section>
+    <section id="run" class="grid">
+      <article class="card wide"><h2>First command</h2><p>Use sandbox mode for the first customer or agent experience.</p><pre>npx @nineoneninetwo/demo --mode sandbox</pre><p>Expected: discovery, sandbox quote, quote acceptance, test execution and receipt verification.</p></article>
+      <article class="card"><h2>Smoke</h2><p>Check discovery, status, pricebook, payment rails, HELLO, CAPS and quote creation without execution.</p><pre>npx @nineoneninetwo/demo --mode smoke</pre></article>
+      <article class="card"><h2>Sandbox</h2><p>Run the free limited quote, accept, execute and receipt verification loop.</p><pre>npx @nineoneninetwo/demo --mode sandbox --machine customer_machine_001</pre></article>
+      <article class="card"><h2>Paid flow</h2><p>Use paid mode only after the machine account has settled balance and the customer accepted the quote.</p><pre>npx @nineoneninetwo/demo --mode paid-flow --machine customer_machine_001</pre></article>
+      <article class="card wide"><h2>Customer promise</h2><p>Run a verified machine call first. Funding, invoice and settlement come only after the customer has seen a working response and a verifiable receipt.</p></article>
+      <article class="card"><h2>Package docs</h2><p>The release kit includes the full agent runner note.</p><p><a href="/.well-known/9192/AGENT.md">Open AGENT.md</a></p></article>
+      <article class="card"><h2>Machine metadata</h2><p>Agents can inspect the same surface through OpenAPI, Agent Card and the 9192 discovery index.</p><p><a href="/openapi.json">OpenAPI</a><br><a href="/.well-known/agent.json">Agent Card</a></p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">One command to verify. Explicit quote before paid work.</div></footer>
+</body>
+</html>

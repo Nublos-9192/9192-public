@@ -15,7 +15,17 @@ Price version: 9192C_REF_USD_WORK_V6
 
 ## Quick Start
 
-On Windows PowerShell:
+Recommended first run:
+
+~~~powershell
+npx @nineoneninetwo/demo --mode sandbox
+~~~
+
+That command discovers 9192, creates a free sandbox quote, accepts it, executes
+a test call, and verifies the returned receipt. It does not fund an account or
+execute paid work.
+
+Native CLI advanced path:
 
 ~~~powershell
 .\bin\windows-x64\9192_public_client_cli.exe hello --host edge.nineoneninetwo.com.br --port 9443 --sni edge.nineoneninetwo.com.br
@@ -36,24 +46,10 @@ HTTP API facade smoke:
 python .\examples\9192_public_api_client.py smoke
 ~~~
 
-Free sandbox flow:
+Free sandbox flow with Python:
 
 ~~~powershell
 python .\examples\9192_public_api_client.py sandbox
-~~~
-
-Node.js package smoke:
-
-~~~powershell
-npx @nineoneninetwo/demo smoke
-npx @nineoneninetwo/demo sandbox
-~~~
-
-OCI/GHCR probes:
-
-~~~powershell
-docker run --rm ghcr.io/nublos-9192/9192-public-probe:v1.0.4
-docker run --rm ghcr.io/nublos-9192/9192-public-probe:latest
 ~~~
 
 Create a funding invoice:
@@ -89,24 +85,16 @@ whitelisted HTTP path for external clients that do not start with the binary pro
 - JS packages for discovery/client/MCP/demo: packages/js/
 - C++ CLI package metadata: packages/cpp/cli/
 - Remote MCP endpoint: https://nineoneninetwo.com.br/mcp
-- Published npm packages: @nineoneninetwo/discovery, @nineoneninetwo/client, @nineoneninetwo/mcp, @nineoneninetwo/demo
-- OCI images: ghcr.io/nublos-9192/9192-public and ghcr.io/nublos-9192/9192-public-probe
+- Agent Runner guide: https://nineoneninetwo.com.br/agent
 - Checksums: checksums.sha256
-
-## Published Artifacts
-
-- GitHub release: https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.4
-- Client kit zip: https://github.com/Nublos-9192/9192-public/releases/download/v1.0.4/9192_public_client_kit_v1.0.4.zip
-- npm discovery: https://www.npmjs.com/package/@nineoneninetwo/discovery
-- npm client: https://www.npmjs.com/package/@nineoneninetwo/client
-- npm MCP bridge: https://www.npmjs.com/package/@nineoneninetwo/mcp
-- npm demo: https://www.npmjs.com/package/@nineoneninetwo/demo
-- OCI MCP image: ghcr.io/nublos-9192/9192-public:v1.0.4
-- OCI probe image: ghcr.io/nublos-9192/9192-public-probe:v1.0.4
 
 ## Public Discovery
 
 - https://nineoneninetwo.com.br/
+- https://nineoneninetwo.com.br/start
+- https://nineoneninetwo.com.br/agent
+- https://nineoneninetwo.com.br/.well-known/9192/FIRST_TESTERS.md
+- https://nineoneninetwo.com.br/.well-known/9192/PUBLICATION_CHECKLIST.md
 - https://nineoneninetwo.com.br/docs
 - https://nineoneninetwo.com.br/protocol
 - https://nineoneninetwo.com.br/for-agents

@@ -70,7 +70,7 @@
     "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
   },
   "discovery_version": "1.0.4",
-  "public_client_kit_version": "v1.0.4",
+  "public_client_kit_version": "v1.0.5",
   "mcp_server_version": "1.0.2",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",

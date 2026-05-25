@@ -3,12 +3,15 @@
 9192 is a public machine-to-machine compute service.
 
 Canonical domain: https://nineoneninetwo.com.br/
+Current first-run path: https://nineoneninetwo.com.br/.well-known/9192/start.html
 Public edge: edge.nineoneninetwo.com.br:9443
 Protocol: 9192/1
 Transport: TLS TCP dual-stack public edge
 Backend exposure: not public; backend remains TCP IPv4 loopback only
 
 Discovery:
+- https://nineoneninetwo.com.br/.well-known/9192/node.json
+- https://nineoneninetwo.com.br/.well-known/9192/network.json
 - https://nineoneninetwo.com.br/.well-known/
 - https://nineoneninetwo.com.br/.well-known/9192/
 - https://nineoneninetwo.com.br/.well-known/openapi.json
@@ -27,12 +30,12 @@ Discovery:
 
 Public client kit:
 - GitHub repository: https://github.com/Nublos-9192/9192-public
-- GitHub release v1.0.4: https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.4
-- GitHub release zip: https://github.com/Nublos-9192/9192-public/releases/download/v1.0.4/9192_public_client_kit_v1.0.4.zip
+- GitHub release v1.0.5: https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.5
+- GitHub release zip: https://github.com/Nublos-9192/9192-public/releases/download/v1.0.5/9192_public_client_kit_v1.0.5.zip
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_QUICKSTART.md
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_README.md
 - https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit.zip
-- signed release v1.0.4: https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.4/
+- signed release v1.0.5: https://nineoneninetwo.com.br/.well-known/9192/releases/v1.0.5/
 - release signing public key: https://nineoneninetwo.com.br/.well-known/9192/9192_release_signing_public.pem
 
 HTTP API facade:
@@ -53,15 +56,17 @@ Remote MCP facade:
 - MCP tools: discover_9192, get_pricebook, get_payment_info, quote_get_pulse, verify_receipt
 
 Supported public flow:
-1. Discover DNS TXT and HTTPS metadata.
-2. Connect to edge.nineoneninetwo.com.br:9443 with TLS.
-3. Run HELLO/CAPS/PAYMENT_INFO.
-4. Request QUOTE. Quote generation is free with public rate and payload limits.
-5. For onboarding, run the sandbox quote -> accept -> execute -> receipt -> verify flow.
-6. For production work, fund account through crypto-only settlement rails.
-7. ACCEPT_QUOTE.
-8. Execute a supported command such as GET_PULSE.
-9. Request GET_RECEIPT and VERIFY_RECEIPT.
+1. Read https://nineoneninetwo.com.br/.well-known/9192/node.json as the canonical node identity document.
+2. Use network.json only if you need federation/multi-node routing.
+3. Discover DNS TXT and HTTPS metadata.
+4. Connect to edge.nineoneninetwo.com.br:9443 with TLS for native 9192/1, or use https://nineoneninetwo.com.br/api/v1 for the HTTP facade.
+5. Run HELLO/CAPS/PAYMENT_INFO.
+6. Request QUOTE. Quote generation is free with public rate and payload limits.
+7. For onboarding, run the sandbox quote -> accept -> execute -> receipt -> verify flow.
+8. For production work, fund account through crypto-only settlement rails.
+9. ACCEPT_QUOTE.
+10. Execute a supported command such as GET_PULSE.
+11. Request GET_RECEIPT and VERIFY_RECEIPT.
 
 Freemium policy:
 - Free to discover.
@@ -88,6 +93,7 @@ HTTP is a discovery and JSON gateway facade. The API does not replace 9192; it t
 
 
 Human pages:
+- https://nineoneninetwo.com.br/start
 - https://nineoneninetwo.com.br/docs
 - https://nineoneninetwo.com.br/protocol
 - https://nineoneninetwo.com.br/for-agents

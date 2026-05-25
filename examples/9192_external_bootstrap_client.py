@@ -44,10 +44,13 @@ def dns_txt_dnspython(name):
         return []
 
 
-def dns_txt_nslookup(name):
+def dns_txt_nslookup(name, server=""):
     try:
+        cmd = ["nslookup", "-type=TXT", name]
+        if server:
+            cmd.append(server)
         proc = subprocess.run(
-            ["nslookup", "-type=TXT", name],
+            cmd,
             capture_output=True,
             text=True,
             timeout=15,
@@ -77,6 +80,17 @@ def dns_txt(name):
     if values:
         return values
     return dns_txt_nslookup(name)
+
+
+def dns_txt_public(name):
+    out = []
+    seen = set()
+    for server in ("1.1.1.1", "8.8.8.8", "9.9.9.9"):
+        for value in dns_txt_nslookup(name, server):
+            if value and value not in seen:
+                seen.add(value)
+                out.append(value)
+    return out
 
 
 def parse_semicolon_kv(text):
@@ -349,6 +363,16 @@ def discover(domain):
         or manifest_kv.get("manifest_sha256")
         or manifest_json.get("manifest_sha256", "")
     )
+    if expected_manifest_sha and expected_manifest_sha != manifest_json_sha256:
+        public_manifest_txt_records = dns_txt_public(manifest_name)
+        for record in public_manifest_txt_records:
+            public_manifest_txt = parse_semicolon_kv(record)
+            if public_manifest_txt.get("sha256", "") == manifest_json_sha256:
+                manifest_txt_records = public_manifest_txt_records
+                manifest_txt = public_manifest_txt
+                expected_manifest_sha = manifest_json_sha256
+                break
+
     file_hash_ok = bool(expected_manifest_sha and manifest_json_sha256 and expected_manifest_sha == manifest_json_sha256)
     legacy_hash_ok = bool(expected_manifest_sha and advertised_manifest_sha and expected_manifest_sha == advertised_manifest_sha)
     hash_ok = file_hash_ok or legacy_hash_ok

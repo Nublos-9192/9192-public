@@ -1,4 +1,4 @@
-# 9192 Release Trust
+﻿# 9192 Release Trust
 
 The public release signing key lives at trust/9192_release_signing_public.pem and is mirrored at:
 

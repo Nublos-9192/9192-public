@@ -54,6 +54,14 @@ function setText(selector, value) {
   if (el) el.textContent = value;
 }
 
+function setBadge(selector, value, tone = "ok") {
+  const el = $(selector);
+  if (!el) return;
+  el.textContent = value;
+  el.classList.remove("badge-ok", "badge-warn", "badge-private", "badge-neutral");
+  el.classList.add(`badge-${tone}`);
+}
+
 function setJson(selector, value) {
   const el = $(selector);
   if (el) el.textContent = pretty(value);
@@ -98,6 +106,13 @@ function asOkLabel(payload) {
   if (!payload) return "UNKNOWN";
   if (payload.ok === true || payload.status === "OK") return "ONLINE";
   return "ATTENTION";
+}
+
+function toneForLabel(label) {
+  if (label === "ONLINE" || label === "ENABLED" || label === "ACTIVE") return "ok";
+  if (label === "PRIVATE") return "private";
+  if (label === "CHECK" || label === "ATTENTION" || label === "UNKNOWN") return "warn";
+  return "neutral";
 }
 
 function getPriceVersion(payload) {
@@ -181,19 +196,24 @@ async function refreshLiveStatus() {
     apiJson(`${apiBase}/pricebook`)
   ]);
 
-  setText("#live-gateway", asOkLabel(status));
-  setText("#live-gateway-copy", asOkLabel(status));
+  const gatewayLabel = asOkLabel(status);
+  const edgeLabel = status.api_uses_tls_edge === false ? "CHECK" : "ONLINE";
+  const healthLabel = asOkLabel(health);
+  const capsLabel = asOkLabel(caps);
+  setBadge("#live-gateway", gatewayLabel, toneForLabel(gatewayLabel));
+  setBadge("#live-gateway-copy", gatewayLabel, toneForLabel(gatewayLabel));
   setText("#live-gateway-detail", status.domain || "nineoneninetwo.com.br");
-  setText("#live-edge", status.api_uses_tls_edge ? "ONLINE" : "CHECK");
+  setBadge("#live-edge", edgeLabel, toneForLabel(edgeLabel));
   setText("#live-edge-detail", status.edge || "edge.nineoneninetwo.com.br:9443");
-  setText("#live-health", asOkLabel(health));
+  setBadge("#live-health", healthLabel, toneForLabel(healthLabel));
   setText("#live-health-detail", health.command || health.status || "HEALTH");
-  setText("#live-caps", asOkLabel(caps));
+  setBadge("#live-caps", capsLabel, toneForLabel(capsLabel));
   setText("#live-caps-detail", caps.command || "CAPS");
-  setText("#live-pricebook", "ACTIVE");
+  setBadge("#live-pricebook", "ACTIVE", "ok");
   setText("#live-pricebook-detail", pricebook?.pricebook?.reference_value_usd_per_9192C ? "1 9192C reference USD 1.00" : "V6 policy");
-  setText("#live-payment", getRails(payment));
-  setText("#live-payment-detail", payment.ok === false ? "attention" : "available");
+  const paymentLabel = payment.ok === false ? "CHECK" : "CRYPTO";
+  setBadge("#live-payment", paymentLabel, toneForLabel(paymentLabel));
+  setText("#live-payment-detail", payment.ok === false ? "attention" : getRails(payment));
   setText("#live-last-check", new Date().toLocaleTimeString());
 
   setJson("#live-json", {status, health, caps, payment, pricebook});

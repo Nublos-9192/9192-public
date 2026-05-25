@@ -1,4 +1,4 @@
-# Security
+﻿# Security
 
 Report security issues privately to the operator before public disclosure.
 The public 9192 edge is edge.nineoneninetwo.com.br:9443 and the HTTPS facade is nineoneninetwo.com.br.

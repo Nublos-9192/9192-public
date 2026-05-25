@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nineoneninetwo.com.br/</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/start</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/agent</loc></url>
   <url><loc>https://nineoneninetwo.com.br/docs</loc></url>
   <url><loc>https://nineoneninetwo.com.br/protocol</loc></url>
   <url><loc>https://nineoneninetwo.com.br/for-agents</loc></url>
@@ -23,6 +25,9 @@
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/nodes.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_QUICKSTART.md</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_client_kit_README.md</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/AGENT.md</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/FIRST_TESTERS.md</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/PUBLICATION_CHECKLIST.md</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/agent-card.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/agent.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/host-meta</loc></url>
