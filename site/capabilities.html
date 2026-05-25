@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Capabilities | Public, Paid and Admin Surface</title>
+  <meta name="description" content="Explore the 9192 capability matrix: public discovery, authenticated finance, paid execution, proof, receipt and admin commands.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/capabilities">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>Capabilities</span></strong></a><nav class="nav"><a href="/sandbox">Sandbox</a><a href="/api">API</a><a href="/protocol">Protocol</a><a href="/pricing">Pricing</a><a href="/trust">Trust</a></nav><a class="button" href="/">Home</a></div></header>
+  <main class="shell compact-main">
+    <section class="page-hero">
+      <div class="eyebrow">Capability matrix</div>
+      <h1>Every command has a role, route or boundary.</h1>
+      <p class="lede">Public discovery is open. Authenticated finance and paid execution are gated. Administrative commands stay outside the public HTTP surface.</p>
+    </section>
+    <section class="section">
+      <div class="filters">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="public">Public</button>
+        <button class="filter" data-filter="auth">Auth</button>
+        <button class="filter" data-filter="paid">Paid</button>
+        <button class="filter" data-filter="admin">Admin</button>
+        <span class="eyebrow" id="capability-count">0 capabilities</span>
+      </div>
+      <div class="capability-grid" id="capability-list"></div>
+    </section>
+    <section class="section">
+      <div class="section-head"><h2>Full table.</h2><p>HTTP route is listed only where that surface is intended to exist.</p></div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Command</th><th>Group</th><th>Access</th><th>HTTP</th><th>CLI</th><th>Purpose</th></tr></thead>
+          <tbody id="capability-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>9192 capabilities</span><span><a href="/api/v1/caps">Live caps</a> / <a href="/openapi.json">OpenAPI</a></span></div></footer>
+  <script src="/assets/9192-v2.js" defer></script>
+</body>
+</html>

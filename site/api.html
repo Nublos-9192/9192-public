@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 API | HTTP, MCP and Native Edge</title>
+  <meta name="description" content="Use the 9192 public API, OpenAPI contract, MCP metadata and native TLS edge from one integration page.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/api">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>API</span></strong></a><nav class="nav"><a href="/sandbox">Sandbox</a><a href="/capabilities">Capabilities</a><a href="/agent">Agent</a><a href="/docs">Docs</a><a href="/status">Status</a></nav><a class="button" href="/">Home</a></div></header>
+  <main class="shell compact-main">
+    <section class="page-hero">
+      <div class="eyebrow">Integration surface</div>
+      <h1>HTTP for onboarding. TLS edge for native execution.</h1>
+      <p class="lede">The HTTP API exposes discovery, sandbox, quotes, invoices, receipts and verifier routes. Core execution remains inside the 9192/1 edge path.</p>
+      <div class="cta-row"><a class="button primary" href="/openapi.json">OpenAPI JSON</a><a class="button" href="/.well-known/9192/bootstrap.json">Bootstrap JSON</a><a class="button secondary" href="/mcp">MCP endpoint</a></div>
+    </section>
+    <section class="section">
+      <div class="section-head"><h2>Live checks.</h2><p>These values are refreshed from the public API in the browser.</p></div>
+      <div class="status-grid">
+        <div class="status-card"><b>Status</b><strong data-live="status">checking</strong><span>/api/v1/status</span></div>
+        <div class="status-card"><b>Health</b><strong data-live="health">checking</strong><span>/api/v1/health</span></div>
+        <div class="status-card"><b>Caps</b><strong data-live="caps">checking</strong><span>/api/v1/caps</span></div>
+        <div class="status-card"><b>Release</b><strong data-live="version">v1.0.5</strong><span>public kit</span></div>
+      </div>
+      <div class="cta-row"><button class="button" id="refresh-status" type="button">Refresh</button></div>
+    </section>
+    <section class="section">
+      <div class="section-head"><h2>Copy-ready starts.</h2><p>Choose the client shape and copy the first useful call.</p></div>
+      <div class="tool-grid">
+        <div class="panel"><div class="panel-title">Snippets <span id="copy-state"></span></div><div class="panel-body"><div class="snippet-tabs"><button data-snippet="curl" aria-selected="true">cURL</button><button data-snippet="powershell">PowerShell</button><button data-snippet="node">Node</button><button data-snippet="mcp">MCP</button></div><button class="button" id="copy-snippet" type="button">Copy</button></div></div>
+        <div class="panel"><div class="panel-title">Example <span>copy-ready</span></div><pre class="result"><code id="snippet-output"></code></pre></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-head"><h2>Core endpoints.</h2><p>Use sandbox first, then paid routes only with explicit quote and funding.</p></div>
+      <div class="path-grid">
+        <a class="path-card" href="/api/v1/status"><b>Status</b><span>Public readiness and policy.</span></a>
+        <a class="path-card" href="/api/v1/pricebook"><b>Pricebook</b><span>Current reference pricing.</span></a>
+        <a class="path-card" href="/sandbox"><b>Sandbox</b><span>Quote, accept, execute, receipt, verify.</span></a>
+        <a class="path-card" href="/api/v1/receipts/verify"><b>Receipt verifier</b><span>Public verification route.</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>9192 API</span><span><a href="/openapi.json">OpenAPI</a> / <a href="/llms.txt">llms.txt</a> / <a href="/trust">Trust</a></span></div></footer>
+  <script src="/assets/9192-v2.js" defer></script>
+</body>
+</html>

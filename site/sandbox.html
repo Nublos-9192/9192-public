@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Sandbox | Quote, Execute, Verify</title>
+  <meta name="description" content="Run the 9192 free sandbox flow: create quote, accept, execute GET_PULSE and verify the receipt.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/sandbox">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>Sandbox</span></strong></a><nav class="nav"><a href="/start">Start</a><a href="/capabilities">Capabilities</a><a href="/api">API</a><a href="/trust">Trust</a><a href="/status">Status</a></nav><a class="button" href="/">Home</a></div></header>
+  <main class="shell compact-main">
+    <section class="page-hero">
+      <div class="eyebrow">Free limited onboarding</div>
+      <h1>Run quote, accept, execute and verify in one screen.</h1>
+      <p class="lede">The sandbox path proves the public integration loop without funding a machine account or touching paid execution.</p>
+    </section>
+    <section class="section" id="sandbox">
+      <div class="tool-grid">
+        <form class="panel" id="sandbox-form">
+          <div class="panel-title">Sandbox Flow <span id="sandbox-current">ready</span></div>
+          <div class="panel-body">
+            <div class="form-grid">
+              <div class="field full"><label for="sandbox-machine">Machine ID</label><input id="sandbox-machine" autocomplete="off"></div>
+              <div class="field"><label for="sandbox-bits">Bits</label><input id="sandbox-bits" type="number" min="1" max="65536" value="65536"></div>
+              <div class="field"><label for="sandbox-output">Max output</label><input id="sandbox-output" type="number" min="1" max="8192" value="8192"></div>
+              <div class="field"><label for="sandbox-priority">Priority</label><select id="sandbox-priority"><option value="normal">normal</option><option value="priority">priority</option><option value="critical">critical</option></select></div>
+              <div class="field full"><label for="receipt-id">Receipt ID</label><input id="receipt-id" placeholder="filled after execution" autocomplete="off"></div>
+            </div>
+            <div class="cta-row">
+              <button class="button primary" id="sandbox-quote" type="submit">Create Quote</button>
+              <button class="button" id="sandbox-accept" type="button">Accept</button>
+              <button class="button" id="sandbox-execute" type="button">Execute</button>
+              <button class="button secondary" id="sandbox-verify" type="button">Verify Receipt</button>
+            </div>
+          </div>
+        </form>
+        <div class="panel"><div class="panel-title">Response <span>JSON</span></div><pre class="result"><code id="sandbox-result">Create a sandbox quote to begin.</code></pre></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>9192 sandbox surface</span><span><a href="/openapi.json">OpenAPI</a> / <a href="/agent">Agent</a> / <a href="/trust">Trust</a></span></div></footer>
+  <script src="/assets/9192-v2.js" defer></script>
+</body>
+</html>
