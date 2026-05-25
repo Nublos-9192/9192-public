@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Use Cases | Where Verifiable Machine Execution Fits</title>
+  <meta name="description" content="Where 9192 can be used: AI agents, machine-to-machine paid execution, verifiable receipts, timestamp proofs, event logs and sandbox onboarding.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/use-cases">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>use cases</span></strong></a><nav class="nav"><a href="/sandbox">Sandbox</a><a href="/capabilities">Capabilities</a><a href="/api">API</a><a href="/security">Security</a><a href="/trust">Trust</a></nav><a class="button" href="/">Home</a></div></header>
+  <main class="shell compact-main">
+    <section class="page-hero">
+      <div class="eyebrow">Where it fits</div>
+      <h1>Use 9192 when a machine needs a quote, an execution boundary and a receipt.</h1>
+      <p class="lede">The protocol is built for autonomous clients that need to discover capabilities, price work, execute only after acceptance, and verify evidence after the call.</p>
+      <div class="cta-row"><a class="button primary" href="/sandbox">Run the sandbox</a><a class="button secondary" href="/api">Open API</a><a class="button" href="/security">Operational measures</a></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Best-fit workloads.</h2><p>These are the first places where the current public surface is useful without hand-waving.</p></div>
+      <div class="path-grid">
+        <article class="path-card"><b>AI agents</b><span>Agents can discover 9192, request a quote, run a bounded sandbox call, and verify the returned receipt.</span></article>
+        <article class="path-card"><b>Receipt verification</b><span>Systems can validate execution evidence without paying for discovery or verification.</span></article>
+        <article class="path-card"><b>Timestamp proof</b><span>Paid routes can issue timestamp-oriented proof metadata once a machine account is funded.</span></article>
+        <article class="path-card"><b>Machine event logs</b><span>Machines can commit event summaries for later inspection and audit workflows.</span></article>
+        <article class="path-card"><b>Sealed messages</b><span>Authenticated paid execution can seal payloads where the output must be bounded and traceable.</span></article>
+        <article class="path-card"><b>BCT packets</b><span>BCT creation and verification fit workflows that need compact verifiable packets.</span></article>
+        <article class="path-card"><b>MCP facade</b><span>MCP clients can discover, quote sandbox work and verify receipts through a limited public tool surface.</span></article>
+        <article class="path-card"><b>Developer onboarding</b><span>The free sandbox path proves integration shape before real funding or paid execution is introduced.</span></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Adoption sequence.</h2><p>Start with evidence and boundaries, then add funded execution only after the client behavior is known.</p></div>
+      <div class="flow">
+        <div class="flow-step"><b>01</b><strong>Discover</strong><p>Read status, caps, OpenAPI, pricebook and agent metadata.</p></div>
+        <div class="flow-step"><b>02</b><strong>Sandbox</strong><p>Run quote, accept, execute and verify without funding.</p></div>
+        <div class="flow-step"><b>03</b><strong>Classify</strong><p>Choose public, authenticated, paid or admin boundaries per capability.</p></div>
+        <div class="flow-step"><b>04</b><strong>Fund</strong><p>Create and settle invoice only when real execution is needed.</p></div>
+        <div class="flow-step"><b>05</b><strong>Execute</strong><p>Run bounded service calls with explicit quote acceptance.</p></div>
+        <div class="flow-step"><b>06</b><strong>Verify</strong><p>Store and re-check receipts after execution.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Not a fit yet.</h2><p>These boundaries keep the product honest while the public surface matures.</p></div>
+      <div class="status-grid">
+        <div class="status-card"><b>Human consumer checkout</b><strong>not primary</strong><span>9192 is machine-first infrastructure, not a general shopping cart.</span></div>
+        <div class="status-card"><b>Unbounded compute</b><strong>blocked</strong><span>Calls must stay bounded by quote, input, output and policy limits.</span></div>
+        <div class="status-card"><b>Financial product</b><strong>excluded</strong><span>9192C is an internal pricing reference unit, not a token, deposit or promise.</span></div>
+        <div class="status-card"><b>Admin automation</b><strong>private</strong><span>Settlement and runtime recovery commands remain outside the public route surface.</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>9192 use cases</span><span><a href="/security">Security</a> / <a href="/capabilities">Capabilities</a> / <a href="/trust">Trust</a></span></div></footer>
+  <script src="/assets/9192-v2.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Security | Operational Measures and Boundaries</title>
+  <meta name="description" content="Security and operational measures for 9192: route boundaries, secret handling, signed releases, monitoring, rate limits, rollback and incident readiness.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/security">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/9192-v2.css">
+</head>
+<body>
+  <header class="topbar"><div class="shell topbar-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt=""><strong><b>9192</b><span>security</span></strong></a><nav class="nav"><a href="/use-cases">Use Cases</a><a href="/sandbox">Sandbox</a><a href="/capabilities">Capabilities</a><a href="/api">API</a><a href="/trust">Trust</a></nav><a class="button" href="/">Home</a></div></header>
+  <main class="shell compact-main">
+    <section class="page-hero">
+      <div class="eyebrow">Operational measures</div>
+      <h1>Public discovery is open. Execution is bounded, quoted and separated by trust level.</h1>
+      <p class="lede">9192 is designed around narrow public routes, explicit paid execution gates, signed releases, receipt verification and operator-local secret storage.</p>
+      <div class="cta-row"><a class="button primary" href="/trust">Trust resources</a><a class="button secondary" href="/status">Live status</a><a class="button" href="/openapi.json">OpenAPI</a></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Current controls.</h2><p>These controls are already represented in the public product surface or local operational tooling.</p></div>
+      <div class="path-grid">
+        <article class="path-card"><b>Route separation</b><span>Public, authenticated, paid and admin capabilities are classified separately and exposed through different boundaries.</span></article>
+        <article class="path-card"><b>Signed releases</b><span>Client kit artifacts ship with checksums, detached signatures and a public signing key.</span></article>
+        <article class="path-card"><b>Receipt verification</b><span>Verification is public and free so clients can validate evidence after execution.</span></article>
+        <article class="path-card"><b>Secret locality</b><span>Production secrets, TLS private keys, ledgers and registry keys stay outside the public repository package.</span></article>
+        <article class="path-card"><b>Sandbox boundary</b><span>Anonymous test execution is limited by bits, output and sandbox-only billing policy.</span></article>
+        <article class="path-card"><b>Operational probes</b><span>Gateway probes verify status, discovery, quote flow, blocked admin routes and paid-route rejection behavior.</span></article>
+        <article class="path-card"><b>TLS edge</b><span>Public HTTPS and the native edge are separated from backend internals.</span></article>
+        <article class="path-card"><b>Rollback path</b><span>Public release and repository staging are generated reproducibly from the local build scripts.</span></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Controls to harden next.</h2><p>These are the measures to finish before inviting broader external usage.</p></div>
+      <div class="status-grid">
+        <div class="status-card"><b>Abuse limits</b><strong>priority</strong><span>Enforce per-IP and per-machine limits across sandbox, quote and verification routes.</span></div>
+        <div class="status-card"><b>Incident runbook</b><strong>priority</strong><span>Document revoke, rotate, rollback, communicate and recover steps.</span></div>
+        <div class="status-card"><b>Security headers</b><strong>priority</strong><span>Set HSTS, CSP, frame, MIME and referrer policies at the edge.</span></div>
+        <div class="status-card"><b>Audit evidence</b><strong>priority</strong><span>Keep dated probe reports, release verification output and secret-audit results.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>External readiness checklist.</h2><p>This maps the product to familiar security expectations without claiming certification.</p></div>
+      <div class="tool-grid">
+        <div class="panel"><div class="panel-title">Before public scale <span>required</span></div><div class="panel-body">
+          <p>Define owner, abuse contact, incident process, backup cadence, rotation cadence, dependency review, API limit policy, release signing policy and uptime target.</p>
+          <p>Use OWASP API risk review for authorization, authentication, resource limits, object-level access, mass assignment, SSRF, unsafe consumption and misconfiguration.</p>
+        </div></div>
+        <div class="panel"><div class="panel-title">Before enterprise pilots <span>evidence</span></div><div class="panel-body">
+          <p>Prepare a control matrix for security, availability, confidentiality and processing integrity. Keep proof of probes, deployment changes, release signatures and incident drills.</p>
+          <p>Keep financial language narrow: 9192C remains an internal accounting reference unit, and paid execution is explicit quote plus funded account only.</p>
+        </div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>9192 security</span><span><a href="/trust">Trust</a> / <a href="/status">Status</a> / <a href="/use-cases">Use Cases</a></span></div></footer>
+  <script src="/assets/9192-v2.js" defer></script>
+</body>
+</html>
