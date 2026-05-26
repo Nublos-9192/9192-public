@@ -1,0 +1,14 @@
+{
+  "name": "9192 agent directory",
+  "canonical_agent": "https://nineoneninetwo.com.br/.well-known/agent.json",
+  "canonical_mcp": "https://nineoneninetwo.com.br/.well-known/mcp",
+  "entries": [
+    {
+      "id": "br.com.nineoneninetwo/9192",
+      "type": "mcp_server",
+      "url": "https://nineoneninetwo.com.br/.well-known/mcp",
+      "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
+      "offer": "https://nineoneninetwo.com.br/for-agents"
+    }
+  ]
+}

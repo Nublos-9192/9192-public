@@ -1,0 +1,17 @@
+{
+  "name": "br.com.nineoneninetwo/9192",
+  "displayName": "9192",
+  "description": "Machine-readable server card for the public 9192 MCP facade.",
+  "homepage": "https://nineoneninetwo.com.br/",
+  "serverUrl": "https://nineoneninetwo.com.br/mcp",
+  "metadataUrl": "https://nineoneninetwo.com.br/.well-known/mcp",
+  "agentCardUrl": "https://nineoneninetwo.com.br/.well-known/agent.json",
+  "protocol": "9192/1",
+  "publicEdge": "edge.nineoneninetwo.com.br:9443",
+  "authentication": {
+    "required": false
+  },
+  "rateLimits": {
+    "profile": "public_low"
+  }
+}

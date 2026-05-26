@@ -15,6 +15,10 @@
   <url><loc>https://nineoneninetwo.com.br/status</loc></url>
   <url><loc>https://nineoneninetwo.com.br/trust</loc></url>
   <url><loc>https://nineoneninetwo.com.br/llms.txt</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/agents.txt</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/agents.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/agent-directory.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/mcp.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/site.webmanifest</loc></url>
   <url><loc>https://nineoneninetwo.com.br/openapi.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/</loc></url>
@@ -35,8 +39,11 @@
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/PUBLICATION_CHECKLIST.md</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/agent-card.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/agent.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/agents.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/agent-directory.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/host-meta</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/host-meta.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/mcp</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/mcp.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/mcp/server-card.json</loc></url>
 </urlset>

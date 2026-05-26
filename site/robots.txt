@@ -30,3 +30,5 @@ Sitemap: https://nineoneninetwo.com.br/sitemap.xml
 # https://nineoneninetwo.com.br/openapi.json
 # https://nineoneninetwo.com.br/.well-known/mcp
 # https://nineoneninetwo.com.br/llms.txt
+# https://nineoneninetwo.com.br/agents.json
+# https://nineoneninetwo.com.br/agent-directory.json

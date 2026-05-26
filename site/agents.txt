@@ -1,0 +1,16 @@
+9192 agent discovery
+
+Canonical agent card:
+https://nineoneninetwo.com.br/.well-known/agent.json
+
+MCP metadata:
+https://nineoneninetwo.com.br/.well-known/mcp
+
+Human offer for agent builders:
+https://nineoneninetwo.com.br/for-agents
+
+LLM-readable index:
+https://nineoneninetwo.com.br/llms.txt
+
+OpenAPI:
+https://nineoneninetwo.com.br/openapi.json

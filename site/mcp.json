@@ -1,0 +1,19 @@
+{
+  "name": "br.com.nineoneninetwo/9192",
+  "displayName": "9192",
+  "description": "Remote MCP metadata for 9192 verifiable execution and receipt verification.",
+  "websiteUrl": "https://nineoneninetwo.com.br/",
+  "endpoint": "https://nineoneninetwo.com.br/mcp",
+  "metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
+  "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
+  "offer": "https://nineoneninetwo.com.br/for-agents",
+  "transport": "streamable-http",
+  "tools": [
+    "discover_9192",
+    "get_pricebook",
+    "get_payment_info",
+    "quote_get_pulse",
+    "sandbox_get_pulse",
+    "verify_receipt"
+  ]
+}

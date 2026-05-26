@@ -21,10 +21,17 @@ Discovery:
 - https://nineoneninetwo.com.br/.well-known/9192/9192_pricebook_public.txt
 - https://nineoneninetwo.com.br/.well-known/agent-card.json
 - https://nineoneninetwo.com.br/.well-known/agent.json
+- https://nineoneninetwo.com.br/agents.json
+- https://nineoneninetwo.com.br/agents.txt
+- https://nineoneninetwo.com.br/agent-directory.json
+- https://nineoneninetwo.com.br/mcp.json
+- https://nineoneninetwo.com.br/.well-known/agents.json
+- https://nineoneninetwo.com.br/.well-known/agent-directory.json
 - https://nineoneninetwo.com.br/.well-known/host-meta
 - https://nineoneninetwo.com.br/.well-known/host-meta.json
 - https://nineoneninetwo.com.br/.well-known/mcp
 - https://nineoneninetwo.com.br/.well-known/mcp.json
+- https://nineoneninetwo.com.br/.well-known/mcp/server-card.json
 - https://nineoneninetwo.com.br/.well-known/webfinger?resource=9192:nineoneninetwo.com.br
 - https://nineoneninetwo.com.br/openapi.json
 

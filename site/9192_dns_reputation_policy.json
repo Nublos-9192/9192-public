@@ -1,0 +1,88 @@
+{
+  "domain": "nineoneninetwo.com.br",
+  "policy_version": "2026-05-25",
+  "ttl": {
+    "stable_minimum_seconds": 300,
+    "stable_target_seconds": 3600,
+    "change_window_seconds": 300
+  },
+  "required_records": [
+    {
+      "name": "nineoneninetwo.com.br",
+      "type": "A",
+      "expected": "177.129.91.7",
+      "ttl_target": 3600
+    },
+    {
+      "name": "nineoneninetwo.com.br",
+      "type": "AAAA",
+      "expected": "2804:8cc:1104:bd00:83a1:2bfd:8c91:cc9c",
+      "ttl_target": 3600
+    },
+    {
+      "name": "edge.nineoneninetwo.com.br",
+      "type": "A",
+      "expected": "177.129.91.7",
+      "ttl_target": 3600
+    },
+    {
+      "name": "edge.nineoneninetwo.com.br",
+      "type": "AAAA",
+      "expected": "2804:8cc:1104:bd00:83a1:2bfd:8c91:cc9c",
+      "ttl_target": 3600
+    },
+    {
+      "name": "_9192.nineoneninetwo.com.br",
+      "type": "TXT",
+      "expected_contains": "v=9192;wellknown=https://nineoneninetwo.com.br/.well-known/9192/;edge=edge.nineoneninetwo.com.br:9443;proto=9192/1",
+      "ttl_target": 3600
+    },
+    {
+      "name": "_9192-manifest.nineoneninetwo.com.br",
+      "type": "TXT",
+      "expected_contains": "sha256=2a4aaa5d3c2a339ccf7da550f00f44cec04dd2e23ae1db2c803df3974bbe4b73",
+      "ttl_target": 3600
+    }
+  ],
+  "recommended_records": [
+    {
+      "name": "www.nineoneninetwo.com.br",
+      "type": "CNAME",
+      "expected": "nineoneninetwo.com.br",
+      "reason": "canonical www redirect support"
+    },
+    {
+      "name": "nineoneninetwo.com.br",
+      "type": "MX",
+      "expected": "0 .",
+      "reason": "declare no inbound mail"
+    },
+    {
+      "name": "nineoneninetwo.com.br",
+      "type": "TXT",
+      "expected": "v=spf1 -all",
+      "reason": "prevent spoofed mail from the domain"
+    },
+    {
+      "name": "_dmarc.nineoneninetwo.com.br",
+      "type": "TXT",
+      "expected": "v=DMARC1; p=reject; adkim=s; aspf=s",
+      "reason": "reject spoofed mail alignment"
+    },
+    {
+      "name": "nineoneninetwo.com.br",
+      "type": "CAA",
+      "expected_contains": "letsencrypt.org",
+      "reason": "restrict certificate issuance"
+    }
+  ],
+  "crawler_routes": [
+    "/agents.json",
+    "/agents.txt",
+    "/agent-directory.json",
+    "/.well-known/agents.json",
+    "/.well-known/agent-directory.json",
+    "/.well-known/mcp/server-card.json",
+    "/mcp.json"
+  ]
+}

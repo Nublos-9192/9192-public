@@ -1,0 +1,17 @@
+{
+  "name": "9192 agent directory",
+  "canonical_agent": "https://nineoneninetwo.com.br/.well-known/agent.json",
+  "agents": [
+    {
+      "id": "br.com.nineoneninetwo.9192",
+      "name": "9192",
+      "description": "Verifiable execution and receipt verification for autonomous machines.",
+      "homepage": "https://nineoneninetwo.com.br/",
+      "for_agents": "https://nineoneninetwo.com.br/for-agents",
+      "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
+      "mcp_metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
+      "llms": "https://nineoneninetwo.com.br/llms.txt",
+      "openapi": "https://nineoneninetwo.com.br/openapi.json"
+    }
+  ]
+}
