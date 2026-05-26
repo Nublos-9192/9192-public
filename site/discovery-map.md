@@ -1,6 +1,6 @@
 ﻿# 9192 Discovery Map
 
-- Generated: 2026-05-26T02:23:39.3789082-04:00
+- Generated: 2026-05-26T03:10:36.3894234-04:00
 - Domain: nineoneninetwo.com.br
 - Overall: WARN
 - Public route/file issues: 0
@@ -24,6 +24,7 @@ flowchart LR
 - [OK] public_files / agent-directory.json: size=480 updated=2026-05-25T21:56:31
 - [OK] public_files / agents.json: size=685 updated=2026-05-25T21:56:31
 - [OK] public_files / dns reputation policy: size=2352 updated=2026-05-25T21:56:31
+- [OK] public_files / first-test.html: size=2846 updated=2026-05-26T02:21:14
 - [OK] public_files / llms.txt: size=5448 updated=2026-05-25T21:59:23
 - [OK] public_files / mcp.json: size=642 updated=2026-05-25T21:56:31
 - [OK] public_files / privacy.html: size=3566 updated=2026-05-25T23:23:12
@@ -33,6 +34,7 @@ flowchart LR
 - [OK] public_routes / agents json: HTTP 200 https://nineoneninetwo.com.br/agents.json
 - [OK] public_routes / api status: HTTP 200 https://nineoneninetwo.com.br/api/v1/status
 - [OK] public_routes / discovery map page: HTTP 200 https://nineoneninetwo.com.br/discovery-map
+- [OK] public_routes / first test page: HTTP 200 https://nineoneninetwo.com.br/first-test
 - [OK] public_routes / home: HTTP 200 https://nineoneninetwo.com.br/
 - [OK] public_routes / llms txt: HTTP 200 https://nineoneninetwo.com.br/llms.txt
 - [OK] public_routes / mcp json: HTTP 200 https://nineoneninetwo.com.br/mcp.json
@@ -44,7 +46,7 @@ flowchart LR
 
 ## Report summaries
 - operational_trust: overall=OK generated=2026-05-25T22:05:52.8394242-04:00
-- traffic: overall=OK generated=2026-05-26T01:45:12.9201579-04:00
+- traffic: overall=OK generated=2026-05-26T03:10:33.4152761-04:00
 - dns_reputation: overall=WARN generated=2026-05-25T22:56:36.3582409-04:00
 - discovery_conversion: overall=GOOD generated=2026-05-26T02:23:32.9355504-04:00
 
