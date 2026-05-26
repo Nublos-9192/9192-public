@@ -1,10 +1,11 @@
 ﻿# 9192 Discovery Map
 
-- Generated: 2026-05-25T23:09:08.7708503-04:00
+- Generated: 2026-05-25T23:19:27.4268016-04:00
 - Domain: nineoneninetwo.com.br
-- Overall: REVIEW
-- Public route/file issues: 1
-- Report issues: 2
+- Overall: WARN
+- Public route/file issues: 0
+- Report issues: 0
+- Report warnings: 2
 
 ```mermaid
 flowchart LR
@@ -30,7 +31,7 @@ flowchart LR
 - [OK] public_routes / agent directory: HTTP 200 https://nineoneninetwo.com.br/agent-directory.json
 - [OK] public_routes / agents json: HTTP 200 https://nineoneninetwo.com.br/agents.json
 - [OK] public_routes / api status: HTTP 200 https://nineoneninetwo.com.br/api/v1/status
-- [WARN] public_routes / discovery map page: HTTP 404 missing expected marker https://nineoneninetwo.com.br/discovery-map
+- [OK] public_routes / discovery map page: HTTP 200 https://nineoneninetwo.com.br/discovery-map
 - [OK] public_routes / home: HTTP 200 https://nineoneninetwo.com.br/
 - [OK] public_routes / llms txt: HTTP 200 https://nineoneninetwo.com.br/llms.txt
 - [OK] public_routes / mcp json: HTTP 200 https://nineoneninetwo.com.br/mcp.json
@@ -41,7 +42,7 @@ flowchart LR
 
 ## Report summaries
 - operational_trust: overall=OK generated=2026-05-25T22:05:52.8394242-04:00
-- traffic: overall=PENDING_RESTART generated=2026-05-25T22:05:54.3452552-04:00
+- traffic: overall=WARN generated=2026-05-25T23:18:29.7463797-04:00
 - dns_reputation: overall=WARN generated=2026-05-25T22:56:36.3582409-04:00
 
 ## Discovery edges

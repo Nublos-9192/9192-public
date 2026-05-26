@@ -1,9 +1,10 @@
 ﻿{
-    "generated_at":  "2026-05-25T23:09:08.7708503-04:00",
+    "generated_at":  "2026-05-25T23:19:27.4268016-04:00",
     "domain":  "nineoneninetwo.com.br",
-    "overall":  "REVIEW",
-    "issue_count":  1,
-    "report_issue_count":  2,
+    "overall":  "WARN",
+    "issue_count":  0,
+    "report_issue_count":  0,
+    "report_warning_count":  2,
     "nodes":  [
                   {
                       "id":  "dns",
@@ -167,8 +168,8 @@
                    {
                        "area":  "public_routes",
                        "name":  "discovery map page",
-                       "status":  "WARN",
-                       "detail":  "HTTP 404 missing expected marker",
+                       "status":  "OK",
+                       "detail":  "HTTP 200",
                        "url":  "https://nineoneninetwo.com.br/discovery-map"
                    },
                    {
@@ -228,10 +229,10 @@
                                               "generated_at":  "2026-05-25T22:05:52.8394242-04:00"
                                           },
                     "traffic":  {
-                                    "overall":  "PENDING_RESTART",
-                                    "requests":  1688,
-                                    "unique_clients":  22,
-                                    "generated_at":  "2026-05-25T22:05:54.3452552-04:00"
+                                    "overall":  "WARN",
+                                    "requests":  2096,
+                                    "unique_clients":  28,
+                                    "generated_at":  "2026-05-25T23:18:29.7463797-04:00"
                                 },
                     "dns_reputation":  {
                                            "overall":  "WARN",
