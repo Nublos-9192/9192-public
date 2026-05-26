@@ -35,3 +35,4 @@ Sitemap: https://nineoneninetwo.com.br/sitemap.xml
 # https://nineoneninetwo.com.br/discovery-map
 # https://nineoneninetwo.com.br/discovery-map.json
 # https://nineoneninetwo.com.br/privacy
+# https://nineoneninetwo.com.br/first-test

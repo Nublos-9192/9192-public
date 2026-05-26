@@ -1,5 +1,5 @@
 ﻿{
-    "generated_at":  "2026-05-26T02:08:25.0679733-04:00",
+    "generated_at":  "2026-05-26T02:23:39.3789082-04:00",
     "domain":  "nineoneninetwo.com.br",
     "overall":  "WARN",
     "issue_count":  0,
@@ -211,14 +211,14 @@
                        "area":  "public_files",
                        "name":  "robots.txt",
                        "status":  "OK",
-                       "detail":  "size=817 updated=2026-05-25T23:24:18",
+                       "detail":  "size=860 updated=2026-05-26T02:22:54",
                        "url":  ""
                    },
                    {
                        "area":  "public_files",
                        "name":  "sitemap.xml",
                        "status":  "OK",
-                       "detail":  "size=3772 updated=2026-05-25T23:24:14",
+                       "detail":  "size=3837 updated=2026-05-26T02:22:47",
                        "url":  ""
                    },
                    {
@@ -259,11 +259,11 @@
                     "discovery_conversion":  {
                                                  "overall":  "GOOD",
                                                  "quality":  "SANDBOX",
-                                                 "unique_clients":  40,
+                                                 "unique_clients":  42,
                                                  "deep_clients":  1,
                                                  "sandbox_clients":  1,
                                                  "receipt_clients":  0,
-                                                 "generated_at":  "2026-05-26T02:06:05.5610098-04:00"
+                                                 "generated_at":  "2026-05-26T02:23:32.9355504-04:00"
                                              }
                 }
 }
