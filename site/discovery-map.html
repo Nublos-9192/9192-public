@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Discovery Map | Public Node Graph</title>
+  <meta name="description" content="A practical map of the public 9192 discovery surface: DNS, well-known metadata, agent files, API entrypoints, native edge and verification loop.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/discovery-map">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Discovery Map</span></strong></a><div class="links"><a href="/status">Status</a><a href="/for-agents">For Agents</a><a href="/protocol">Protocol</a><a href="/trust">Trust</a><a href="/docs">Docs</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">Discovery graph</div><h1>Every public signal points toward a verifiable 9192 execution path.</h1><p class="lead">The node is discoverable through DNS, HTTPS metadata, agent descriptors, API status routes and the native TLS edge. This page is the human-readable map of that surface.</p><div class="cta-row"><a class="button primary" href="/discovery-map.json">Map JSON</a><a class="button" href="/agents.json">Agents</a><a class="button" href="/.well-known/9192/9192_public_manifest.json">Manifest</a><a class="button" href="/api/v1/status">API status</a></div></section>
+    <section class="grid">
+      <article class="card"><h2>DNS</h2><p class="status-pill">Published</p><p>Domain and edge records identify the HTTPS site and the native <code>9192/1</code> TLS endpoint.</p></article>
+      <article class="card"><h2>Well-known</h2><p class="status-pill">Machine-readable</p><p><code>/.well-known/9192/</code> exposes bootstrap, status, pricebook, manifest and service catalog documents.</p></article>
+      <article class="card"><h2>Agents</h2><p class="status-pill">Crawler-ready</p><p><code>/agents.json</code>, <code>/agent-directory.json</code>, <code>/mcp.json</code> and <code>/llms.txt</code> help agents understand the available public interface.</p></article>
+      <article class="card wide"><h2>Path to execution</h2><pre>DNS -> site -> .well-known -> agents -> API or native edge -> quote -> execution -> receipt verification</pre></article>
+      <article class="card"><h2>Native edge</h2><p class="status-pill">9192/1</p><p><code>edge.nineoneninetwo.com.br:9443</code> is the binary protocol edge for direct machine clients.</p></article>
+      <article class="card"><h2>HTTPS API</h2><p class="status-pill">Facade</p><p><code>/api/v1/status</code>, <code>/api/v1/health</code> and sandbox routes give external clients a simpler first integration path.</p></article>
+      <article class="card"><h2>Verification</h2><p class="status-pill">Receipts</p><p>Clients can verify results and receipts instead of trusting a page claim or marketing statement.</p></article>
+      <article class="card wide"><h2>Operational reports</h2><p>Local reports track operational trust, traffic and DNS reputation. Public snapshots expose only discovery-safe metadata.</p><pre>run_9192_discovery_map_windows.ps1 -PublishPublicSnapshot</pre></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Discovery should help clients find the node cleanly, not scan or spam the internet.</div></footer>
+</body>
+</html>
