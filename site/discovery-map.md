@@ -1,11 +1,11 @@
 ﻿# 9192 Discovery Map
 
-- Generated: 2026-05-25T23:19:27.4268016-04:00
+- Generated: 2026-05-26T02:08:25.0679733-04:00
 - Domain: nineoneninetwo.com.br
 - Overall: WARN
 - Public route/file issues: 0
 - Report issues: 0
-- Report warnings: 2
+- Report warnings: 1
 
 ```mermaid
 flowchart LR
@@ -26,8 +26,9 @@ flowchart LR
 - [OK] public_files / dns reputation policy: size=2352 updated=2026-05-25T21:56:31
 - [OK] public_files / llms.txt: size=5448 updated=2026-05-25T21:59:23
 - [OK] public_files / mcp.json: size=642 updated=2026-05-25T21:56:31
-- [OK] public_files / robots.txt: size=777 updated=2026-05-25T23:05:57
-- [OK] public_files / sitemap.xml: size=3710 updated=2026-05-25T23:05:50
+- [OK] public_files / privacy.html: size=3566 updated=2026-05-25T23:23:12
+- [OK] public_files / robots.txt: size=817 updated=2026-05-25T23:24:18
+- [OK] public_files / sitemap.xml: size=3772 updated=2026-05-25T23:24:14
 - [OK] public_routes / agent directory: HTTP 200 https://nineoneninetwo.com.br/agent-directory.json
 - [OK] public_routes / agents json: HTTP 200 https://nineoneninetwo.com.br/agents.json
 - [OK] public_routes / api status: HTTP 200 https://nineoneninetwo.com.br/api/v1/status
@@ -35,6 +36,7 @@ flowchart LR
 - [OK] public_routes / home: HTTP 200 https://nineoneninetwo.com.br/
 - [OK] public_routes / llms txt: HTTP 200 https://nineoneninetwo.com.br/llms.txt
 - [OK] public_routes / mcp json: HTTP 200 https://nineoneninetwo.com.br/mcp.json
+- [OK] public_routes / privacy page: HTTP 200 https://nineoneninetwo.com.br/privacy
 - [OK] public_routes / sitemap: HTTP 200 https://nineoneninetwo.com.br/sitemap.xml
 - [OK] public_routes / status page: HTTP 200 https://nineoneninetwo.com.br/status
 - [OK] public_routes / well-known agents: HTTP 200 https://nineoneninetwo.com.br/.well-known/agents.json
@@ -42,8 +44,9 @@ flowchart LR
 
 ## Report summaries
 - operational_trust: overall=OK generated=2026-05-25T22:05:52.8394242-04:00
-- traffic: overall=WARN generated=2026-05-25T23:18:29.7463797-04:00
+- traffic: overall=OK generated=2026-05-26T01:45:12.9201579-04:00
 - dns_reputation: overall=WARN generated=2026-05-25T22:56:36.3582409-04:00
+- discovery_conversion: overall=GOOD generated=2026-05-26T02:06:05.5610098-04:00
 
 ## Discovery edges
 - dns -> site: domain resolves to public HTTPS

@@ -1,10 +1,10 @@
 ﻿{
-    "generated_at":  "2026-05-25T23:19:27.4268016-04:00",
+    "generated_at":  "2026-05-26T02:08:25.0679733-04:00",
     "domain":  "nineoneninetwo.com.br",
     "overall":  "WARN",
     "issue_count":  0,
     "report_issue_count":  0,
-    "report_warning_count":  2,
+    "report_warning_count":  1,
     "nodes":  [
                   {
                       "id":  "dns",
@@ -111,6 +111,13 @@
                    },
                    {
                        "area":  "public_routes",
+                       "name":  "privacy page",
+                       "status":  "OK",
+                       "detail":  "HTTP 200",
+                       "url":  "https://nineoneninetwo.com.br/privacy"
+                   },
+                   {
+                       "area":  "public_routes",
                        "name":  "agents json",
                        "status":  "OK",
                        "detail":  "HTTP 200",
@@ -204,14 +211,14 @@
                        "area":  "public_files",
                        "name":  "robots.txt",
                        "status":  "OK",
-                       "detail":  "size=777 updated=2026-05-25T23:05:57",
+                       "detail":  "size=817 updated=2026-05-25T23:24:18",
                        "url":  ""
                    },
                    {
                        "area":  "public_files",
                        "name":  "sitemap.xml",
                        "status":  "OK",
-                       "detail":  "size=3710 updated=2026-05-25T23:05:50",
+                       "detail":  "size=3772 updated=2026-05-25T23:24:14",
                        "url":  ""
                    },
                    {
@@ -219,6 +226,13 @@
                        "name":  "dns reputation policy",
                        "status":  "OK",
                        "detail":  "size=2352 updated=2026-05-25T21:56:31",
+                       "url":  ""
+                   },
+                   {
+                       "area":  "public_files",
+                       "name":  "privacy.html",
+                       "status":  "OK",
+                       "detail":  "size=3566 updated=2026-05-25T23:23:12",
                        "url":  ""
                    }
                ],
@@ -229,10 +243,10 @@
                                               "generated_at":  "2026-05-25T22:05:52.8394242-04:00"
                                           },
                     "traffic":  {
-                                    "overall":  "WARN",
-                                    "requests":  2096,
-                                    "unique_clients":  28,
-                                    "generated_at":  "2026-05-25T23:18:29.7463797-04:00"
+                                    "overall":  "OK",
+                                    "requests":  264,
+                                    "unique_clients":  10,
+                                    "generated_at":  "2026-05-26T01:45:12.9201579-04:00"
                                 },
                     "dns_reputation":  {
                                            "overall":  "WARN",
@@ -241,6 +255,15 @@
                                            "recommended_issues":  1,
                                            "crawler_route_issues":  0,
                                            "generated_at":  "2026-05-25T22:56:36.3582409-04:00"
-                                       }
+                                       },
+                    "discovery_conversion":  {
+                                                 "overall":  "GOOD",
+                                                 "quality":  "SANDBOX",
+                                                 "unique_clients":  40,
+                                                 "deep_clients":  1,
+                                                 "sandbox_clients":  1,
+                                                 "receipt_clients":  0,
+                                                 "generated_at":  "2026-05-26T02:06:05.5610098-04:00"
+                                             }
                 }
 }
