@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9192 Privacy | Anonymized Operational Telemetry</title>
+  <meta name="description" content="Privacy posture for 9192: public discovery is open, public reports avoid raw IP exposure, traffic summaries use anonymized client labels, and paid execution has explicit account boundaries.">
+  <link rel="canonical" href="https://nineoneninetwo.com.br/privacy">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/9192-pages.css">
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="/"><img src="/favicon-256.png" alt="9192"><strong>9192<span>Privacy</span></strong></a><div class="links"><a href="/security">Security</a><a href="/trust">Trust</a><a href="/status">Status</a><a href="/discovery-map">Discovery Map</a><a href="/docs">Docs</a></div></div></nav>
+  <main class="wrap">
+    <section class="hero"><div class="eyebrow">Privacy by default</div><h1>Discovery is public. Operational telemetry is summarized without publishing raw client IPs.</h1><p class="lead">9192 is built to be discoverable by machines while keeping public reporting narrow: aggregate counts, anonymized client labels, route health and verification status instead of raw visitor identity.</p><div class="cta-row"><a class="button primary" href="/discovery-map">Discovery map</a><a class="button" href="/security">Security controls</a><a class="button" href="/trust">Trust resources</a></div></section>
+    <section class="grid">
+      <article class="card"><h2>Public reports</h2><p class="status-pill">No raw IPs</p><p>Traffic summaries use hashed client labels such as <code>ip_95c511c0a7d5</code>. Public discovery snapshots expose route health and metadata status, not source addresses.</p></article>
+      <article class="card"><h2>Local logs</h2><p class="status-pill">Operator-local</p><p>Raw access logs are kept for security and abuse response on the operator machine. They are not part of the public repository or discovery package.</p></article>
+      <article class="card"><h2>Sandbox</h2><p class="status-pill">Anonymous test path</p><p>Free sandbox discovery and receipt verification do not require a funded account. Limits still apply to protect the service.</p></article>
+      <article class="card"><h2>Paid execution</h2><p class="status-pill">Explicit boundary</p><p>Paid execution is not anonymous: it uses quoted work, machine/account identifiers, funding state and receipts so clients can verify what happened.</p></article>
+      <article class="card wide"><h2>What is published</h2><pre>route counts
+status codes
+latency summaries
+user-agent summaries
+anonymized client labels
+discovery route health
+DNS and metadata checks</pre></article>
+      <article class="card"><h2>What is not published</h2><pre>raw client IPs
+TLS private keys
+ledger internals
+admin routes
+operator secrets
+raw access logs</pre></article>
+      <article class="card wide"><h2>Network anonymity</h2><p>9192 does not claim to make a client invisible on the internet. It minimizes what is published and separates public discovery from private operations; clients that need network anonymity should use their own network privacy controls.</p></article>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap">Privacy posture: public discovery, narrow telemetry, no raw IPs in public reports.</div></footer>
+</body>
+</html>
