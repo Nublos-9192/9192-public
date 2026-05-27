@@ -59,7 +59,12 @@
 
   <main>
     <section class="hero">
-      <div class="hero-art"><img src="/assets/9192-protocol-hero.png" alt=""></div>
+      <div class="hero-art">
+        <picture>
+          <source srcset="/assets/9192-protocol-hero-768.jpg 768w, /assets/9192-protocol-hero-1280.jpg 1280w" sizes="100vw" type="image/jpeg">
+          <img src="/assets/9192-protocol-hero-1280.jpg" width="1280" height="720" alt="" decoding="async" fetchpriority="high">
+        </picture>
+      </div>
       <div class="shell hero-content">
         <div>
           <div class="eyebrow">Public edge + sandbox + receipts</div>
