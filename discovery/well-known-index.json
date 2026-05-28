@@ -1,0 +1,21 @@
+{
+  "service": "9192",
+  "domain": "nineoneninetwo.com.br",
+  "native_edge": "edge.nineoneninetwo.com.br:9443",
+  "protocol": "9192/1",
+  "links": {
+    "manifest": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json",
+    "manifest_kv": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.kv",
+    "bootstrap": "https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json",
+    "node": "https://nineoneninetwo.com.br/.well-known/9192/node.json",
+    "network": "https://nineoneninetwo.com.br/.well-known/9192/network.json",
+    "pricebook": "https://nineoneninetwo.com.br/.well-known/9192/pricebook.json",
+    "agent_card": "https://nineoneninetwo.com.br/.well-known/agent-card.json",
+    "agent_alias": "https://nineoneninetwo.com.br/.well-known/agent.json",
+    "mcp": "https://nineoneninetwo.com.br/.well-known/mcp",
+    "mcp_json": "https://nineoneninetwo.com.br/.well-known/mcp.json",
+    "openapi": "https://nineoneninetwo.com.br/.well-known/openapi.json",
+    "host_meta": "https://nineoneninetwo.com.br/.well-known/host-meta",
+    "webfinger": "https://nineoneninetwo.com.br/.well-known/webfinger?resource=9192:nineoneninetwo.com.br"
+  }
+}
