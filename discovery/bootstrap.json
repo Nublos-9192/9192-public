@@ -83,7 +83,7 @@
     "execute": "https://nineoneninetwo.com.br/api/v1/sandbox/executions/get-pulse",
     "verify_receipt": "https://nineoneninetwo.com.br/api/v1/sandbox/receipts/verify"
   },
-  "discovery_version": "1.0.4",
+  "discovery_version": "1.0.5",
   "public_client_kit_version": "v1.0.5",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",

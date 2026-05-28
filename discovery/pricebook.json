@@ -76,7 +76,7 @@
   "free_receipt_verification": true,
   "paid_execution_required": true,
   "commercial_tiers": "planned",
-  "discovery_version": "1.0.4",
+  "discovery_version": "1.0.5",
   "public_client_kit_version": "v1.0.5",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",

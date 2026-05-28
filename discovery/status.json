@@ -37,7 +37,7 @@
     "commercial_tiers": "planned",
     "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
   },
-  "discovery_version": "1.0.4",
+  "discovery_version": "1.0.5",
   "public_client_kit_version": "v1.0.5",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",
@@ -52,7 +52,7 @@
     "sitemap": "https://nineoneninetwo.com.br/sitemap.xml",
     "robots": "https://nineoneninetwo.com.br/robots.txt"
   },
-  "manifest_file_sha256": "2a4aaa5d3c2a339ccf7da550f00f44cec04dd2e23ae1db2c803df3974bbe4b73",
+  "manifest_file_sha256": "47c69728b2281c7538b255678b3f7c344916ad50c0a71be1bc5b91ceaf3bb62d",
   "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt",
-  "gateway_version": "1.0.4"
+  "gateway_version": "1.0.5"
 }
