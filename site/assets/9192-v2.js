@@ -57,7 +57,7 @@ const state = { sandboxQuote: null, sandboxReceipt: null };
 
 function $(selector) { return document.querySelector(selector); }
 function all(selector) { return Array.from(document.querySelectorAll(selector)); }
-function text(selector, value) { const el = $(selector); if (el) el.textContent = value; }
+function text(selector, value) { all(selector).forEach((el) => { el.textContent = value; }); }
 function json(selector, value) { text(selector, JSON.stringify(value, null, 2)); }
 
 function setBusy(button, busy) {
