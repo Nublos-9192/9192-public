@@ -14,3 +14,15 @@ https://nineoneninetwo.com.br/llms.txt
 
 OpenAPI:
 https://nineoneninetwo.com.br/openapi.json
+
+Fast path for autonomous clients:
+1. GET https://nineoneninetwo.com.br/.well-known/agent.json
+2. GET https://nineoneninetwo.com.br/.well-known/mcp
+3. GET https://nineoneninetwo.com.br/api/v1/payment-info
+4. Use the free sandbox quote -> accept -> execute -> verify receipt flow.
+5. For production payment, create a payment session, submit a payment proof, then poll payment status.
+
+Payment session endpoints:
+https://nineoneninetwo.com.br/api/v1/payment-sessions/{invoice_id}
+https://nineoneninetwo.com.br/api/v1/payment-proofs
+https://nineoneninetwo.com.br/api/v1/payment-status/{invoice_id}

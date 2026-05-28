@@ -11,7 +11,17 @@
       "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
       "mcp_metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
       "llms": "https://nineoneninetwo.com.br/llms.txt",
-      "openapi": "https://nineoneninetwo.com.br/openapi.json"
+      "openapi": "https://nineoneninetwo.com.br/openapi.json",
+      "payment_info": "https://nineoneninetwo.com.br/api/v1/payment-info",
+      "first_test": "https://nineoneninetwo.com.br/first-test",
+      "sandbox": "https://nineoneninetwo.com.br/sandbox",
+      "keywords": [
+        "MCP",
+        "verifiable execution",
+        "receipt verification",
+        "machine payments",
+        "autonomous agents"
+      ]
     }
   ]
 }

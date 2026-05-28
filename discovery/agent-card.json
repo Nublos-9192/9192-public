@@ -24,6 +24,20 @@
     "metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
     "version": "1.0.2"
   },
+  "audience": [
+    "autonomous agents",
+    "LLM runtimes",
+    "machine clients",
+    "receipt verifiers"
+  ],
+  "keywords": [
+    "MCP",
+    "verifiable execution",
+    "receipt verification",
+    "machine payments",
+    "crypto settlement",
+    "sandbox execution"
+  ],
   "capabilities": [
     "HELLO",
     "CAPS",
@@ -99,7 +113,17 @@
     "api_openapi": "https://nineoneninetwo.com.br/api/v1/openapi.json",
     "mcp_metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
     "mcp_endpoint": "https://nineoneninetwo.com.br/mcp",
-    "llms": "https://nineoneninetwo.com.br/llms.txt"
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "agents": "https://nineoneninetwo.com.br/agents.txt",
+    "payment_info": "https://nineoneninetwo.com.br/api/v1/payment-info",
+    "first_test": "https://nineoneninetwo.com.br/first-test",
+    "sandbox": "https://nineoneninetwo.com.br/sandbox"
+  },
+  "machine_payment_flow": {
+    "session": "GET /api/v1/payment-sessions/{invoice_id}?machine_id={machine_id}",
+    "proof": "POST /api/v1/payment-proofs",
+    "status": "GET /api/v1/payment-status/{invoice_id}?machine_id={machine_id}",
+    "proof_policy": "tx_reference is a claim until verified on-chain with network, asset, destination, value, confirmations and event dedupe"
   },
   "freemium_policy": {
     "positioning": "open_protocol_paid_execution",

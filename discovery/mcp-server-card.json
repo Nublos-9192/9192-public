@@ -8,10 +8,25 @@
   "agentCardUrl": "https://nineoneninetwo.com.br/.well-known/agent.json",
   "protocol": "9192/1",
   "publicEdge": "edge.nineoneninetwo.com.br:9443",
+  "category": "machine-to-machine verifiable execution",
   "authentication": {
     "required": false
   },
   "rateLimits": {
     "profile": "public_low"
+  },
+  "tools": [
+    "discover_9192",
+    "get_pricebook",
+    "get_payment_info",
+    "quote_get_pulse",
+    "sandbox_get_pulse",
+    "verify_receipt"
+  ],
+  "discovery": {
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "agents": "https://nineoneninetwo.com.br/agents.txt",
+    "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "paymentInfo": "https://nineoneninetwo.com.br/api/v1/payment-info"
   }
 }

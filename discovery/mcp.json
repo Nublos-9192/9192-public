@@ -8,6 +8,21 @@
   "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
   "offer": "https://nineoneninetwo.com.br/for-agents",
   "transport": "streamable-http",
+  "category": "machine-to-machine verifiable execution",
+  "audience": [
+    "autonomous agents",
+    "LLM runtimes",
+    "machine clients",
+    "receipt verifiers"
+  ],
+  "keywords": [
+    "MCP",
+    "verifiable execution",
+    "receipt verification",
+    "machine payments",
+    "crypto settlement",
+    "sandbox execution"
+  ],
   "tools": [
     "discover_9192",
     "get_pricebook",
@@ -15,5 +30,19 @@
     "quote_get_pulse",
     "sandbox_get_pulse",
     "verify_receipt"
-  ]
+  ],
+  "discovery": {
+    "llms": "https://nineoneninetwo.com.br/llms.txt",
+    "agents": "https://nineoneninetwo.com.br/agents.txt",
+    "openapi": "https://nineoneninetwo.com.br/openapi.json",
+    "manifest": "https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json",
+    "node": "https://nineoneninetwo.com.br/.well-known/9192/node.json",
+    "payment_info": "https://nineoneninetwo.com.br/api/v1/payment-info"
+  },
+  "onboarding": {
+    "sandbox_available": true,
+    "free_quote": true,
+    "free_receipt_verification": true,
+    "first_test": "https://nineoneninetwo.com.br/first-test"
+  }
 }

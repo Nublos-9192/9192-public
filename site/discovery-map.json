@@ -1,10 +1,10 @@
-﻿{
-    "generated_at":  "2026-05-26T03:10:36.3894234-04:00",
+{
+    "generated_at":  "2026-05-27T08:15:03.1719100-04:00",
     "domain":  "nineoneninetwo.com.br",
-    "overall":  "WARN",
+    "overall":  "REVIEW",
     "issue_count":  0,
-    "report_issue_count":  0,
-    "report_warning_count":  1,
+    "report_issue_count":  1,
+    "report_warning_count":  3,
     "nodes":  [
                   {
                       "id":  "dns",
@@ -44,7 +44,7 @@
                   {
                       "id":  "reports",
                       "label":  "Reports",
-                      "role":  "operational, traffic and DNS reputation checks"
+                      "role":  "operational, traffic, 5xx, payment, executive and DNS reputation checks"
                   }
               ],
     "edges":  [
@@ -91,7 +91,12 @@
                   {
                       "from":  "reports",
                       "to":  "site",
-                      "meaning":  "traffic and trust reports watch public access"
+                      "meaning":  "traffic, 5xx and trust reports watch public access"
+                  },
+                  {
+                      "from":  "reports",
+                      "to":  "api",
+                      "meaning":  "executive and payment reports summarize readiness for operation"
                   }
               ],
     "checks":  [
@@ -136,6 +141,13 @@
                        "status":  "OK",
                        "detail":  "HTTP 200",
                        "url":  "https://nineoneninetwo.com.br/agent-directory.json"
+                   },
+                   {
+                       "area":  "public_routes",
+                       "name":  "mcp endpoint",
+                       "status":  "OK",
+                       "detail":  "HTTP 200",
+                       "url":  "https://nineoneninetwo.com.br/mcp"
                    },
                    {
                        "area":  "public_routes",
@@ -252,32 +264,59 @@
                ],
     "reports":  {
                     "operational_trust":  {
-                                              "overall":  "OK",
-                                              "issue_count":  0,
-                                              "generated_at":  "2026-05-25T22:05:52.8394242-04:00"
+                                              "overall":  "DEGRADED",
+                                              "issue_count":  2,
+                                              "generated_at":  "2026-05-27T08:00:05.4229750-04:00"
                                           },
                     "traffic":  {
-                                    "overall":  "OK",
-                                    "requests":  168,
-                                    "unique_clients":  17,
-                                    "generated_at":  "2026-05-26T03:10:33.4152761-04:00"
+                                    "overall":  "WARN",
+                                    "requests":  3139,
+                                    "unique_clients":  84,
+                                    "generated_at":  "2026-05-27T08:05:09.4374212-04:00"
                                 },
+                    "five_xx_watch":  {
+                                          "overall":  "OK",
+                                          "total_5xx":  0,
+                                          "unique_clients":  0,
+                                          "generated_at":  "2026-05-27T08:06:03.3171816-04:00"
+                                      },
                     "dns_reputation":  {
                                            "overall":  "WARN",
                                            "issue_count":  1,
                                            "required_ok":  6,
                                            "recommended_issues":  1,
                                            "crawler_route_issues":  0,
-                                           "generated_at":  "2026-05-25T22:56:36.3582409-04:00"
+                                           "generated_at":  "2026-05-27T08:10:04.3658304-04:00"
                                        },
                     "discovery_conversion":  {
                                                  "overall":  "GOOD",
-                                                 "quality":  "SANDBOX",
-                                                 "unique_clients":  42,
-                                                 "deep_clients":  1,
-                                                 "sandbox_clients":  1,
-                                                 "receipt_clients":  0,
-                                                 "generated_at":  "2026-05-26T02:23:32.9355504-04:00"
-                                             }
+                                                 "quality":  "RECEIPT",
+                                                 "external_quality":  "RECEIPT",
+                                                 "unique_clients":  106,
+                                                 "externalish_clients":  63,
+                                                 "deep_clients":  5,
+                                                 "sandbox_clients":  5,
+                                                 "receipt_clients":  4,
+                                                 "external_deep_clients":  3,
+                                                 "external_sandbox_clients":  3,
+                                                 "external_receipt_clients":  3,
+                                                 "generated_at":  "2026-05-26T22:39:48.9533516-04:00"
+                                             },
+                    "payment_rail_status":  {
+                                                "overall":  "OK",
+                                                "production_ready":  true,
+                                                "production_candidate_rails":  1,
+                                                "best_effort_rails":  3,
+                                                "not_ready_rails":  0,
+                                                "generated_at":  "2026-05-27T04:30:16.0021744-04:00"
+                                            },
+                    "executive_status":  {
+                                             "overall":  "WARN",
+                                             "customer_ready":  true,
+                                             "paid_volume_ready":  true,
+                                             "action_count":  0,
+                                             "warn_count":  3,
+                                             "generated_at":  "2026-05-26T23:56:01.5720947-04:00"
+                                         }
                 }
 }

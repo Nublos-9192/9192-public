@@ -22,12 +22,23 @@
   <url><loc>https://nineoneninetwo.com.br/agents.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/agent-directory.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/mcp.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/mcp</loc></url>
   <url><loc>https://nineoneninetwo.com.br/discovery-map.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/site.webmanifest</loc></url>
   <url><loc>https://nineoneninetwo.com.br/openapi.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/discovery</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/status</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/health</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/caps</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/pricebook</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/payment-info</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/api/v1/openapi.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/openapi.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/node.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/network.json</loc></url>
+  <url><loc>https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.kv</loc></url>
   <url><loc>https://nineoneninetwo.com.br/.well-known/9192/status.json</loc></url>

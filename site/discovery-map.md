@@ -1,11 +1,11 @@
-﻿# 9192 Discovery Map
+# 9192 Discovery Map
 
-- Generated: 2026-05-26T03:10:36.3894234-04:00
+- Generated: 2026-05-27T08:15:03.1719100-04:00
 - Domain: nineoneninetwo.com.br
-- Overall: WARN
+- Overall: REVIEW
 - Public route/file issues: 0
-- Report issues: 0
-- Report warnings: 1
+- Report issues: 1
+- Report warnings: 3
 
 ```mermaid
 flowchart LR
@@ -16,8 +16,9 @@ flowchart LR
   agents --> edge[Native 9192 edge]
   api --> receipts[Verifiable receipts]
   edge --> receipts
-  reports[Trust, traffic and DNS reports] --> dns
+  reports[Trust, traffic, 5xx, payment and DNS reports] --> dns
   reports --> site
+  reports --> api
 ```
 
 ## Public checks
@@ -37,6 +38,7 @@ flowchart LR
 - [OK] public_routes / first test page: HTTP 200 https://nineoneninetwo.com.br/first-test
 - [OK] public_routes / home: HTTP 200 https://nineoneninetwo.com.br/
 - [OK] public_routes / llms txt: HTTP 200 https://nineoneninetwo.com.br/llms.txt
+- [OK] public_routes / mcp endpoint: HTTP 200 https://nineoneninetwo.com.br/mcp
 - [OK] public_routes / mcp json: HTTP 200 https://nineoneninetwo.com.br/mcp.json
 - [OK] public_routes / privacy page: HTTP 200 https://nineoneninetwo.com.br/privacy
 - [OK] public_routes / sitemap: HTTP 200 https://nineoneninetwo.com.br/sitemap.xml
@@ -45,10 +47,13 @@ flowchart LR
 - [OK] public_routes / well-known mcp card: HTTP 200 https://nineoneninetwo.com.br/.well-known/mcp/server-card.json
 
 ## Report summaries
-- operational_trust: overall=OK generated=2026-05-25T22:05:52.8394242-04:00
-- traffic: overall=OK generated=2026-05-26T03:10:33.4152761-04:00
-- dns_reputation: overall=WARN generated=2026-05-25T22:56:36.3582409-04:00
-- discovery_conversion: overall=GOOD generated=2026-05-26T02:23:32.9355504-04:00
+- operational_trust: overall=DEGRADED generated=2026-05-27T08:00:05.4229750-04:00
+- traffic: overall=WARN generated=2026-05-27T08:05:09.4374212-04:00
+- five_xx_watch: overall=OK generated=2026-05-27T08:06:03.3171816-04:00
+- dns_reputation: overall=WARN generated=2026-05-27T08:10:04.3658304-04:00
+- discovery_conversion: overall=GOOD generated=2026-05-26T22:39:48.9533516-04:00
+- payment_rail_status: overall=OK generated=2026-05-27T04:30:16.0021744-04:00
+- executive_status: overall=WARN generated=2026-05-26T23:56:01.5720947-04:00
 
 ## Discovery edges
 - dns -> site: domain resolves to public HTTPS
@@ -59,4 +64,5 @@ flowchart LR
 - api -> receipts: sandbox and quote flows produce verifiable receipts
 - edge -> receipts: native execution returns verifiable receipts
 - reports -> dns: DNS reputation tracks public discoverability
-- reports -> site: traffic and trust reports watch public access
+- reports -> site: traffic, 5xx and trust reports watch public access
+- reports -> api: executive and payment reports summarize readiness for operation

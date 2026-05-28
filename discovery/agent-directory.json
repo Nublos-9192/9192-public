@@ -8,7 +8,17 @@
       "type": "mcp_server",
       "url": "https://nineoneninetwo.com.br/.well-known/mcp",
       "agent_card": "https://nineoneninetwo.com.br/.well-known/agent.json",
-      "offer": "https://nineoneninetwo.com.br/for-agents"
+      "offer": "https://nineoneninetwo.com.br/for-agents",
+      "llms": "https://nineoneninetwo.com.br/llms.txt",
+      "openapi": "https://nineoneninetwo.com.br/openapi.json",
+      "payment_info": "https://nineoneninetwo.com.br/api/v1/payment-info",
+      "first_test": "https://nineoneninetwo.com.br/first-test",
+      "keywords": [
+        "MCP",
+        "verifiable execution",
+        "receipt verification",
+        "machine payments"
+      ]
     }
   ]
 }

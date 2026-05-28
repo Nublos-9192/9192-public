@@ -13,6 +13,24 @@ Allow: /
 User-agent: Bravebot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 User-agent: Yandex
 Allow: /
 
@@ -27,11 +45,19 @@ Sitemap: https://nineoneninetwo.com.br/sitemap.xml
 # Canonical machine discovery:
 # https://nineoneninetwo.com.br/.well-known/9192/node.json
 # https://nineoneninetwo.com.br/.well-known/9192/network.json
+# https://nineoneninetwo.com.br/.well-known/9192/bootstrap.json
+# https://nineoneninetwo.com.br/.well-known/9192/9192_public_manifest.json
 # https://nineoneninetwo.com.br/openapi.json
+# https://nineoneninetwo.com.br/api/v1/discovery
+# https://nineoneninetwo.com.br/api/v1/payment-info
 # https://nineoneninetwo.com.br/.well-known/mcp
+# https://nineoneninetwo.com.br/mcp
+# https://nineoneninetwo.com.br/mcp.json
 # https://nineoneninetwo.com.br/llms.txt
+# https://nineoneninetwo.com.br/agents.txt
 # https://nineoneninetwo.com.br/agents.json
 # https://nineoneninetwo.com.br/agent-directory.json
+# https://nineoneninetwo.com.br/.well-known/agent.json
 # https://nineoneninetwo.com.br/discovery-map
 # https://nineoneninetwo.com.br/discovery-map.json
 # https://nineoneninetwo.com.br/privacy
