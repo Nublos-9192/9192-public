@@ -26,14 +26,58 @@
         <button class="filter" data-filter="admin">Admin</button>
         <span class="eyebrow" id="capability-count">21 capabilities</span>
       </div>
-      <div class="capability-grid" id="capability-list"></div>
+      <div class="capability-grid" id="capability-list">
+        <article class="cap-card" data-access="public"><b>HELLO</b><span>Protocol greeting and public edge proof.</span><small>Discovery / public</small><span><code>GET /api/v1/hello</code></span><span><code>hello</code></span></article>
+        <article class="cap-card" data-access="public"><b>CAPS</b><span>Machine-readable capability advertisement.</span><small>Discovery / public</small><span><code>GET /api/v1/caps</code></span><span><code>caps</code></span></article>
+        <article class="cap-card" data-access="auth"><b>BALANCE</b><span>Authenticated account balance view.</span><small>Finance / auth</small><span><code>POST /api/v1/balance</code></span><span><code>balance</code></span></article>
+        <article class="cap-card" data-access="public"><b>QUOTE</b><span>Price and reservation preview before execution.</span><small>Finance / public</small><span><code>POST /api/v1/quotes/*</code></span><span><code>quote-*</code></span></article>
+        <article class="cap-card" data-access="auth"><b>ACCEPT_QUOTE</b><span>Accept an issued quote after funding.</span><small>Finance / auth</small><span><code>POST /api/v1/quotes/{id}/accept</code></span><span><code>accept-quote</code></span></article>
+        <article class="cap-card" data-access="paid"><b>GET_PULSE</b><span>Baseline proof workload.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/get-pulse</code></span><span><code>get-pulse</code></span></article>
+        <article class="cap-card" data-access="paid"><b>MAKE_BCT</b><span>Create a sealed BCT packet.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/make-bct</code></span><span><code>make-bct</code></span></article>
+        <article class="cap-card" data-access="paid"><b>VERIFY_BCT</b><span>Verify and open a BCT packet.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/verify-bct</code></span><span><code>verify-bct</code></span></article>
+        <article class="cap-card" data-access="paid"><b>VERIFY_RESULT</b><span>Verify an execution result tag.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/verify-result</code></span><span><code>verify-result</code></span></article>
+        <article class="cap-card" data-access="paid"><b>ATTEST_EVENT</b><span>Create event attestation fields.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/attest-event</code></span><span><code>attest-event</code></span></article>
+        <article class="cap-card" data-access="paid"><b>SUBMIT_ID</b><span>Execute the ID service.</span><small>Identity / paid</small><span><code>POST /api/v1/executions/submit-id</code></span><span><code>submit-id</code></span></article>
+        <article class="cap-card" data-access="paid"><b>BVM_EXEC</b><span>Run bounded BVM bytecode.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/bvm-exec</code></span><span><code>bvm-exec</code></span></article>
+        <article class="cap-card" data-access="paid"><b>SEALED_MESSAGE</b><span>Seal message payloads.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/sealed-message</code></span><span><code>sealed-message</code></span></article>
+        <article class="cap-card" data-access="paid"><b>TIMESTAMP_PROOF</b><span>Issue timestamp proof metadata.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/timestamp-proof</code></span><span><code>timestamp-proof</code></span></article>
+        <article class="cap-card" data-access="paid"><b>MACHINE_EVENT_LOG</b><span>Commit machine event log summaries.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/machine-event-log</code></span><span><code>machine-event-log</code></span></article>
+        <article class="cap-card" data-access="auth"><b>GET_RECEIPT</b><span>Fetch execution receipt material.</span><small>Receipt / auth</small><span><code>GET /api/v1/receipts/{id}</code></span><span><code>get-receipt</code></span></article>
+        <article class="cap-card" data-access="public"><b>VERIFY_RECEIPT</b><span>Verify receipt material for free.</span><small>Receipt / public</small><span><code>POST /api/v1/receipts/verify</code></span><span><code>verify-receipt</code></span></article>
+        <article class="cap-card" data-access="auth"><b>FUND_ACCOUNT</b><span>Create account funding invoice.</span><small>Finance / auth</small><span><code>POST /api/v1/invoices</code></span><span><code>fund-account</code></span></article>
+        <article class="cap-card" data-access="auth"><b>INVOICE_STATUS</b><span>Check invoice settlement state.</span><small>Finance / auth</small><span><code>GET /api/v1/invoices/{id}</code></span><span><code>invoice-status</code></span></article>
+        <article class="cap-card" data-access="admin"><b>SETTLE_INVOICE</b><span>Administrative settlement command.</span><small>Admin / admin</small><span><code>not public</code></span><span><code>settle-invoice</code></span></article>
+        <article class="cap-card" data-access="admin"><b>RECOVER_RUNTIME</b><span>Administrative runtime recovery command.</span><small>Admin / admin</small><span><code>not public</code></span><span><code>recover-runtime</code></span></article>
+      </div>
     </section>
     <section class="section">
       <div class="section-head"><h2>Full table.</h2><p>HTTP route is listed only where that surface is intended to exist.</p></div>
       <div class="table-shell">
         <table>
           <thead><tr><th>Command</th><th>Group</th><th>Access</th><th>HTTP</th><th>CLI</th><th>Purpose</th></tr></thead>
-          <tbody id="capability-table-body"></tbody>
+          <tbody id="capability-table-body">
+            <tr data-access="public"><td><code>HELLO</code></td><td>Discovery</td><td>public</td><td><code>GET /api/v1/hello</code></td><td><code>hello</code></td><td>Protocol greeting and public edge proof.</td></tr>
+            <tr data-access="public"><td><code>CAPS</code></td><td>Discovery</td><td>public</td><td><code>GET /api/v1/caps</code></td><td><code>caps</code></td><td>Machine-readable capability advertisement.</td></tr>
+            <tr data-access="auth"><td><code>BALANCE</code></td><td>Finance</td><td>auth</td><td><code>POST /api/v1/balance</code></td><td><code>balance</code></td><td>Authenticated account balance view.</td></tr>
+            <tr data-access="public"><td><code>QUOTE</code></td><td>Finance</td><td>public</td><td><code>POST /api/v1/quotes/*</code></td><td><code>quote-*</code></td><td>Price and reservation preview before execution.</td></tr>
+            <tr data-access="auth"><td><code>ACCEPT_QUOTE</code></td><td>Finance</td><td>auth</td><td><code>POST /api/v1/quotes/{id}/accept</code></td><td><code>accept-quote</code></td><td>Accept an issued quote after funding.</td></tr>
+            <tr data-access="paid"><td><code>GET_PULSE</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/get-pulse</code></td><td><code>get-pulse</code></td><td>Baseline proof workload.</td></tr>
+            <tr data-access="paid"><td><code>MAKE_BCT</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/make-bct</code></td><td><code>make-bct</code></td><td>Create a sealed BCT packet.</td></tr>
+            <tr data-access="paid"><td><code>VERIFY_BCT</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/verify-bct</code></td><td><code>verify-bct</code></td><td>Verify and open a BCT packet.</td></tr>
+            <tr data-access="paid"><td><code>VERIFY_RESULT</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/verify-result</code></td><td><code>verify-result</code></td><td>Verify an execution result tag.</td></tr>
+            <tr data-access="paid"><td><code>ATTEST_EVENT</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/attest-event</code></td><td><code>attest-event</code></td><td>Create event attestation fields.</td></tr>
+            <tr data-access="paid"><td><code>SUBMIT_ID</code></td><td>Identity</td><td>paid</td><td><code>POST /api/v1/executions/submit-id</code></td><td><code>submit-id</code></td><td>Execute the ID service.</td></tr>
+            <tr data-access="paid"><td><code>BVM_EXEC</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/bvm-exec</code></td><td><code>bvm-exec</code></td><td>Run bounded BVM bytecode.</td></tr>
+            <tr data-access="paid"><td><code>SEALED_MESSAGE</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/sealed-message</code></td><td><code>sealed-message</code></td><td>Seal message payloads.</td></tr>
+            <tr data-access="paid"><td><code>TIMESTAMP_PROOF</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/timestamp-proof</code></td><td><code>timestamp-proof</code></td><td>Issue timestamp proof metadata.</td></tr>
+            <tr data-access="paid"><td><code>MACHINE_EVENT_LOG</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/machine-event-log</code></td><td><code>machine-event-log</code></td><td>Commit machine event log summaries.</td></tr>
+            <tr data-access="auth"><td><code>GET_RECEIPT</code></td><td>Receipt</td><td>auth</td><td><code>GET /api/v1/receipts/{id}</code></td><td><code>get-receipt</code></td><td>Fetch execution receipt material.</td></tr>
+            <tr data-access="public"><td><code>VERIFY_RECEIPT</code></td><td>Receipt</td><td>public</td><td><code>POST /api/v1/receipts/verify</code></td><td><code>verify-receipt</code></td><td>Verify receipt material for free.</td></tr>
+            <tr data-access="auth"><td><code>FUND_ACCOUNT</code></td><td>Finance</td><td>auth</td><td><code>POST /api/v1/invoices</code></td><td><code>fund-account</code></td><td>Create account funding invoice.</td></tr>
+            <tr data-access="auth"><td><code>INVOICE_STATUS</code></td><td>Finance</td><td>auth</td><td><code>GET /api/v1/invoices/{id}</code></td><td><code>invoice-status</code></td><td>Check invoice settlement state.</td></tr>
+            <tr data-access="admin"><td><code>SETTLE_INVOICE</code></td><td>Admin</td><td>admin</td><td><code>not public</code></td><td><code>settle-invoice</code></td><td>Administrative settlement command.</td></tr>
+            <tr data-access="admin"><td><code>RECOVER_RUNTIME</code></td><td>Admin</td><td>admin</td><td><code>not public</code></td><td><code>recover-runtime</code></td><td>Administrative runtime recovery command.</td></tr>
+          </tbody>
         </table>
       </div>
     </section>

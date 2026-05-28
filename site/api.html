@@ -19,11 +19,11 @@
       <div class="cta-row"><a class="button primary" href="/openapi.json">OpenAPI JSON</a><a class="button" href="/.well-known/9192/bootstrap.json">Bootstrap JSON</a><a class="button secondary" href="/mcp">MCP endpoint</a></div>
     </section>
     <section class="section">
-      <div class="section-head"><h2>Live checks.</h2><p>These values are refreshed from the public API in the browser.</p></div>
+      <div class="section-head"><h2>Public checks.</h2><p>These values are present in the HTML and refreshed from the public API in the browser.</p></div>
       <div class="status-grid">
-        <div class="status-card"><b>Status</b><strong data-live="status">checking</strong><span>/api/v1/status</span></div>
-        <div class="status-card"><b>Health</b><strong data-live="health">checking</strong><span>/api/v1/health</span></div>
-        <div class="status-card"><b>Caps</b><strong data-live="caps">checking</strong><span>/api/v1/caps</span></div>
+        <div class="status-card"><b>Status</b><strong data-live="status">public</strong><span>/api/v1/status</span></div>
+        <div class="status-card"><b>Health</b><strong data-live="health">edge</strong><span>/api/v1/health</span></div>
+        <div class="status-card"><b>Caps</b><strong data-live="caps">catalog</strong><span>/api/v1/caps</span></div>
         <div class="status-card"><b>Release</b><strong data-live="version">v1.0.5</strong><span>public kit</span></div>
       </div>
       <div class="cta-row"><button class="button" id="refresh-status" type="button">Refresh</button></div>

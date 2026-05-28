@@ -187,7 +187,6 @@ function recordUptimeSample(ok, detail) {
 }
 
 async function refreshLiveStatus() {
-  setText("#live-last-check", "checking...");
   const [status, health, caps, payment, pricebook] = await Promise.all([
     apiJson(`${apiBase}/status`),
     apiJson(`${apiBase}/health`),
