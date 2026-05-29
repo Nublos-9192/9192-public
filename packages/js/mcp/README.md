@@ -2,8 +2,11 @@
 
 Dependency-free stdio MCP bridge for 9192.
 
+Version: 1.0.5
+License: Apache-2.0
+
 ```bash
-node ./bin/9192-mcp.mjs
+npx @nineoneninetwo/mcp
 ```
 
 Tools:
@@ -14,8 +17,7 @@ Tools:
 - `quote_get_pulse`
 - `quote_make_bct`
 - `quote_verify_bct`
-- `get_receipt`
 - `verify_receipt`
 
 The bridge calls the public HTTP API facade. It does not expose a generic command
-endpoint and does not expose settlement/admin operations.
+endpoint, reserved receipt fetch, or settlement/admin operations.

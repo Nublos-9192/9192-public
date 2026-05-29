@@ -26,7 +26,7 @@ payment info, GET_PULSE quotes, and receipt verification.
 ## Smoke
 
 ```powershell
-python C:\9192_system\client\9192_public_api_client.py smoke
+python .\examples\9192_public_api_client.py smoke
 ```
 
 The smoke reads status, pricebook, payment info, HELLO, CAPS, a GET_PULSE quote,
@@ -35,7 +35,7 @@ and a MAKE_BCT quote. It creates quotes only; it does not spend balance.
 ## Funding Invoice
 
 ```powershell
-python C:\9192_system\client\9192_public_api_client.py invoice --machine client_001 --units 1000000 --network TRON --asset USDT
+python .\examples\9192_public_api_client.py invoice --machine client_001 --units 1000000 --network TRON --asset USDT
 ```
 
 Production invoice pairs are `TRON/USDT`, `Solana/USDC`, `Solana/USDT`, and `Base/USDC`.
@@ -64,9 +64,17 @@ GET  /api/v1/payment-status/{invoice_id}?machine_id={machine_id}
 POST /api/v1/executions/get-pulse
 POST /api/v1/executions/make-bct
 POST /api/v1/executions/verify-bct
-GET  /api/v1/receipts/{receipt_id}
 POST /api/v1/receipts/verify
 ```
+
+Reserved public route:
+
+```text
+GET /api/v1/receipts/{receipt_id} -> reserved_not_public, expected 404
+```
+
+Use `POST /api/v1/receipts/verify` or the sandbox receipt verification endpoint
+instead of treating receipt fetch as a public HTTP surface.
 
 BCT execution uses `plain_hex` and `packet_hex` at the JSON boundary so the native
 binary container remains byte exact inside the 9192 protocol. BCT quote routes add a
@@ -81,7 +89,7 @@ chain transaction reference after paying, and poll payment status. The proof is
 only a claim until the gateway verifies the chain event and emits a binary
 payment frame into the local 9192 payment inbox.
 
-Local retry worker:
+Operator-only local retry worker:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File C:\9192_system\run_9192_payment_proof_worker_windows.ps1
@@ -90,7 +98,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File C:\9192_system\run_9192_paym
 The worker retries pending proof claims that are still `claim_received`,
 `verifying`, `confirming`, or `frame_emitted`.
 
-Startup supervisor command template:
+Operator-only startup supervisor command template:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File C:\9192_system\new_9192_payment_proof_worker_command_template_windows.ps1

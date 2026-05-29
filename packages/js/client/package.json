@@ -1,6 +1,6 @@
 {
   "name": "@nineoneninetwo/client",
-  "version": "0.1.1",
+  "version": "1.0.5",
   "description": "HTTP/JSON facade client for the public 9192 service.",
   "homepage": "https://nineoneninetwo.com.br",
   "repository": {
@@ -29,7 +29,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@nineoneninetwo/discovery": "^0.1.1"
+    "@nineoneninetwo/discovery": "^1.0.5"
   },
   "engines": {
     "node": ">=18"
@@ -37,5 +37,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "UNLICENSED"
+  "license": "Apache-2.0"
 }

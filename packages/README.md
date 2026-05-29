@@ -11,7 +11,7 @@ facade at `https://nineoneninetwo.com.br`.
 - `js/discovery`: machine-readable discovery helpers.
 - `js/client`: HTTP/JSON client for the public API facade.
 - `js/mcp`: dependency-free stdio MCP bridge over the public API.
-- `js/demo`: autonomous purchase demo using paid-sim flow.
+- `js/demo`: public smoke and free sandbox demo. `paid-sim` is operator-only.
 - `cpp/cli`: packaged reference for the native C++ CLI.
 
 ## Product Boundary
@@ -19,4 +19,3 @@ facade at `https://nineoneninetwo.com.br`.
 The API and SDK packages do not replace 9192. They must not talk directly to
 `127.0.0.1:9192`; the public API and gateway are expected to pass through the
 TLS edge/protocol path.
-

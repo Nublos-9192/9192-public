@@ -3,6 +3,7 @@ import { NineOneNineTwoClient } from "@nineoneninetwo/client";
 
 const DOMAIN = process.env.NINEONENINETWO_DOMAIN || "nineoneninetwo.com.br";
 const PROTOCOL_VERSION = "2024-11-05";
+const PACKAGE_VERSION = "1.0.5";
 
 export const tools = [
   {
@@ -76,19 +77,6 @@ export const tools = [
     }
   },
   {
-    name: "get_receipt",
-    description: "Fetch a 9192 receipt by id.",
-    inputSchema: {
-      type: "object",
-      properties: {
-        domain: { type: "string", default: DOMAIN },
-        machine_id: { type: "string", default: "mcp_js_probe" },
-        receipt_id: { type: "string" }
-      },
-      required: ["receipt_id"]
-    }
-  },
-  {
     name: "verify_receipt",
     description: "Verify a 9192 receipt id or receipt payload.",
     inputSchema: {
@@ -156,12 +144,6 @@ export async function callTool(name, args = {}) {
       maxOutput: Number(args.max_output || 8192)
     }));
   }
-  if (name === "get_receipt") {
-    return textResult(await client.receipt({
-      machineId: args.machine_id || args.machine || "mcp_js_probe",
-      receiptId: args.receipt_id || args.receipt
-    }));
-  }
   if (name === "verify_receipt") {
     return textResult(await client.verifyReceipt({
       machineId: args.machine_id || args.machine || "mcp_js_probe",
@@ -178,7 +160,7 @@ async function handleMessage(msg) {
     return {
       protocolVersion: PROTOCOL_VERSION,
       capabilities: { tools: {} },
-      serverInfo: { name: "9192-mcp-js", version: "0.1.1" }
+      serverInfo: { name: "9192-mcp-js", version: PACKAGE_VERSION }
     };
   }
   if (method === "tools/list") return { tools };

@@ -1,6 +1,7 @@
 # 9192 C++ CLI Package
 
-This package wraps the existing native C++ reference client:
+This package documents the native C++ reference client used to produce the
+packaged Windows CLI binary in this public kit:
 
 ```text
 C:\9192_system\client\9192_public_client_cli.cpp
@@ -20,5 +21,6 @@ C:\9192_system\build\client\9192_public_client_cli.exe quote-get-pulse --machine
 ```
 
 The C++ CLI is the canonical native protocol reference. The JS packages are
-integration adapters for adoption, demos, and agent tooling.
-
+integration adapters for adoption, demos, and agent tooling. The public kit
+ships checksums and signed release archives for the binary; a fully
+reproducible public build recipe is still tracked as a provenance item.

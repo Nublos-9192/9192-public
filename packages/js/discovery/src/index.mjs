@@ -1,4 +1,5 @@
 export const DEFAULT_9192_DOMAIN = "nineoneninetwo.com.br";
+export const DISCOVERY_VERSION = "1.0.5";
 
 export function parse9192Txt(text) {
   const out = {};
@@ -20,7 +21,7 @@ export async function fetchJson(url, options = {}) {
     ...options,
     headers: {
       "accept": "application/json",
-      "user-agent": "9192-discovery-js/0.1",
+      "user-agent": `9192-discovery-js/${DISCOVERY_VERSION}`,
       ...(options.headers || {})
     }
   });
@@ -35,7 +36,7 @@ export async function fetchText(url, options = {}) {
     ...options,
     headers: {
       "accept": "text/plain, application/json;q=0.9, */*;q=0.1",
-      "user-agent": "9192-discovery-js/0.1",
+      "user-agent": `9192-discovery-js/${DISCOVERY_VERSION}`,
       ...(options.headers || {})
     }
   });

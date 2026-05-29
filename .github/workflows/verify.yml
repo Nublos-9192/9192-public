@@ -12,7 +12,49 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: packages/js/package-lock.json
       - name: Verify signed release artifacts
         run: python releases/v1.0.5/verify_public_release.py --artifact-dir releases/v1.0.5 --openssl openssl
       - name: Verify MCP server metadata JSON
         run: python -m json.tool mcp-bridge/server.json > /dev/null
+      - name: Validate public JSON documents
+        run: |
+          python -m json.tool discovery/openapi.json > /dev/null
+          python -m json.tool discovery/9192_public_manifest.json > /dev/null
+          python -m json.tool discovery/bootstrap.json > /dev/null
+          python -m json.tool discovery/agent-card.json > /dev/null
+      - name: Validate OpenAPI contract markers
+        run: |
+          python - <<'PY'
+          import json
+          spec = json.load(open("discovery/openapi.json", encoding="utf-8"))
+          assert spec["info"]["version"] == "v1.0.5"
+          paths = spec["paths"]
+          for path in ["/api/v1/status", "/api/v1/health", "/api/v1/caps", "/api/v1/receipts/verify"]:
+              assert path in paths, path
+          receipt = paths["/api/v1/receipts/{receipt_id}"]["get"]
+          assert receipt["x-9192-availability"] == "reserved_not_public"
+          PY
+      - name: Install JS workspaces
+        working-directory: packages/js
+        run: npm ci
+      - name: Verify JS metadata, syntax and types
+        working-directory: packages/js
+        run: npm run verify:static
+      - name: Verify JS MCP stdio handshake
+        working-directory: packages/js
+        run: npm run verify:mcp
+      - name: Verify npm package dry run
+        working-directory: packages/js
+        run: npm pack --workspaces --dry-run
+      - name: Run free sandbox live smoke
+        working-directory: packages/js
+        run: npm run probe:sandbox
+      - name: Build Docker images
+        run: |
+          docker build -t 9192-public:test -f Dockerfile .
+          docker build -t 9192-public-probe:test -f Dockerfile.probe .

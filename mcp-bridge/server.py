@@ -73,14 +73,14 @@ TOOLS = [
 
 
 def http_text(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "9192-mcp-bridge/1"})
+    req = urllib.request.Request(url, headers={"User-Agent": "9192-mcp-bridge/1.0.5"})
     with urllib.request.urlopen(req, timeout=12) as resp:
         return resp.read().decode("utf-8", errors="replace")
 
 
 def api_json(domain, method, path, body=None):
     data = None
-    headers = {"Accept": "application/json", "User-Agent": "9192-mcp-bridge/1"}
+    headers = {"Accept": "application/json", "User-Agent": "9192-mcp-bridge/1.0.5"}
     if body is not None:
         data = json.dumps(body, separators=(",", ":")).encode("utf-8")
         headers["Content-Type"] = "application/json"
@@ -164,7 +164,7 @@ def handle(msg):
         return {
             "protocolVersion": "2024-11-05",
             "capabilities": {"tools": {}},
-            "serverInfo": {"name": "9192-mcp-bridge", "version": "1.0.2"},
+            "serverInfo": {"name": "9192-mcp-bridge", "version": "1.0.5"},
         }
     if method == "tools/list":
         return {"tools": TOOLS}

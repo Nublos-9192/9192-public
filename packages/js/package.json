@@ -9,7 +9,10 @@
     "demo"
   ],
   "scripts": {
+    "verify:static": "node ./scripts/verify-static.mjs",
+    "verify:mcp": "node ./scripts/verify-mcp-stdio.mjs",
     "probe": "node ./demo/bin/9192-demo.mjs --mode smoke",
+    "probe:sandbox": "node ./demo/bin/9192-demo.mjs --mode sandbox",
     "probe:local": "node ./demo/bin/9192-demo.mjs --mode smoke --base-url https://127.0.0.1",
     "demo:paid-sim": "node ./demo/bin/9192-demo.mjs --mode paid-sim"
   }

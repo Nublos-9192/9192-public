@@ -2,6 +2,9 @@
 
 Machine-readable discovery helpers for 9192.
 
+Version: 1.0.5
+License: Apache-2.0
+
 ```js
 import { discover9192 } from "@nineoneninetwo/discovery";
 
@@ -16,4 +19,3 @@ This package reads public metadata such as:
 - `/.well-known/9192/status.json`
 - `/.well-known/9192/pricebook.json`
 - optional DNS TXT records when running on Node.js
-

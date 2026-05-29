@@ -22,7 +22,7 @@
   "mcp": {
     "endpoint": "https://nineoneninetwo.com.br/mcp",
     "metadata": "https://nineoneninetwo.com.br/.well-known/mcp",
-    "version": "1.0.2"
+    "version": "1.0.5"
   },
   "audience": [
     "autonomous agents",
@@ -145,7 +145,7 @@
     "github_release": "https://github.com/Nublos-9192/9192-public/releases/tag/v1.0.5",
     "github_release_zip": "https://github.com/Nublos-9192/9192-public/releases/download/v1.0.5/9192_public_client_kit_v1.0.5.zip"
   },
-  "manifest_file_sha256": "0b8cc198fc3acf36da89693045435de3a97578230f51666d6e92c576f090c330",
+  "manifest_file_sha256": "eb51bb07a250465cb2355075ba13a28962a9e728d6f15715a5cce827034cd9ab",
   "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt",
   "discovery_version": "1.0.5",
   "public_client_kit_version": "v1.0.5",
