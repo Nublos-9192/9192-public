@@ -21,21 +21,6 @@
   "reference_value_usd_per_9192C": "1.00",
   "9192C_policy": "internal_quote_reference_not_parity_not_backed_not_redeemable_not_yield",
   "settlement": "crypto_only",
-  "capabilities": [
-    "HELLO",
-    "CAPS",
-    "BALANCE",
-    "QUOTE",
-    "ACCEPT_QUOTE",
-    "VERIFY_RESULT",
-    "GET_RECEIPT",
-    "VERIFY_RECEIPT",
-    "GET_PULSE",
-    "ATTEST_EVENT",
-    "SUBMIT_ID",
-    "MAKE_BCT",
-    "VERIFY_BCT"
-  ],
   "wallets": {
     "USDT_TRON": "TGLxki7VcTKAoyU7mm5Puie86UMC83R56s",
     "USDC_SOLANA": "6SYKQ61SikqGpkcTC1UkUEaawrgbE5eVkmQeSBdkCuK2",
@@ -69,8 +54,6 @@
     "commercial_tiers": "planned",
     "legal_policy_9192C": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
   },
-  "discovery_version": "1.0.5",
-  "public_client_kit_version": "v1.0.5",
   "mcp_server_version": "1.0.2",
   "public_site_pages": {
     "home": "https://nineoneninetwo.com.br/",
@@ -97,5 +80,243 @@
     "mcp_metadata": "https://nineoneninetwo.com.br/.well-known/mcp"
   },
   "manifest_hash_policy": "sha256_of_9192_public_manifest_json_file_bytes_published_in_dns_txt",
-  "gateway_version": "1.0.5"
+  "discovery_version": "1.0.5",
+  "public_client_kit_version": "v1.0.5",
+  "gateway_version": "1.0.5",
+  "capabilities": [
+    "HELLO",
+    "CAPS",
+    "BALANCE",
+    "QUOTE",
+    "ACCEPT_QUOTE",
+    "GET_PULSE",
+    "MAKE_BCT",
+    "VERIFY_BCT",
+    "VERIFY_RESULT",
+    "ATTEST_EVENT",
+    "SUBMIT_ID",
+    "BVM_EXEC",
+    "SEALED_MESSAGE",
+    "TIMESTAMP_PROOF",
+    "MACHINE_EVENT_LOG",
+    "GET_RECEIPT",
+    "VERIFY_RECEIPT",
+    "FUND_ACCOUNT",
+    "INVOICE_STATUS",
+    "SETTLE_INVOICE",
+    "RECOVER_RUNTIME"
+  ],
+  "capability_count": 21,
+  "capability_matrix": [
+    {
+      "command": "HELLO",
+      "group": "Discovery",
+      "access": "public",
+      "http": "GET /api/v1/hello",
+      "http_available": true,
+      "cli": "hello",
+      "cli_available": true,
+      "purpose": "Protocol greeting and public edge proof."
+    },
+    {
+      "command": "CAPS",
+      "group": "Discovery",
+      "access": "public",
+      "http": "GET /api/v1/caps",
+      "http_available": true,
+      "cli": "caps",
+      "cli_available": true,
+      "purpose": "Machine-readable capability advertisement."
+    },
+    {
+      "command": "BALANCE",
+      "group": "Finance",
+      "access": "auth",
+      "http": "POST /api/v1/balance",
+      "http_available": true,
+      "cli": "balance",
+      "cli_available": true,
+      "purpose": "Authenticated account balance view."
+    },
+    {
+      "command": "QUOTE",
+      "group": "Finance",
+      "access": "public",
+      "http": "POST /api/v1/quotes/*",
+      "http_available": true,
+      "cli": "quote-*",
+      "cli_available": true,
+      "purpose": "Price and reservation preview before execution."
+    },
+    {
+      "command": "ACCEPT_QUOTE",
+      "group": "Finance",
+      "access": "auth",
+      "http": "POST /api/v1/quotes/{quote_id}/accept",
+      "http_available": true,
+      "cli": "accept-quote",
+      "cli_available": true,
+      "purpose": "Accept an issued quote after funding."
+    },
+    {
+      "command": "GET_PULSE",
+      "group": "Execution",
+      "access": "paid",
+      "http": "POST /api/v1/executions/get-pulse",
+      "http_available": true,
+      "cli": "get-pulse",
+      "cli_available": true,
+      "purpose": "Baseline proof workload."
+    },
+    {
+      "command": "MAKE_BCT",
+      "group": "Execution",
+      "access": "paid",
+      "http": "POST /api/v1/executions/make-bct",
+      "http_available": true,
+      "cli": "make-bct",
+      "cli_available": true,
+      "purpose": "Create a sealed BCT packet."
+    },
+    {
+      "command": "VERIFY_BCT",
+      "group": "Execution",
+      "access": "paid",
+      "http": "POST /api/v1/executions/verify-bct",
+      "http_available": true,
+      "cli": "verify-bct",
+      "cli_available": true,
+      "purpose": "Verify and open a BCT packet."
+    },
+    {
+      "command": "VERIFY_RESULT",
+      "group": "Proof",
+      "access": "paid",
+      "http": "POST /api/v1/executions/verify-result",
+      "http_available": true,
+      "cli": "verify-result",
+      "cli_available": true,
+      "purpose": "Verify an execution result tag."
+    },
+    {
+      "command": "ATTEST_EVENT",
+      "group": "Proof",
+      "access": "paid",
+      "http": "POST /api/v1/executions/attest-event",
+      "http_available": true,
+      "cli": "attest-event",
+      "cli_available": true,
+      "purpose": "Create event attestation fields."
+    },
+    {
+      "command": "SUBMIT_ID",
+      "group": "Identity",
+      "access": "paid",
+      "http": "POST /api/v1/executions/submit-id",
+      "http_available": true,
+      "cli": "submit-id",
+      "cli_available": true,
+      "purpose": "Execute the ID service."
+    },
+    {
+      "command": "BVM_EXEC",
+      "group": "Execution",
+      "access": "paid",
+      "http": "POST /api/v1/executions/bvm-exec",
+      "http_available": true,
+      "cli": "bvm-exec",
+      "cli_available": true,
+      "purpose": "Run bounded BVM bytecode."
+    },
+    {
+      "command": "SEALED_MESSAGE",
+      "group": "Execution",
+      "access": "paid",
+      "http": "POST /api/v1/executions/sealed-message",
+      "http_available": true,
+      "cli": "sealed-message",
+      "cli_available": true,
+      "purpose": "Seal message payloads."
+    },
+    {
+      "command": "TIMESTAMP_PROOF",
+      "group": "Proof",
+      "access": "paid",
+      "http": "POST /api/v1/executions/timestamp-proof",
+      "http_available": true,
+      "cli": "timestamp-proof",
+      "cli_available": true,
+      "purpose": "Issue timestamp proof metadata."
+    },
+    {
+      "command": "MACHINE_EVENT_LOG",
+      "group": "Proof",
+      "access": "paid",
+      "http": "POST /api/v1/executions/machine-event-log",
+      "http_available": true,
+      "cli": "machine-event-log",
+      "cli_available": true,
+      "purpose": "Commit machine event log summaries."
+    },
+    {
+      "command": "GET_RECEIPT",
+      "group": "Receipt",
+      "access": "reserved",
+      "http": "not public",
+      "http_available": false,
+      "cli": "get-receipt",
+      "cli_available": true,
+      "purpose": "Reserved receipt fetch command; public HTTP receipt fetch is not exposed."
+    },
+    {
+      "command": "VERIFY_RECEIPT",
+      "group": "Receipt",
+      "access": "public",
+      "http": "POST /api/v1/receipts/verify",
+      "http_available": true,
+      "cli": "verify-receipt",
+      "cli_available": true,
+      "purpose": "Verify receipt material for free."
+    },
+    {
+      "command": "FUND_ACCOUNT",
+      "group": "Finance",
+      "access": "auth",
+      "http": "POST /api/v1/invoices",
+      "http_available": true,
+      "cli": "fund-account",
+      "cli_available": true,
+      "purpose": "Create account funding invoice."
+    },
+    {
+      "command": "INVOICE_STATUS",
+      "group": "Finance",
+      "access": "auth",
+      "http": "GET /api/v1/invoices/{invoice_id}",
+      "http_available": true,
+      "cli": "invoice-status",
+      "cli_available": true,
+      "purpose": "Check invoice settlement state."
+    },
+    {
+      "command": "SETTLE_INVOICE",
+      "group": "Admin",
+      "access": "admin",
+      "http": "not public",
+      "http_available": false,
+      "cli": "settle-invoice",
+      "cli_available": false,
+      "purpose": "Administrative settlement command; not exposed on public HTTP or public CLI."
+    },
+    {
+      "command": "RECOVER_RUNTIME",
+      "group": "Admin",
+      "access": "admin",
+      "http": "not public",
+      "http_available": false,
+      "cli": "recover-runtime",
+      "cli_available": false,
+      "purpose": "Administrative runtime recovery command; not exposed on public HTTP or public CLI."
+    }
+  ]
 }

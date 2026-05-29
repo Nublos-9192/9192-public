@@ -16,7 +16,7 @@ const capabilities = [
   ["SEALED_MESSAGE", "Execution", "paid", "POST /api/v1/executions/sealed-message", "sealed-message", "Seal message payloads."],
   ["TIMESTAMP_PROOF", "Proof", "paid", "POST /api/v1/executions/timestamp-proof", "timestamp-proof", "Issue timestamp proof metadata."],
   ["MACHINE_EVENT_LOG", "Proof", "paid", "POST /api/v1/executions/machine-event-log", "machine-event-log", "Commit machine event log summaries."],
-  ["GET_RECEIPT", "Receipt", "auth", "GET /api/v1/receipts/{id}", "get-receipt", "Fetch execution receipt material."],
+  ["GET_RECEIPT", "Receipt", "reserved", "not public", "get-receipt", "Reserved receipt fetch command; public HTTP receipt fetch is not exposed."],
   ["VERIFY_RECEIPT", "Receipt", "public", "POST /api/v1/receipts/verify", "verify-receipt", "Verify receipt material for free."],
   ["FUND_ACCOUNT", "Finance", "auth", "POST /api/v1/invoices", "fund-account", "Create account funding invoice."],
   ["INVOICE_STATUS", "Finance", "auth", "GET /api/v1/invoices/{id}", "invoice-status", "Check invoice settlement state."],

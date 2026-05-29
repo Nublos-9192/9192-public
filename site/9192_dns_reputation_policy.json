@@ -40,7 +40,7 @@
     {
       "name": "_9192-manifest.nineoneninetwo.com.br",
       "type": "TXT",
-      "expected_contains": "sha256=2a4aaa5d3c2a339ccf7da550f00f44cec04dd2e23ae1db2c803df3974bbe4b73",
+      "expected_contains": "sha256=0b8cc198fc3acf36da89693045435de3a97578230f51666d6e92c576f090c330",
       "ttl_target": 3600
     }
   ],

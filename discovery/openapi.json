@@ -2,7 +2,6 @@
   "openapi": "3.1.0",
   "info": {
     "title": "9192 Public HTTPS API Gateway",
-    "version": "v1",
     "description": "HTTP/JSON facade for 9192. Core execution remains the 9192/1 TLS TCP protocol at edge.nineoneninetwo.com.br:9443. Discovery, integration, limited quote generation, sandbox testing, and receipt verification are free; real execution, priority, volume, and commercial operation are paid.",
     "x-9192-positioning": "open_protocol_paid_execution",
     "x-9192-freemium-policy": {
@@ -18,7 +17,223 @@
       "execution_requires_balance": true,
       "commercial_tiers": "planned",
       "9192C_legal_policy": "9192C is an internal accounting and pricing reference unit. It is not a token, currency, stablecoin, security, stored value, investment product, or redeemable asset."
-    }
+    },
+    "version": "v1.0.5",
+    "x-9192-discovery-version": "1.0.5",
+    "x-9192-public-client-kit-version": "v1.0.5",
+    "x-9192-capability-count": 21,
+    "x-9192-capabilities": [
+      {
+        "command": "HELLO",
+        "group": "Discovery",
+        "access": "public",
+        "http": "GET /api/v1/hello",
+        "http_available": true,
+        "cli": "hello",
+        "cli_available": true,
+        "purpose": "Protocol greeting and public edge proof."
+      },
+      {
+        "command": "CAPS",
+        "group": "Discovery",
+        "access": "public",
+        "http": "GET /api/v1/caps",
+        "http_available": true,
+        "cli": "caps",
+        "cli_available": true,
+        "purpose": "Machine-readable capability advertisement."
+      },
+      {
+        "command": "BALANCE",
+        "group": "Finance",
+        "access": "auth",
+        "http": "POST /api/v1/balance",
+        "http_available": true,
+        "cli": "balance",
+        "cli_available": true,
+        "purpose": "Authenticated account balance view."
+      },
+      {
+        "command": "QUOTE",
+        "group": "Finance",
+        "access": "public",
+        "http": "POST /api/v1/quotes/*",
+        "http_available": true,
+        "cli": "quote-*",
+        "cli_available": true,
+        "purpose": "Price and reservation preview before execution."
+      },
+      {
+        "command": "ACCEPT_QUOTE",
+        "group": "Finance",
+        "access": "auth",
+        "http": "POST /api/v1/quotes/{quote_id}/accept",
+        "http_available": true,
+        "cli": "accept-quote",
+        "cli_available": true,
+        "purpose": "Accept an issued quote after funding."
+      },
+      {
+        "command": "GET_PULSE",
+        "group": "Execution",
+        "access": "paid",
+        "http": "POST /api/v1/executions/get-pulse",
+        "http_available": true,
+        "cli": "get-pulse",
+        "cli_available": true,
+        "purpose": "Baseline proof workload."
+      },
+      {
+        "command": "MAKE_BCT",
+        "group": "Execution",
+        "access": "paid",
+        "http": "POST /api/v1/executions/make-bct",
+        "http_available": true,
+        "cli": "make-bct",
+        "cli_available": true,
+        "purpose": "Create a sealed BCT packet."
+      },
+      {
+        "command": "VERIFY_BCT",
+        "group": "Execution",
+        "access": "paid",
+        "http": "POST /api/v1/executions/verify-bct",
+        "http_available": true,
+        "cli": "verify-bct",
+        "cli_available": true,
+        "purpose": "Verify and open a BCT packet."
+      },
+      {
+        "command": "VERIFY_RESULT",
+        "group": "Proof",
+        "access": "paid",
+        "http": "POST /api/v1/executions/verify-result",
+        "http_available": true,
+        "cli": "verify-result",
+        "cli_available": true,
+        "purpose": "Verify an execution result tag."
+      },
+      {
+        "command": "ATTEST_EVENT",
+        "group": "Proof",
+        "access": "paid",
+        "http": "POST /api/v1/executions/attest-event",
+        "http_available": true,
+        "cli": "attest-event",
+        "cli_available": true,
+        "purpose": "Create event attestation fields."
+      },
+      {
+        "command": "SUBMIT_ID",
+        "group": "Identity",
+        "access": "paid",
+        "http": "POST /api/v1/executions/submit-id",
+        "http_available": true,
+        "cli": "submit-id",
+        "cli_available": true,
+        "purpose": "Execute the ID service."
+      },
+      {
+        "command": "BVM_EXEC",
+        "group": "Execution",
+        "access": "paid",
+        "http": "POST /api/v1/executions/bvm-exec",
+        "http_available": true,
+        "cli": "bvm-exec",
+        "cli_available": true,
+        "purpose": "Run bounded BVM bytecode."
+      },
+      {
+        "command": "SEALED_MESSAGE",
+        "group": "Execution",
+        "access": "paid",
+        "http": "POST /api/v1/executions/sealed-message",
+        "http_available": true,
+        "cli": "sealed-message",
+        "cli_available": true,
+        "purpose": "Seal message payloads."
+      },
+      {
+        "command": "TIMESTAMP_PROOF",
+        "group": "Proof",
+        "access": "paid",
+        "http": "POST /api/v1/executions/timestamp-proof",
+        "http_available": true,
+        "cli": "timestamp-proof",
+        "cli_available": true,
+        "purpose": "Issue timestamp proof metadata."
+      },
+      {
+        "command": "MACHINE_EVENT_LOG",
+        "group": "Proof",
+        "access": "paid",
+        "http": "POST /api/v1/executions/machine-event-log",
+        "http_available": true,
+        "cli": "machine-event-log",
+        "cli_available": true,
+        "purpose": "Commit machine event log summaries."
+      },
+      {
+        "command": "GET_RECEIPT",
+        "group": "Receipt",
+        "access": "reserved",
+        "http": "not public",
+        "http_available": false,
+        "cli": "get-receipt",
+        "cli_available": true,
+        "purpose": "Reserved receipt fetch command; public HTTP receipt fetch is not exposed."
+      },
+      {
+        "command": "VERIFY_RECEIPT",
+        "group": "Receipt",
+        "access": "public",
+        "http": "POST /api/v1/receipts/verify",
+        "http_available": true,
+        "cli": "verify-receipt",
+        "cli_available": true,
+        "purpose": "Verify receipt material for free."
+      },
+      {
+        "command": "FUND_ACCOUNT",
+        "group": "Finance",
+        "access": "auth",
+        "http": "POST /api/v1/invoices",
+        "http_available": true,
+        "cli": "fund-account",
+        "cli_available": true,
+        "purpose": "Create account funding invoice."
+      },
+      {
+        "command": "INVOICE_STATUS",
+        "group": "Finance",
+        "access": "auth",
+        "http": "GET /api/v1/invoices/{invoice_id}",
+        "http_available": true,
+        "cli": "invoice-status",
+        "cli_available": true,
+        "purpose": "Check invoice settlement state."
+      },
+      {
+        "command": "SETTLE_INVOICE",
+        "group": "Admin",
+        "access": "admin",
+        "http": "not public",
+        "http_available": false,
+        "cli": "settle-invoice",
+        "cli_available": false,
+        "purpose": "Administrative settlement command; not exposed on public HTTP or public CLI."
+      },
+      {
+        "command": "RECOVER_RUNTIME",
+        "group": "Admin",
+        "access": "admin",
+        "http": "not public",
+        "http_available": false,
+        "cli": "recover-runtime",
+        "cli_available": false,
+        "purpose": "Administrative runtime recovery command; not exposed on public HTTP or public CLI."
+      }
+    ]
   },
   "servers": [
     {
@@ -1496,45 +1711,6 @@
         "x-9192-requires": "quote_accepted_and_balance"
       }
     },
-    "/api/v1/receipts/{receipt_id}": {
-      "get": {
-        "summary": "Fetch a 9192 receipt through TLS edge",
-        "parameters": [
-          {
-            "name": "receipt_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "machine_id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GatewayEnvelope"
-                }
-              }
-            }
-          }
-        },
-        "x-9192-billing": "controlled",
-        "x-9192-auth": "machine_context",
-        "x-9192-rate-limit": "public_low",
-        "x-9192-execution": false,
-        "x-9192-requires": "machine_context"
-      }
-    },
     "/api/v1/receipts/verify": {
       "post": {
         "summary": "Verify a 9192 receipt through TLS edge",
@@ -1606,6 +1782,669 @@
         "x-9192-auth": "none",
         "x-9192-rate-limit": "public_low",
         "x-9192-execution": false
+      }
+    },
+    "/api/v1/quotes/verify-result": {
+      "post": {
+        "summary": "Create quote for VERIFY_RESULT.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/attest-event": {
+      "post": {
+        "summary": "Create quote for ATTEST_EVENT.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/submit-id": {
+      "post": {
+        "summary": "Create quote for SUBMIT_ID.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/bvm-exec": {
+      "post": {
+        "summary": "Create quote for BVM_EXEC.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/sealed-message": {
+      "post": {
+        "summary": "Create quote for SEALED_MESSAGE.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/timestamp-proof": {
+      "post": {
+        "summary": "Create quote for TIMESTAMP_PROOF.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/quotes/machine-event-log": {
+      "post": {
+        "summary": "Create quote for MACHINE_EVENT_LOG.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "QUOTE",
+        "x-9192-access": "public",
+        "x-9192-billing": "free_limited_quote",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/verify-result": {
+      "post": {
+        "summary": "Execute VERIFY_RESULT after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "VERIFY_RESULT",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/attest-event": {
+      "post": {
+        "summary": "Execute ATTEST_EVENT after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "ATTEST_EVENT",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/submit-id": {
+      "post": {
+        "summary": "Execute SUBMIT_ID after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "SUBMIT_ID",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/bvm-exec": {
+      "post": {
+        "summary": "Execute BVM_EXEC after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "BVM_EXEC",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/sealed-message": {
+      "post": {
+        "summary": "Execute SEALED_MESSAGE after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "SEALED_MESSAGE",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/timestamp-proof": {
+      "post": {
+        "summary": "Execute TIMESTAMP_PROOF after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "TIMESTAMP_PROOF",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/executions/machine-event-log": {
+      "post": {
+        "summary": "Execute MACHINE_EVENT_LOG after accepted paid quote.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecutionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "MACHINE_EVENT_LOG",
+        "x-9192-access": "paid",
+        "x-9192-billing": "paid_required",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/payment-proofs": {
+      "post": {
+        "summary": "Submit payment proof claim for on-chain verification.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GatewayEnvelope"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "502": {
+            "$ref": "#/components/responses/GatewayError"
+          }
+        },
+        "x-9192-command": "FUND_ACCOUNT",
+        "x-9192-access": "public",
+        "x-9192-billing": "proof_push",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/payment-sessions/{invoice_id}": {
+      "get": {
+        "summary": "Get public payment session details for an invoice.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/BadRequest"
+          }
+        },
+        "x-9192-command": "FUND_ACCOUNT",
+        "x-9192-access": "public",
+        "x-9192-billing": "free",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/payment-status/{invoice_id}": {
+      "get": {
+        "summary": "Get payment verification status for an invoice.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/BadRequest"
+          }
+        },
+        "x-9192-command": "INVOICE_STATUS",
+        "x-9192-access": "public",
+        "x-9192-billing": "free",
+        "x-9192-availability": "implemented"
+      }
+    },
+    "/api/v1/receipts/{receipt_id}": {
+      "get": {
+        "summary": "Reserved receipt fetch route; public HTTP fetch is not exposed.",
+        "deprecated": true,
+        "responses": {
+          "404": {
+            "description": "Reserved; not exposed by public HTTP gateway"
+          }
+        },
+        "x-9192-command": "GET_RECEIPT",
+        "x-9192-access": "reserved",
+        "x-9192-billing": "none",
+        "x-9192-availability": "reserved_not_public"
       }
     }
   }

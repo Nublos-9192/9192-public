@@ -24,6 +24,7 @@
         <button class="filter" data-filter="auth">Auth</button>
         <button class="filter" data-filter="paid">Paid</button>
         <button class="filter" data-filter="admin">Admin</button>
+        <button class="filter" data-filter="reserved">Reserved</button>
         <span class="eyebrow" id="capability-count">21 capabilities</span>
       </div>
       <div class="capability-grid" id="capability-list">
@@ -42,7 +43,7 @@
         <article class="cap-card" data-access="paid"><b>SEALED_MESSAGE</b><span>Seal message payloads.</span><small>Execution / paid</small><span><code>POST /api/v1/executions/sealed-message</code></span><span><code>sealed-message</code></span></article>
         <article class="cap-card" data-access="paid"><b>TIMESTAMP_PROOF</b><span>Issue timestamp proof metadata.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/timestamp-proof</code></span><span><code>timestamp-proof</code></span></article>
         <article class="cap-card" data-access="paid"><b>MACHINE_EVENT_LOG</b><span>Commit machine event log summaries.</span><small>Proof / paid</small><span><code>POST /api/v1/executions/machine-event-log</code></span><span><code>machine-event-log</code></span></article>
-        <article class="cap-card" data-access="auth"><b>GET_RECEIPT</b><span>Fetch execution receipt material.</span><small>Receipt / auth</small><span><code>GET /api/v1/receipts/{id}</code></span><span><code>get-receipt</code></span></article>
+        <article class="cap-card" data-access="reserved"><b>GET_RECEIPT</b><span>Reserved receipt fetch command; public HTTP receipt fetch is not exposed.</span><small>Receipt / reserved</small><span><code>not public</code></span><span><code>get-receipt</code></span></article>
         <article class="cap-card" data-access="public"><b>VERIFY_RECEIPT</b><span>Verify receipt material for free.</span><small>Receipt / public</small><span><code>POST /api/v1/receipts/verify</code></span><span><code>verify-receipt</code></span></article>
         <article class="cap-card" data-access="auth"><b>FUND_ACCOUNT</b><span>Create account funding invoice.</span><small>Finance / auth</small><span><code>POST /api/v1/invoices</code></span><span><code>fund-account</code></span></article>
         <article class="cap-card" data-access="auth"><b>INVOICE_STATUS</b><span>Check invoice settlement state.</span><small>Finance / auth</small><span><code>GET /api/v1/invoices/{id}</code></span><span><code>invoice-status</code></span></article>
@@ -71,7 +72,7 @@
             <tr data-access="paid"><td><code>SEALED_MESSAGE</code></td><td>Execution</td><td>paid</td><td><code>POST /api/v1/executions/sealed-message</code></td><td><code>sealed-message</code></td><td>Seal message payloads.</td></tr>
             <tr data-access="paid"><td><code>TIMESTAMP_PROOF</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/timestamp-proof</code></td><td><code>timestamp-proof</code></td><td>Issue timestamp proof metadata.</td></tr>
             <tr data-access="paid"><td><code>MACHINE_EVENT_LOG</code></td><td>Proof</td><td>paid</td><td><code>POST /api/v1/executions/machine-event-log</code></td><td><code>machine-event-log</code></td><td>Commit machine event log summaries.</td></tr>
-            <tr data-access="auth"><td><code>GET_RECEIPT</code></td><td>Receipt</td><td>auth</td><td><code>GET /api/v1/receipts/{id}</code></td><td><code>get-receipt</code></td><td>Fetch execution receipt material.</td></tr>
+            <tr data-access="reserved"><td><code>GET_RECEIPT</code></td><td>Receipt</td><td>reserved</td><td><code>not public</code></td><td><code>get-receipt</code></td><td>Reserved receipt fetch command; public HTTP receipt fetch is not exposed.</td></tr>
             <tr data-access="public"><td><code>VERIFY_RECEIPT</code></td><td>Receipt</td><td>public</td><td><code>POST /api/v1/receipts/verify</code></td><td><code>verify-receipt</code></td><td>Verify receipt material for free.</td></tr>
             <tr data-access="auth"><td><code>FUND_ACCOUNT</code></td><td>Finance</td><td>auth</td><td><code>POST /api/v1/invoices</code></td><td><code>fund-account</code></td><td>Create account funding invoice.</td></tr>
             <tr data-access="auth"><td><code>INVOICE_STATUS</code></td><td>Finance</td><td>auth</td><td><code>GET /api/v1/invoices/{id}</code></td><td><code>invoice-status</code></td><td>Check invoice settlement state.</td></tr>
